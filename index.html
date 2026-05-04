@@ -3,36 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DiegoCpsx7z — Arquitectura de alto rendimiento para servidores Minecraft. Aztrix Prime Studio, casos de éxito, auditoría y servicios premium." />
-  <meta name="keywords" content="DiegoCpsx7z, Aztrix Prime Studio, Minecraft, PaperMC, rendimiento, auditoría, cloud, servidor, plugins, mods" />
+  <meta name="description" content="DiegoCpsx7z — Arquitectura de Alto Rendimiento para Servidores Minecraft. Aztrix Prime Studio. Optimización de Infraestructura Crítica, Auditoría y Cloud." />
+  <meta name="keywords" content="DiegoCpsx7z, Aztrix Prime Studio, Minecraft, PaperMC, rendimiento, auditoría, cloud, servidor, plugins" />
   <meta name="author" content="DiegoCpsx7z" />
   <meta property="og:title" content="DiegoCpsx7z — Arquitectura de Alto Rendimiento para Servidores Minecraft" />
-  <meta property="og:description" content="Ultra-premium portfolio orientado a conversión para servicios técnicos de alto nivel." />
+  <meta property="og:description" content="Optimización de Infraestructura Crítica para servidores Minecraft. SLA de Rendimiento, PaperMC, Cloud, Auditoría." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://og-image.vercel.app/DiegoCpsx7z%20%E2%80%94%20The%20Royal%20Void.png?theme=dark&md=1&fontSize=75px" />
   <title>DiegoCpsx7z — The Royal Void</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- SVG grain filter -->
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <defs>
+      <filter id="grain-filter" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="linearRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
+        <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+        <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+        <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+      </filter>
+    </defs>
+  </svg>
+
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Grain overlay via CSS + SVG filter -->
+  <div class="grain-overlay" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollBar"></div>
+  </div>
+
   <header class="site-header" id="top">
     <nav class="nav-shell" aria-label="Navegación principal">
-      <a class="brand" href="#top" aria-label="Ir al inicio">
-        <span class="brand__mark">◆</span>
-        <span class="brand__text">DiegoCpsx7z</span>
+      <a class="brand" href="#top" aria-label="Inicio — DiegoCpsx7z">
+        <span class="brand__mark" aria-hidden="true">◆</span>
+        <span class="brand__name">DiegoCpsx7z</span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteMenu" aria-label="Abrir menú">
+      <button class="menu-toggle" id="menuToggle"
+        aria-expanded="false"
+        aria-controls="siteMenu"
+        aria-label="Abrir menú de navegación">
         <span></span><span></span>
       </button>
 
-      <ul class="menu" id="siteMenu">
+      <ul class="menu" id="siteMenu" role="list">
         <li><a href="#about">Autoridad</a></li>
         <li><a href="#cases">Casos</a></li>
         <li><a href="#studio">Studio</a></li>
@@ -42,228 +67,451 @@
   </header>
 
   <main>
+
+    <!-- ═══════════════════════════════════════════ HERO ═══ -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="hero__grid">
-        <div class="hero__copy reveal">
-          <p class="eyebrow">THE ROYAL VOID / ENGINEERING OF LUXURY</p>
-          <h1 id="hero-title">Arquitectura de Alto Rendimiento para Servidores Minecraft</h1>
-          <p class="hero__lead">
-            Diseñamos infraestructura crítica, performance real y sistemas que convierten la complejidad técnica en ventaja competitiva.
-            La diferencia no es estética: es estabilidad, velocidad y una experiencia que vende.
+      <div class="hero__inner">
+
+        <div class="hero__copy">
+          <p class="eyebrow reveal">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            The Royal Void / Engineering of Luxury
           </p>
 
-          <div class="hero__actions">
-            <a href="#contact" class="button button--primary">Solicitar diagnóstico</a>
-            <a href="#cases" class="button button--ghost">Ver casos de éxito</a>
+          <h1 id="hero-title" class="reveal reveal--delay-1">
+            Arquitectura de<br/>
+            <em>Alto Rendimiento</em><br/>
+            para Servidores<br/>
+            Minecraft
+          </h1>
+
+          <p class="hero__lead reveal reveal--delay-2">
+            Diseñamos infraestructura crítica, optimizamos performance real
+            y construimos sistemas que transforman la complejidad técnica
+            en ventaja competitiva sostenida.
+          </p>
+
+          <div class="hero__actions reveal reveal--delay-3">
+            <a href="#contact" class="button button--primary">
+              <span class="button__icon" aria-hidden="true">⬡</span>
+              Solicitar diagnóstico
+            </a>
+            <a href="#cases" class="button button--ghost">
+              Ver casos de éxito
+            </a>
           </div>
 
-          <div class="hero__proof" aria-label="Métricas principales">
-            <article class="mini-metric reveal" data-target="99.9" data-suffix="%" data-mode="fixed">
-              <span class="mini-metric__value">0</span>
+          <div class="hero__proof reveal reveal--delay-4" aria-label="Métricas clave">
+            <article class="mini-metric"
+              data-target="99.9" data-suffix="%" data-mode="fixed">
+              <span class="mini-metric__value" aria-live="polite">0</span>
               <span class="mini-metric__label">Uptime SLA</span>
             </article>
-            <article class="mini-metric reveal" data-target="40" data-suffix="%" data-prefix="+" data-mode="fixed">
-              <span class="mini-metric__value">0</span>
+            <article class="mini-metric"
+              data-target="40" data-suffix="%" data-prefix="+" data-mode="integer">
+              <span class="mini-metric__value" aria-live="polite">0</span>
               <span class="mini-metric__label">Optimización TPS</span>
             </article>
-            <article class="mini-metric reveal" data-target="35" data-suffix="ms" data-prefix="-" data-mode="fixed">
-              <span class="mini-metric__value">0</span>
+            <article class="mini-metric"
+              data-target="35" data-suffix="ms" data-prefix="-" data-mode="integer">
+              <span class="mini-metric__value" aria-live="polite">0</span>
               <span class="mini-metric__label">Latencia reducida</span>
             </article>
           </div>
         </div>
 
-        <div class="hero__terminal reveal">
-          <div class="terminal-card">
+        <div class="hero__terminal-wrap reveal reveal--delay-2">
+          <!-- Floating accent badges -->
+          <div class="float-badge float-badge--top" aria-hidden="true">
+            <span class="float-badge__dot"></span>
+            PaperMC / JVM Tuning
+          </div>
+          <div class="float-badge float-badge--bottom" aria-hidden="true">
+            <span class="float-badge__dot float-badge__dot--wine"></span>
+            SLA crítico activo
+          </div>
+
+          <div class="terminal-card" id="terminalCard">
             <div class="terminal-card__bar" aria-hidden="true">
-              <span></span><span></span><span></span>
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
               <span class="terminal-card__title">profile.json</span>
             </div>
-            <pre class="terminal-card__code" id="terminal-output" aria-live="polite"></pre>
-            <div class="terminal-card__footer">
+            <pre class="terminal-card__code" id="terminal-output" aria-label="Perfil técnico JSON" aria-live="polite"></pre>
+            <div class="terminal-card__footer" aria-hidden="true">
               <span>PaperMC</span>
               <span>JVM Tuning</span>
               <span>Cloud SLA</span>
             </div>
           </div>
         </div>
+
       </div>
 
-      <a class="scroll-indicator" href="#about" aria-label="Desplazarse a la sección siguiente">
-        <span></span>
+      <a class="scroll-indicator" href="#about" aria-label="Ir a la sección de autoridad técnica">
+        <span aria-hidden="true"></span>
       </a>
     </section>
 
+    <!-- ═══════════════════════════════════════════ ABOUT ═══ -->
     <section class="section about" id="about" aria-labelledby="about-title">
-      <div class="section__head reveal">
-        <p class="section__kicker">01 / Autoridad técnica</p>
-        <h2 id="about-title">Una trayectoria autodidacta con mentalidad de <span>CEO</span> y disciplina de producción.</h2>
-      </div>
+      <div class="section__inner">
 
-      <div class="about__layout">
-        <article class="about__text reveal">
-          <p>
-            Soy DiegoCpsx7z, especialista autodidacta en rendimiento, infraestructura y desarrollo aplicado al ecosistema Minecraft.
-            Mi trabajo se centra en detectar fricción, eliminar cuellos de botella y transformar cada capa del servidor en una ventaja measurable.
-          </p>
-          <p>
-            Lidero <strong>Aztrix Prime Studio</strong> como CEO, y he operado en entornos exigentes junto a <strong>CoreMC</strong> y <strong>NeonCore Cloud</strong>.
-            Esa experiencia me obligó a pensar como operador, no solo como desarrollador: SLA, estabilidad, recuperación y escalabilidad.
-          </p>
-        </article>
-
-        <div class="about__cards">
-          <article class="stat-card reveal">
-            <span class="stat-card__value">+3</span>
-            <span class="stat-card__label">organizaciones con impacto operativo</span>
-          </article>
-          <article class="stat-card reveal">
-            <span class="stat-card__value">24/7</span>
-            <span class="stat-card__label">criterio de disponibilidad y monitoreo</span>
-          </article>
-          <article class="stat-card reveal">
-            <span class="stat-card__value">+40%</span>
-            <span class="stat-card__label">objetivo de mejora en TPS bajo carga</span>
-          </article>
-          <article class="stat-card reveal">
-            <span class="stat-card__value">0</span>
-            <span class="stat-card__label">tolerancia a soluciones improvisadas</span>
-          </article>
+        <div class="section__head reveal">
+          <p class="section__kicker">01 / Autoridad técnica</p>
+          <h2 id="about-title">
+            Una trayectoria autodidacta con<br/>
+            mentalidad de <em>CEO</em> y<br/>
+            disciplina de producción.
+          </h2>
         </div>
+
+        <div class="about__layout">
+          <div class="about__left">
+            <article class="about__bio reveal">
+              <p>
+                Soy <strong>DiegoCpsx7z</strong>, especialista autodidacta en rendimiento,
+                infraestructura y desarrollo aplicado al ecosistema Minecraft.
+                Mi trabajo se centra en detectar fricción sistémica, eliminar cuellos de
+                botella y transformar cada capa del servidor en una ventaja medible.
+              </p>
+              <p>
+                Lidero <strong>Aztrix Prime Studio</strong> como CEO y he operado en entornos
+                de alta exigencia junto a <strong>CoreMC</strong> y <strong>NeonCore Cloud</strong>.
+                Esa experiencia me obligó a pensar como operador, no solo como desarrollador:
+                SLA, estabilidad, recuperación y escalabilidad forman parte del estándar mínimo.
+              </p>
+            </article>
+
+            <div class="about__timeline reveal reveal--delay-1" aria-label="Trayectoria profesional">
+              <div class="timeline-item">
+                <span class="timeline-item__marker" aria-hidden="true"></span>
+                <div>
+                  <strong>CoreMC</strong>
+                  <p>Optimización de rendimiento y gestión de infraestructura en entorno de producción de alta demanda.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-item__marker" aria-hidden="true"></span>
+                <div>
+                  <strong>NeonCore Cloud</strong>
+                  <p>Arquitectura cloud, disponibilidad continua y SLA para entornos críticos con tolerancia cero a fallos.</p>
+                </div>
+              </div>
+              <div class="timeline-item timeline-item--active">
+                <span class="timeline-item__marker" aria-hidden="true"></span>
+                <div>
+                  <strong>Aztrix Prime Studio — CEO</strong>
+                  <p>Fundador y director técnico. Diagnóstico, arquitectura, ejecución y mejora continua de infraestructura.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__stats reveal reveal--delay-1">
+            <article class="stat-card">
+              <span class="stat-card__value">+3</span>
+              <span class="stat-card__label">Organizaciones con impacto operativo directo</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__value">24/7</span>
+              <span class="stat-card__label">Criterio de disponibilidad y monitoreo continuo</span>
+            </article>
+            <article class="stat-card stat-card--accent">
+              <span class="stat-card__value">+40%</span>
+              <span class="stat-card__label">Objetivo de mejora en TPS bajo carga sostenida</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-card__value">0</span>
+              <span class="stat-card__label">Tolerancia a soluciones improvisadas o a medias</span>
+            </article>
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════ CASES ═══ -->
     <section class="section cases" id="cases" aria-labelledby="cases-title">
-      <div class="section__head reveal">
-        <p class="section__kicker">02 / Case studies</p>
-        <h2 id="cases-title">Casos de éxito que venden por claridad técnica y por impacto real.</h2>
-      </div>
+      <div class="section__inner">
 
-      <div class="case-study reveal">
-        <article class="case-panel case-panel--accent">
-          <div class="case-panel__meta">
-            <span class="case-badge">v1.1.0</span>
-            <span class="case-badge case-badge--hot">High Performance</span>
+        <div class="section__head reveal">
+          <p class="section__kicker">02 / Case studies</p>
+          <h2 id="cases-title">
+            Proyectos que venden<br/>
+            por claridad técnica<br/>
+            e <em>impacto real.</em>
+          </h2>
+        </div>
+
+        <!-- Case 1: AztrixLagControl -->
+        <article class="case-study reveal" aria-labelledby="case1-title">
+          <div class="case-study__header">
+            <div class="case-study__meta">
+              <span class="case-badge">v1.1.0</span>
+              <span class="case-badge case-badge--hot">High Performance</span>
+              <span class="case-badge case-badge--wine">PaperMC</span>
+            </div>
+            <div class="case-study__number" aria-hidden="true">01</div>
           </div>
-          <h3>AztrixLagControl</h3>
-          <p class="case-panel__intro">
-            Herramienta empresarial para gestionar el rendimiento en PaperMC con una lógica enfocada a estabilidad sostenida.
-            Nació para resolver un problema común: servidores que crecen rápido, pero colapsan en horas pico.
+
+          <h3 id="case1-title" class="case-study__title">AztrixLagControl</h3>
+          <p class="case-study__tagline">
+            Gestión de rendimiento empresarial para PaperMC.
+            Estabilidad sostenida donde otros servidores colapsan.
           </p>
 
-          <div class="case-panel__grid">
-            <article>
-              <h4>El problema</h4>
-              <p>Tick lag, entidades fuera de control, cargas variables y una infraestructura incapaz de sostener picos de actividad sin degradar la experiencia.</p>
-            </article>
-            <article>
-              <h4>La solución</h4>
-              <p>Un enfoque de control de rendimiento con observabilidad, umbrales inteligentes y decisiones orientadas a conservar estabilidad sin sacrificar respuesta.</p>
-            </article>
-            <article>
-              <h4>El beneficio</h4>
-              <p>Menos caídas de TPS, menor ruido operativo y un servidor que transmite confianza a jugadores, staff y comunidad.</p>
-            </article>
+          <div class="case-study__body">
+            <div class="case-study__col">
+              <div class="case-block case-block--problem">
+                <h4>El Problema</h4>
+                <p>
+                  Servidores que crecen rápido pero colapsan en horas pico.
+                  Tick lag, entidades fuera de control, cargas variables y una
+                  infraestructura incapaz de sostener picos de actividad sin
+                  degradar la experiencia del jugador y la reputación del servidor.
+                </p>
+              </div>
+              <div class="case-block case-block--solution">
+                <h4>La Solución</h4>
+                <p>
+                  Un sistema de control de rendimiento con observabilidad en tiempo real,
+                  umbrales inteligentes adaptativos y decisiones de infraestructura
+                  orientadas a conservar estabilidad sin sacrificar respuesta.
+                  Control de entidades, gestión de chunks y optimización de tick rate
+                  en un solo pipeline de bajo overhead.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-study__col">
+              <div class="case-block case-block--benefit">
+                <h4>El Beneficio</h4>
+                <p>
+                  Menos caídas de TPS, menor ruido operativo y un servidor que
+                  transmite confianza a jugadores, staff y comunidad.
+                  Infraestructura que escala con el crecimiento sin requerir
+                  intervención manual constante.
+                </p>
+              </div>
+
+              <div class="case-results">
+                <div class="case-result">
+                  <span class="case-result__value">+40%</span>
+                  <span class="case-result__desc">Optimización de TPS bajo carga</span>
+                </div>
+                <div class="case-result">
+                  <span class="case-result__value">↓ Lag</span>
+                  <span class="case-result__desc">Percibido en sesiones largas</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="case-panel__results">
-            <div><strong>Impacto:</strong> reducción de lag percibido y mayor consistencia en sesiones largas.</div>
-            <div><strong>Indicador clave:</strong> +40% en optimización de TPS con estabilidad visual y técnica.</div>
+          <div class="case-study__cta">
+            <a href="#contact" class="button button--ghost button--sm">
+              Solicitar esta solución →
+            </a>
           </div>
         </article>
 
-        <article class="case-panel case-panel--violet">
-          <div class="case-panel__meta">
-            <span class="case-badge">v1.0.5</span>
-            <span class="case-badge case-badge--hot">Competitive PvP</span>
+        <!-- Case 2: AzAutoTotem+ -->
+        <article class="case-study case-study--violet reveal" aria-labelledby="case2-title">
+          <div class="case-study__header">
+            <div class="case-study__meta">
+              <span class="case-badge">v1.0.5</span>
+              <span class="case-badge case-badge--hot">Competitive PvP</span>
+              <span class="case-badge case-badge--wine">Ultra-Low Latency</span>
+            </div>
+            <div class="case-study__number" aria-hidden="true">02</div>
           </div>
-          <h3>AzAutoTotem+</h3>
-          <p class="case-panel__intro">
-            Lógica avanzada de equipamiento diseñada para PvP de alto rendimiento. El objetivo no es “automatizar por automatizar”:
-            es reaccionar con latencia mínima para sostener una ventaja competitiva real.
+
+          <h3 id="case2-title" class="case-study__title">AzAutoTotem+</h3>
+          <p class="case-study__tagline">
+            Lógica avanzada de equipamiento para PvP de alto rendimiento.
+            Reacciona antes de que el jugador pueda pensar.
           </p>
 
-          <div class="case-panel__grid">
-            <article>
-              <h4>El problema</h4>
-              <p>En combate de alto nivel, cada milisegundo cuenta. Un swap tardío puede significar perder una pelea que ya estaba controlada.</p>
-            </article>
-            <article>
-              <h4>La solución</h4>
-              <p>Una lógica de respuesta ultra ligera, enfocada en sincronización, rapidez de ejecución y prioridad sobre la supervivencia del jugador.</p>
-            </article>
-            <article>
-              <h4>El beneficio</h4>
-              <p>Menor fricción operativa, mejor continuidad en combate y una experiencia competitiva más sólida, precisa y agresiva.</p>
-            </article>
+          <div class="case-study__body">
+            <div class="case-study__col">
+              <div class="case-block case-block--problem">
+                <h4>El Problema</h4>
+                <p>
+                  En combate de alto nivel, cada milisegundo determina el resultado.
+                  Un swap tardío puede significar perder una pelea que ya estaba controlada.
+                  La ventana de respuesta humana no es competitiva frente a jugadores
+                  con herramientas optimizadas para PvP élite.
+                </p>
+              </div>
+              <div class="case-block case-block--solution">
+                <h4>La Solución</h4>
+                <p>
+                  Una lógica de respuesta ultra-ligera con sincronización de precisión,
+                  rapidez de ejecución a nivel de tick y prioridad absoluta
+                  sobre la supervivencia del jugador. Swap inteligente con
+                  detección de estado en tiempo real y overhead mínimo en el thread principal.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-study__col">
+              <div class="case-block case-block--benefit">
+                <h4>El Beneficio</h4>
+                <p>
+                  Menor fricción operativa, mejor continuidad en combate y una
+                  experiencia competitiva más sólida, precisa y agresiva.
+                  La ventaja que marca la diferencia entre sobrevivir y dominar.
+                </p>
+              </div>
+
+              <div class="case-results">
+                <div class="case-result case-result--wine">
+                  <span class="case-result__value">~0ms</span>
+                  <span class="case-result__desc">Overhead en thread principal</span>
+                </div>
+                <div class="case-result case-result--wine">
+                  <span class="case-result__value">Elite</span>
+                  <span class="case-result__desc">Nivel de respuesta competitiva</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="case-panel__results">
-            <div><strong>Impacto:</strong> respuesta inmediata en escenarios de presión extrema.</div>
-            <div><strong>Indicador clave:</strong> latencia mínima para mantener el ritmo del PvP de élite.</div>
+          <div class="case-study__cta">
+            <a href="#contact" class="button button--ghost button--sm">
+              Solicitar esta solución →
+            </a>
           </div>
         </article>
+
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════ STUDIO ═══ -->
     <section class="section studio" id="studio" aria-labelledby="studio-title">
-      <div class="section__head reveal">
-        <p class="section__kicker">03 / Aztrix Prime Studio</p>
-        <h2 id="studio-title">Una agencia de élite para infraestructura, auditoría y cloud.</h2>
-      </div>
+      <div class="section__inner">
 
-      <div class="studio__shell">
+        <div class="section__head reveal">
+          <p class="section__kicker">03 / Aztrix Prime Studio</p>
+          <h2 id="studio-title">
+            Una agencia de élite para<br/>
+            infraestructura, auditoría<br/>
+            y <em>cloud.</em>
+          </h2>
+        </div>
+
         <article class="studio__intro reveal">
           <p>
-            Aztrix Prime Studio opera como una mesa de ingeniería de lujo: diagnóstico, arquitectura, ejecución y mejora continua.
-            No entregamos “configuraciones”; entregamos <strong>Optimización de Infraestructura Crítica</strong> y una ruta clara hacia un mejor rendimiento.
+            Aztrix Prime Studio opera como una mesa de ingeniería de lujo:
+            diagnóstico, arquitectura, ejecución y mejora continua.
+            No entregamos "configuraciones"; entregamos
+            <strong>Optimización de Infraestructura Crítica</strong>
+            con un SLA de Rendimiento claro y una ruta medible hacia resultados superiores.
           </p>
         </article>
 
         <div class="studio__services">
-          <article class="service-card reveal">
-            <p class="service-card__eyebrow">Servicio 01</p>
+          <article class="service-card reveal" aria-label="Servicio de Configuración">
+            <div class="service-card__top">
+              <p class="service-card__eyebrow">Servicio 01</p>
+              <span class="service-card__icon" aria-hidden="true">⬡</span>
+            </div>
             <h3 class="serif-title">Configuración</h3>
-            <p>Diseño técnico de servidores con foco en estabilidad, respuesta y coherencia operacional desde el primer día.</p>
+            <p>
+              Diseño técnico de servidores con foco en estabilidad,
+              respuesta y coherencia operacional desde el primer día.
+              Cada parámetro tiene un propósito. Nada se improvisa.
+            </p>
+            <a href="#contact" class="service-card__link" aria-label="Solicitar servicio de Configuración">
+              Solicitar →
+            </a>
           </article>
 
-          <article class="service-card reveal">
-            <p class="service-card__eyebrow">Servicio 02</p>
+          <article class="service-card service-card--featured reveal reveal--delay-1" aria-label="Servicio de Auditoría">
+            <div class="service-card__top">
+              <p class="service-card__eyebrow">Servicio 02</p>
+              <span class="service-card__icon" aria-hidden="true">◈</span>
+            </div>
             <h3 class="serif-title">Auditoría</h3>
-            <p>Lectura profunda de rendimiento, análisis de cuellos de botella y diagnóstico orientado a decisiones de impacto.</p>
+            <p>
+              Lectura profunda de rendimiento, análisis de cuellos de botella
+              y diagnóstico orientado a decisiones de impacto.
+              Entregamos un informe accionable, no un reporte decorativo.
+            </p>
+            <a href="#contact" class="service-card__link" aria-label="Solicitar servicio de Auditoría">
+              Solicitar →
+            </a>
           </article>
 
-          <article class="service-card reveal">
-            <p class="service-card__eyebrow">Servicio 03</p>
+          <article class="service-card reveal reveal--delay-2" aria-label="Servicio de Cloud">
+            <div class="service-card__top">
+              <p class="service-card__eyebrow">Servicio 03</p>
+              <span class="service-card__icon" aria-hidden="true">◇</span>
+            </div>
             <h3 class="serif-title">Cloud</h3>
-            <p>Infraestructura escalable con mentalidad de disponibilidad, control y resiliencia para entornos que no pueden fallar.</p>
+            <p>
+              Infraestructura escalable con mentalidad de disponibilidad,
+              control y resiliencia para entornos que no pueden fallar.
+              Diseñada para crecer sin fricciones.
+            </p>
+            <a href="#contact" class="service-card__link" aria-label="Solicitar servicio de Cloud">
+              Solicitar →
+            </a>
           </article>
         </div>
 
         <div class="studio__cta reveal">
-          <a href="#contact" class="button button--primary button--large">Solicitar una propuesta premium</a>
+          <a href="#contact" class="button button--primary button--large">
+            <span class="button__icon" aria-hidden="true">⬡</span>
+            Solicitar una propuesta premium
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ CONTACT ═══ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="section__inner">
+        <div class="contact__card reveal">
+          <p class="section__kicker">04 / Conversión</p>
+          <h2 id="contact-title">
+            Si el objetivo es estabilidad,<br/>
+            rendimiento y resultados que<br/>
+            <em>se miden con números</em>,<br/>
+            este es el siguiente paso.
+          </h2>
+          <p>
+            Cuéntame qué necesita tu servidor o tu marca.
+            Respondo con una propuesta clara, directa y orientada a resultados.
+            Sin relleno, sin promesas vacías.
+          </p>
+          <div class="contact__actions">
+            <a href="mailto:contacto@diegocpsx7z.dev" class="button button--primary button--large">
+              <span class="button__icon" aria-hidden="true">⬡</span>
+              Abrir contacto
+            </a>
+            <a href="#top" class="button button--ghost">Volver arriba</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="contact__card reveal">
-        <p class="section__kicker">04 / Conversión</p>
-        <h2 id="contact-title">Si el objetivo es estabilidad, rendimiento y una presencia técnica que cierre ventas, este es el siguiente paso.</h2>
-        <p>
-          Cuéntame qué necesita tu servidor o tu marca. Respondo con una propuesta clara, directa y orientada a resultados.
-        </p>
-        <div class="contact__actions">
-          <a href="mailto:contacto@diegocpsx7z.dev" class="button button--primary">Abrir contacto</a>
-          <a href="#top" class="button button--ghost">Volver arriba</a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <p>DiegoCpsx7z · Aztrix Prime Studio · The Royal Void</p>
-    <p>Arquitectura de alto rendimiento para servidores Minecraft.</p>
+  <footer class="site-footer" aria-label="Pie de página">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="brand__mark" aria-hidden="true">◆</span>
+        <span>DiegoCpsx7z</span>
+      </div>
+      <p class="site-footer__tagline">Arquitectura de alto rendimiento para servidores Minecraft.</p>
+      <p class="site-footer__copy">
+        Aztrix Prime Studio · The Royal Void
+      </p>
+    </div>
   </footer>
+
 </body>
 </html>
