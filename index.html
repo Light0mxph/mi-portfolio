@@ -5,1090 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DiegoCpsx7z — Portfolio</title>
 
-  <!-- MEJORA: SEO - Meta description y author -->
+  <!-- SEO - Meta description y author -->
   <meta name="description" content="Portfolio de DiegoCpsx7z — Desarrollador especializado en mods, plugins y sistemas para servidores de Minecraft. CEO de Aztrix Prime Studio. Java, C++, Kotlin y más."/>
   <meta name="author" content="DiegoCpsx7z"/>
 
-  <!-- MEJORA: SEO - Open Graph para tarjetas enriquecidas en Discord y redes sociales -->
+  <!-- SEO - Open Graph para tarjetas enriquecidas en Discord y redes sociales -->
   <meta property="og:title" content="DiegoCpsx7z — Minecraft Developer & Mod Creator"/>
   <meta property="og:description" content="Desarrollador especializado en mods, plugins y ventajas para servidores de Minecraft. CEO de Aztrix Prime Studio. Disponible para proyectos y colaboraciones."/>
   <meta property="og:type" content="website"/>
-  <!-- CORRECCIÓN: URL real del portafolio -->
   <meta property="og:url" content="https://light0mxph.github.io/mi-portfolio/"/>
 
-  <!-- MEJORA: Favicon dinámico — círculo verde neón con letras "7z" en blanco vía SVG inline -->
+  <!-- Favicon dinámico -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232dff6e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='%23050810' font-family='monospace' font-size='13' font-weight='bold'%3E7z%3C/text%3E%3C/svg%3E"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg: #050810;
-      --surface: #0a0e18;
-      --surface2: #0f1420;
-      --surface3: #141a28;
-      --green: #2dff6e;
-      --green2: #00d455;
-      --blue: #00b4ff;
-      --purple: #a855f7;
-      --discord: #5865F2;
-      --text: #c8d6e5;
-      --muted: #4a5a70;
-      --border: rgba(45,255,110,0.08);
-      --border-hover: rgba(45,255,110,0.28);
-      --glow: 0 0 32px rgba(45,255,110,0.45);
-      --glow-sm: 0 0 14px rgba(45,255,110,0.25);
-      --card-shadow: 0 8px 40px rgba(0,0,0,0.5);
-      --radius: 12px;
-    }
+  <!-- MEJORA #5: Fuentes — VT323 para cuerpo, Press Start 2P para títulos/destacados -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 17px;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── SCANLINES (subtle) ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
-      pointer-events: none;
-      z-index: 9998;
-    }
-
-    /* ── NOISE TEXTURE ── */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9997;
-    }
-
-    /* ── GRID ── */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(45,255,110,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(45,255,110,0.018) 1px, transparent 1px);
-      background-size: 72px 72px;
-      animation: driftGrid 24s ease-in-out infinite;
-    }
-    @keyframes driftGrid { 0%,100%{transform:translate(0,0)} 50%{transform:translate(8px,-12px)} }
-
-    /* ── ORBS ── */
-    .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-    .orb1 { width: 800px; height: 800px; background: radial-gradient(circle, rgba(45,255,110,0.06), transparent 70%); top:-250px; right:-250px; animation: floatOrb 18s ease-in-out infinite; }
-    .orb2 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(0,180,255,0.05), transparent 70%); bottom:-250px; left:-200px; animation: floatOrb 22s ease-in-out infinite reverse; }
-    .orb3 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(168,85,247,0.04), transparent 70%); top:45%; left:42%; animation: floatOrb 28s ease-in-out infinite; }
-    @keyframes floatOrb { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(0,-30px) scale(1.05)} }
-
-    /* ── PARTICLE CANVAS ── */
-    #particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.85; }
-    @media (max-width: 900px) { #particles { display: none; } }
-
-    /* ══════════════════════════════════════
-       NAV
-    ══════════════════════════════════════ */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 60px;
-      height: 68px;
-      background: rgba(5,8,16,0.85);
-      backdrop-filter: blur(28px) saturate(1.5);
-      -webkit-backdrop-filter: blur(28px) saturate(1.5);
-      border-bottom: 1px solid rgba(45,255,110,0.07);
-      animation: navDrop 0.7s ease both;
-    }
-    @keyframes navDrop { from{transform:translateY(-100%);opacity:0} to{transform:translateY(0);opacity:1} }
-
-    .nav-logo {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 9.5px;
-      color: var(--green);
-      text-shadow: var(--glow-sm);
-      letter-spacing: 1px;
-      flex-shrink: 0;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10.5px;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      transition: color 0.25s;
-      position: relative;
-      padding-bottom: 4px;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 1px;
-      background: var(--green);
-      transition: width 0.25s;
-    }
-    .nav-links a:hover { color: var(--green); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 9px 20px;
-      border-radius: 6px;
-      background: rgba(45,255,110,0.1);
-      color: var(--green);
-      border: 1px solid rgba(45,255,110,0.25);
-      text-decoration: none;
-      transition: all 0.25s;
-      flex-shrink: 0;
-    }
-    .nav-cta:hover {
-      background: rgba(45,255,110,0.18);
-      border-color: rgba(45,255,110,0.5);
-      box-shadow: 0 0 20px rgba(45,255,110,0.15);
-    }
-
-    /* ── HAMBURGER ── */
-    .nav-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      background: none;
-      border: none;
-      z-index: 1001;
-    }
-    .nav-burger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--green);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      transform-origin: center;
-    }
-    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ── MOBILE MENU ── */
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      top: 60px; left: 0; right: 0;
-      background: rgba(5,8,16,0.97);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(45,255,110,0.1);
-      padding: 24px 28px 32px;
-      flex-direction: column;
-      gap: 0;
-      z-index: 999;
-      transform: translateY(-10px);
-      opacity: 0;
-      /* CORRECCIÓN: Transición unificada (apertura/cierre suave del menú) */
-      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-    }
-    .nav-mobile.open {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .nav-mobile a {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(45,255,110,0.06);
-      transition: color 0.2s;
-      display: block;
-    }
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile a:hover { color: var(--green); }
-    .nav-mobile .nav-mobile-cta {
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-      border-radius: 8px;
-      background: rgba(45,255,110,0.1);
-      color: var(--green) !important;
-      border: 1px solid rgba(45,255,110,0.25) !important;
-      border-bottom: 1px solid rgba(45,255,110,0.25) !important;
-      letter-spacing: 2px;
-    }
-
-    .wrapper { position: relative; z-index: 1; }
-
-    /* ══════════════════════════════════════
-       HERO — SPLIT LAYOUT
-    ══════════════════════════════════════ */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 100px 80px 80px;
-      gap: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left { position: relative; z-index: 1; }
-
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      animation: fadeUp 0.7s ease both;
-    }
-    .eyebrow-line { width: 32px; height: 1px; background: var(--green); opacity: 0.5; }
-    .hero-badge {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10.5px;
-      letter-spacing: 3px;
-      color: var(--green);
-      opacity: 0.8;
-    }
-
-    .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(44px, 5.5vw, 78px);
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      margin-bottom: 6px;
-      animation: fadeUp 0.7s 0.15s ease both;
-    }
-    .hero-name .hl {
-      color: var(--green);
-      text-shadow: 0 0 40px rgba(45,255,110,0.4), 0 0 80px rgba(45,255,110,0.12);
-      animation: glowPulse 7s ease-in-out infinite;
-    }
-    @keyframes glowPulse {
-      0%,100% { text-shadow: 0 0 36px rgba(45,255,110,0.4), 0 0 72px rgba(45,255,110,0.1); }
-      50% { text-shadow: 0 0 56px rgba(45,255,110,0.6), 0 0 110px rgba(45,255,110,0.2); }
-    }
-    .cursor {
-      display: inline-block;
-      width: 4px;
-      height: 0.75em;
-      background: var(--green);
-      margin-left: 4px;
-      animation: blink 1s step-end infinite;
-      vertical-align: middle;
-      border-radius: 2px;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    .hero-sub {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--muted);
-      margin-bottom: 28px;
-      animation: fadeUp 0.7s 0.25s ease both;
-    }
-    .hero-sub .sep { margin: 0 10px; opacity: 0.3; }
-
-    .hero-desc {
-      font-size: 17px;
-      line-height: 1.85;
-      color: rgba(200,214,229,0.75);
-      margin-bottom: 44px;
-      max-width: 480px;
-      animation: fadeUp 0.7s 0.35s ease both;
-    }
-    .hero-desc strong { color: var(--green); font-weight: 600; }
-
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      animation: fadeUp 0.7s 0.45s ease both;
-    }
-
-    /* ── BUTTONS ── */
-    .btn {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 16px 36px;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-      overflow: hidden;
-      font-weight: 600;
-    }
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -130%;
-      width: 60%; height: 100%;
-      transform: skewX(-20deg);
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-      transition: left 0.5s ease;
-    }
-    .btn:hover::after { left: 170%; }
-
-    .btn-primary {
-      background: var(--green);
-      color: #050810;
-      font-weight: 700;
-      box-shadow: 0 0 28px rgba(45,255,110,0.3), 0 4px 16px rgba(0,0,0,0.3);
-    }
-    .btn-primary:hover {
-      background: #fff;
-      box-shadow: 0 0 44px rgba(45,255,110,0.5), 0 8px 24px rgba(0,0,0,0.3);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--green);
-      border: 1px solid rgba(45,255,110,0.3);
-    }
-    .btn-outline:hover {
-      border-color: var(--green);
-      background: rgba(45,255,110,0.07);
-      transform: translateY(-2px);
-      box-shadow: 0 0 24px rgba(45,255,110,0.12);
-    }
-
-    /* ── HERO RIGHT: Terminal Visual ── */
-    .hero-right {
-      position: relative;
-      z-index: 1;
-      animation: fadeUp 0.8s 0.3s ease both;
-    }
-
-    .hero-terminal {
-      background: rgba(10,14,24,0.9);
-      border: 1px solid rgba(45,255,110,0.14);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(45,255,110,0.05);
-      backdrop-filter: blur(12px);
-    }
-    .terminal-header {
-      background: rgba(15,20,32,0.95);
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid rgba(45,255,110,0.07);
-    }
-    .t-dot {
-      width: 12px; height: 12px;
-      border-radius: 50%;
-    }
-    .t-dot:nth-child(1) { background: #ff5f57; }
-    .t-dot:nth-child(2) { background: #febc2e; }
-    .t-dot:nth-child(3) { background: #28c840; }
-    .t-title {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .terminal-body {
-      padding: 28px 28px 32px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 13px;
-      line-height: 2;
-    }
-    .t-line { display: flex; align-items: baseline; gap: 10px; }
-    .t-prompt { color: var(--green); flex-shrink: 0; }
-    .t-cmd { color: #c8d6e5; }
-    .t-comment { color: var(--muted); }
-    .t-val-green { color: var(--green); }
-    .t-val-blue { color: var(--blue); }
-    .t-val-purple { color: var(--purple); }
-    .t-val-orange { color: #ffb347; }
-    .t-key { color: #c8d6e5; }
-    .t-blank { height: 10px; }
-    .t-obj-key { color: var(--blue); margin-left: 20px; }
-
-    /* Scroll hint */
-    .scroll-hint {
-      position: absolute;
-      bottom: 36px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--muted);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      animation: fadeUp 0.8s 1s ease both;
-    }
-    .scroll-mouse {
-      width: 22px; height: 34px;
-      border: 1px solid rgba(45,255,110,0.2);
-      border-radius: 11px;
-      display: flex;
-      justify-content: center;
-      padding-top: 6px;
-    }
-    .scroll-wheel {
-      width: 2px; height: 6px;
-      background: var(--green);
-      border-radius: 1px;
-      animation: scrollWheel 2s ease infinite;
-    }
-    @keyframes scrollWheel { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(12px);opacity:0} }
-
-    /* ══════════════════════════════════════
-       SECTION BASE
-    ══════════════════════════════════════ */
-    section {
-      padding: 120px 80px;
-      max-width: 1280px;
-      margin: 0 auto;
-      content-visibility: auto;
-      contain-intrinsic-size: 1px 900px;
-    }
-
-    .section-head { margin-bottom: 56px; }
-    .section-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      opacity: 0.85;
-    }
-    .section-label::before {
-      content: '';
-      width: 20px; height: 1px;
-      background: var(--green);
-    }
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(32px, 4vw, 54px);
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.08;
-      letter-spacing: -0.5px;
-    }
-    .section-title span { color: var(--green); }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 48px; height: 3px;
-      margin-top: 14px;
-      background: linear-gradient(90deg, var(--green), var(--blue), transparent);
-      border-radius: 2px;
-    }
-
-    /* ══════════════════════════════════════
-       REVEAL ANIMATIONS
-    ══════════════════════════════════════ */
-    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(36px);
-      filter: blur(2px);
-      transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-
-    /* ══════════════════════════════════════
-       ABOUT
-    ══════════════════════════════════════ */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 72px;
-      align-items: center;
-    }
-    .about-text p {
-      font-size: 17px;
-      line-height: 1.95;
-      color: rgba(200,214,229,0.82);
-      margin-bottom: 22px;
-    }
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-text strong { color: var(--green); font-weight: 600; }
-
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .stat-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 20px;
-      text-align: center;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-box::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--green), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .stat-box:hover {
-      border-color: rgba(45,255,110,0.25);
-      transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-    }
-    .stat-box:hover::before { opacity: 1; }
-    .stat-num {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 26px;
-      color: var(--green);
-      text-shadow: var(--glow-sm);
-      margin-bottom: 12px;
-      display: block;
-    }
-    .stat-label {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-family: 'Share Tech Mono', monospace;
-    }
-
-    /* ══════════════════════════════════════
-       SKILLS
-    ══════════════════════════════════════ */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(152px, 1fr));
-      gap: 14px;
-    }
-    .skill-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 16px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      cursor: default;
-    }
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--accent, var(--green)), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .skill-card:hover {
-      transform: translateY(-7px) scale(1.02);
-      box-shadow: 0 20px 56px rgba(0,0,0,0.45);
-      border-color: var(--accent, rgba(45,255,110,0.25));
-    }
-    .skill-card:hover::before { opacity: 1; }
-    .skill-logo {
-      width: 52px; height: 52px;
-      margin: 0 auto 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .skill-logo svg { width: 100%; height: 100%; }
-    .skill-name {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 13px;
-      color: var(--text);
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .skill-tag {
-      display: inline-block;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-family: 'Share Tech Mono', monospace;
-      text-transform: uppercase;
-    }
-    .tag-main { background: rgba(45,255,110,0.1); color: var(--green); border: 1px solid rgba(45,255,110,0.2); }
-    .tag-sec  { background: rgba(0,180,255,0.07); color: var(--blue); border: 1px solid rgba(0,180,255,0.15); }
-
-    /* ══════════════════════════════════════
-       STUDIO (MI ESTUDIO)
-    ══════════════════════════════════════ */
-    .studio-card {
-      background: var(--surface);
-      border: 1px solid rgba(168,85,247,0.18);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      transition: border-color 0.35s, box-shadow 0.35s;
-    }
-    .studio-card:hover {
-      border-color: rgba(168,85,247,0.4);
-      box-shadow: 0 24px 80px rgba(168,85,247,0.1);
-    }
-    .org-stripe {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      overflow: hidden;
-    }
-    .org-stripe::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -40%;
-      width: 35%; height: 100%;
-      background: rgba(255,255,255,0.28);
-      transform: skewX(-25deg);
-      animation: stripeSweep 4s linear infinite;
-    }
-    @keyframes stripeSweep { 0%{left:-40%} 100%{left:140%} }
-
-    .studio-card.aztrix .org-stripe { background: linear-gradient(90deg, var(--purple), #7c3aed, transparent); }
-
-    .studio-inner {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 48px;
-      align-items: center;
-      padding: 52px 56px;
-    }
-    .studio-left { display: flex; gap: 20px; align-items: flex-start; }
-    .studio-icon-wrap {
-      width: 60px; height: 60px;
-      border-radius: 14px;
-      background: rgba(168,85,247,0.08);
-      border: 1px solid rgba(168,85,247,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .studio-role-badge {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 4px;
-      border: 1px solid rgba(168,85,247,0.25);
-      color: var(--purple);
-      background: rgba(168,85,247,0.08);
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-    .studio-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 24px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .studio-role {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--purple);
-      letter-spacing: 1px;
-    }
-    .studio-desc p {
-      font-size: 15px;
-      line-height: 1.8;
-      color: rgba(200,214,229,0.75);
-      margin-bottom: 14px;
-    }
-    .studio-desc p:last-child { margin-bottom: 0; }
-    .studio-desc strong { color: var(--purple); }
-    .studio-cta { flex-shrink: 0; }
-
-    /* ══════════════════════════════════════
-       ORGS / COLABORACIONES
-    ══════════════════════════════════════ */
-    .orgs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
-
-    .org-card {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 36px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-    }
-    .org-card:hover { transform: translateY(-8px); }
-
-    .org-card.coremc { border-color: rgba(45,255,110,0.12); }
-    .org-card.coremc:hover { border-color: rgba(45,255,110,0.4); box-shadow: 0 24px 72px rgba(45,255,110,0.08); }
-    .org-card.coremc .org-stripe { background: linear-gradient(90deg, var(--green), var(--green2), transparent); }
-    .org-card.coremc .org-icon-wrap { background: rgba(45,255,110,0.07); border: 1px solid rgba(45,255,110,0.18); }
-    .org-card.coremc .org-role, .org-card.coremc .role-badge { color: var(--green); }
-    .org-card.coremc .role-badge { background: rgba(45,255,110,0.08); border-color: rgba(45,255,110,0.22); }
-
-    .org-card.neoncore { border-color: rgba(0,180,255,0.12); }
-    .org-card.neoncore:hover { border-color: rgba(0,180,255,0.4); box-shadow: 0 24px 72px rgba(0,180,255,0.08); }
-    .org-card.neoncore .org-stripe { background: linear-gradient(90deg, var(--blue), #0077cc, transparent); }
-    .org-card.neoncore .org-icon-wrap { background: rgba(0,180,255,0.07); border: 1px solid rgba(0,180,255,0.18); }
-    .org-card.neoncore .org-role, .org-card.neoncore .role-badge { color: var(--blue); }
-    .org-card.neoncore .role-badge { background: rgba(0,180,255,0.08); border-color: rgba(0,180,255,0.22); }
-
-    .org-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
-    .org-icon-wrap {
-      width: 54px; height: 54px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .role-badge {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 4px;
-      border: 1px solid;
-      white-space: nowrap;
-    }
-    .org-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .org-role {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-    }
-    .org-desc { font-size: 14.5px; color: var(--muted); line-height: 1.75; flex: 1; margin-bottom: 28px; }
-
-    /* ── Discord Button ── */
-    .btn-discord {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 12px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      background: rgba(88,101,242,0.1);
-      color: #a0a8ff;
-      border: 1px solid rgba(88,101,242,0.22);
-      transition: all 0.25s;
-      width: fit-content;
-      margin-top: auto;
-      font-weight: 600;
-    }
-    .btn-discord:hover {
-      transform: translateY(-2px);
-      background: rgba(88,101,242,0.2);
-      border-color: rgba(88,101,242,0.6);
-      color: #fff;
-      box-shadow: 0 0 24px rgba(88,101,242,0.22);
-    }
-    .btn-discord svg { width: 15px; height: 15px; flex-shrink: 0; }
-
-    /* ══════════════════════════════════════
-       MINECRAFT
-    ══════════════════════════════════════ */
-    .mc-wrapper {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 56px;
-      position: relative;
-      overflow: hidden;
-    }
-    .mc-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--green), var(--blue), var(--purple), var(--green));
-      background-size: 300%;
-      animation: gradientShift 7s ease infinite;
-    }
-    @keyframes gradientShift { 0%{background-position:0%} 50%{background-position:100%} 100%{background-position:0%} }
-
-    .mc-intro {
-      font-size: 16.5px;
-      line-height: 1.9;
-      color: rgba(200,214,229,0.8);
-      max-width: 740px;
-      margin-bottom: 44px;
-    }
-    .mc-intro strong { color: var(--green); }
-
-    .mc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
-    .mc-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      background: var(--surface2);
-      border: 1px solid rgba(45,255,110,0.06);
-      border-radius: 12px;
-      padding: 24px;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    .mc-item:hover {
-      border-color: rgba(45,255,110,0.22);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 36px rgba(0,0,0,0.3);
-    }
-    .mc-item-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-    .mc-item-text h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .mc-item-text p { font-size: 13px; color: var(--muted); line-height: 1.65; }
-
-    /* ══════════════════════════════════════
-       CONTACT
-    ══════════════════════════════════════ */
-    #contact { padding-bottom: 130px; }
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 60px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-    }
-    .contact-box::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(45,255,110,0.025), transparent 50%, rgba(0,180,255,0.025));
-      pointer-events: none;
-    }
-    .contact-left h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 30px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-    .contact-left p { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 440px; }
-    .contact-orgs { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-    .contact-org-tag {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 1px;
-      padding: 5px 12px;
-      border-radius: 4px;
-      border: 1px solid;
-      color: var(--muted);
-    }
-    .contact-org-tag.g { border-color: rgba(45,255,110,0.25); color: var(--green); background: rgba(45,255,110,0.06); }
-    .contact-org-tag.p { border-color: rgba(168,85,247,0.25); color: var(--purple); background: rgba(168,85,247,0.06); }
-    .contact-org-tag.b { border-color: rgba(0,180,255,0.25); color: var(--blue); background: rgba(0,180,255,0.06); }
-
-    .contact-right { display: flex; flex-direction: column; gap: 14px; flex-shrink: 0; }
-    .contact-discord-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 18px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      background: rgba(88,101,242,0.12);
-      color: #a0a8ff;
-      border: 1px solid rgba(88,101,242,0.28);
-      transition: all 0.25s;
-      white-space: nowrap;
-      font-weight: 600;
-    }
-    .contact-discord-btn:hover {
-      background: rgba(88,101,242,0.22);
-      border-color: #5865F2;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 0 32px rgba(88,101,242,0.28);
-    }
-    .contact-discord-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .contact-discord-btn .dc-label { font-size: 9px; letter-spacing: 1px; color: var(--muted); display: block; margin-top: 2px; }
-
-    /* ══════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════ */
-    footer {
-      border-top: 1px solid rgba(45,255,110,0.07);
-      padding: 36px 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      z-index: 1;
-      background: rgba(5,8,16,0.98);
-    }
-    .footer-logo {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 9px;
-      color: var(--green);
-      text-shadow: var(--glow-sm);
-    }
-    .footer-copy {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 1px;
-    }
-    .footer-status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--green);
-    }
-    .status-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 10px var(--green);
-      animation: statusPulse 2.5s ease infinite;
-    }
-    @keyframes statusPulse {
-      0%,100% { box-shadow: 0 0 6px var(--green); transform: scale(1); }
-      50% { box-shadow: 0 0 16px var(--green); transform: scale(1.25); }
-    }
-
-    /* ══════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════ */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .grid-bg, .orb, body::before, body::after, #particles { display: none !important; }
-    }
-
-    @media (max-width: 1100px) {
-      #hero { grid-template-columns: 1fr; padding: 110px 48px 80px; text-align: center; }
-      .hero-left { display: flex; flex-direction: column; align-items: center; }
-      .hero-desc { max-width: 560px; }
-      .hero-right { max-width: 520px; margin: 0 auto; width: 100%; }
-      .hero-eyebrow { justify-content: center; }
-      section { padding: 90px 48px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .studio-inner { grid-template-columns: 1fr; gap: 32px; }
-      .studio-left { flex-direction: column; }
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; height: 60px; }
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
-      .nav-burger { display: flex; }
-      .nav-mobile { display: flex; }
-      #hero { padding: 90px 24px 72px; }
-      .hero-name { font-size: 44px; }
-      section { padding: 72px 24px; }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-      .orgs-grid { grid-template-columns: 1fr; }
-      .org-card { padding: 24px; }
-      .mc-wrapper { padding: 32px 24px; }
-      .contact-box { flex-direction: column; padding: 36px 28px; }
-      .contact-right { width: 100%; }
-      .contact-discord-btn { width: 100%; justify-content: center; }
-      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; }
-      .btn { width: 100%; justify-content: center; }
-      .hero-btns { flex-direction: column; }
-      /* MEJORA: Terminal en móviles sin desbordamiento y mejor legibilidad */
-      .hero-terminal { max-width: 100%; }
-      .terminal-body { padding: 18px 18px 22px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-name { font-size: 36px; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .section-title { font-size: 28px; }
-      .mc-grid { grid-template-columns: 1fr; }
-      /* CORRECCIÓN: Mejor legibilidad en pantallas muy pequeñas */
-      .terminal-body { line-height: 1.7; font-size: 12px; }
-    }
-
-    @media (min-width: 1400px) {
-      section { max-width: 1360px; }
-    }
-
-    /* MEJORA: Estilos :focus-visible para accesibilidad en elementos interactivos */
-    *:focus { outline: none; }
-    .btn:focus-visible,
-    .nav-links a:focus-visible,
-    .btn-discord:focus-visible,
-    .contact-discord-btn:focus-visible,
-    .nav-cta:focus-visible {
-      outline: 2px solid var(--green);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-  </style>
+  <!-- CSS externo (MEJORA #1: separado del HTML) -->
+  <link rel="stylesheet" href="https://light0mxph.github.io/mi-portfolio/styles.css">
 </head>
 <body>
 
@@ -1110,7 +44,7 @@
     <li><a href="#contact">Contacto</a></li>
   </ul>
   <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="nav-cta">Contactar →</a>
-  <!-- MEJORA: ARIA — aria-expanded y aria-label dinámicos en el botón hamburguesa -->
+  <!-- ARIA — aria-expanded y aria-label dinámicos en el botón hamburguesa -->
   <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -1131,15 +65,18 @@
   <section id="hero">
     <div class="hero-left">
       <div class="hero-eyebrow">
+        <!-- MEJORA #3: eyebrow-line se oculta en móvil vía CSS (.eyebrow-line { display:none } @600px) -->
         <div class="eyebrow-line"></div>
+        <!-- MEJORA #3: white-space: normal aplicado en CSS para móvil -->
         <span class="hero-badge">// Developer &amp; Mod Creator</span>
         <div class="eyebrow-line"></div>
       </div>
       <h1 class="hero-name"><span class="hl">Diego</span>Cpsx7z<span class="cursor"></span></h1>
+      <!-- MEJORA #2: Separadores vacíos, el bullet "•" se añade via CSS ::after -->
       <div class="hero-sub">
-        <span>Java</span><span class="sep">·</span>
-        <span>C++</span><span class="sep">·</span>
-        <span>PHP</span><span class="sep">·</span>
+        <span>Java</span><span class="sep"></span>
+        <span>C++</span><span class="sep"></span>
+        <span>PHP</span><span class="sep"></span>
         <span>Minecraft Modder</span>
       </div>
       <p class="hero-desc">
@@ -1167,9 +104,11 @@
           <div class="t-line"><span class="t-obj-key">"name"</span><span class="t-comment">: </span><span class="t-val-green">"DiegoCpsx7z"</span><span class="t-comment">,</span></div>
           <div class="t-line"><span class="t-obj-key">"role"</span><span class="t-comment">: </span><span class="t-val-orange">"Minecraft Developer"</span><span class="t-comment">,</span></div>
           <div class="t-line"><span class="t-obj-key">"stack"</span><span class="t-comment">: [</span></div>
-          <div class="t-line"><span style="margin-left:40px" class="t-val-green">"Java"</span><span class="t-comment">, </span><span class="t-val-green">"C++"</span><span class="t-comment">, </span><span class="t-val-green">"PHP"</span><span class="t-comment">,</span></div>
-          <div class="t-line"><span style="margin-left:40px" class="t-val-green">"Kotlin"</span><span class="t-comment">, </span><span class="t-val-green">"C#"</span><span class="t-comment">, </span><span class="t-val-green">"Lua"</span></div>
-          <div class="t-line"><span style="margin-left:20px" class="t-comment">],</span></div>
+          <!-- MEJORA #7: style="margin-left:40px" → class="t-indent" -->
+          <div class="t-line"><span class="t-indent t-val-green">"Java"</span><span class="t-comment">, </span><span class="t-val-green">"C++"</span><span class="t-comment">, </span><span class="t-val-green">"PHP"</span><span class="t-comment">,</span></div>
+          <div class="t-line"><span class="t-indent t-val-green">"Kotlin"</span><span class="t-comment">, </span><span class="t-val-green">"C#"</span><span class="t-comment">, </span><span class="t-val-green">"Lua"</span></div>
+          <!-- MEJORA #7: style="margin-left:20px" → class="t-indent2" -->
+          <div class="t-line"><span class="t-indent2 t-comment">],</span></div>
           <div class="t-line"><span class="t-obj-key">"orgs"</span><span class="t-comment">: </span><span class="t-val-purple">3</span><span class="t-comment">,</span></div>
           <div class="t-line"><span class="t-obj-key">"specialty"</span><span class="t-comment">: </span><span class="t-val-orange">"Minecraft Ecosystem"</span><span class="t-comment">,</span></div>
           <div class="t-line"><span class="t-obj-key">"available"</span><span class="t-comment">: </span><span class="t-val-green">true</span></div>
@@ -1233,7 +172,6 @@
         <!-- Java -->
         <div class="skill-card" style="--accent:rgba(248,152,32,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>Java</title><path fill="#f89820" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.128 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/><path fill="#f89820" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 0-42.731 10.67-22.324 34.187z"/><path fill="#f89820" d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.921 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.683 22.74c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0 .001.362-.32.468-.617z"/><path fill="#f89820" d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587zm-5.277 124.434c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 0 2.875 2.381 17.647 3.331z"/></svg>
           </div>
           <div class="skill-name">Java</div>
@@ -1243,7 +181,6 @@
         <!-- C++ -->
         <div class="skill-card" style="--accent:rgba(0,120,210,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>C++</title><path fill="#00599c" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6zM64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c6.2 0 11.9 2.3 16.2 6.1l-8 8c-2.1-1.9-5-3.1-8.2-3.1-6.9 0-12.5 5.6-12.5 12.5s5.6 12.5 12.5 12.5c5.7 0 10.5-3.8 12-9H64V55.5h24.3c.4 1.4.5 2.9.5 4.5.1 15.7-11.8 28.5-24.8 28.5z"/><path fill="#004482" d="M92.3 64H88v4.4h-4.4V64h-4.4v-4.4h4.4v-4.4H88v4.4h4.3V64zm12.5 0h-4.4v4.4h-4.3V64h-4.4v-4.4h4.4v-4.4h4.3v4.4h4.4V64z"/></svg>
           </div>
           <div class="skill-name">C++</div>
@@ -1253,7 +190,6 @@
         <!-- PHP -->
         <div class="skill-card" style="--accent:rgba(119,123,180,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>PHP</title><ellipse cx="64" cy="64" rx="64" ry="36" fill="#6181b6"/><path fill="#fff" d="M49.1 46.6h7.5c7 0 12.2 1.4 15.4 4.1 3.2 2.7 4.5 6.7 3.9 11.8-.6 5.1-2.8 9-6.6 11.8-3.8 2.8-9.2 4.2-16.2 4.2h-5l-2.1 12.3H38l6.2-36.1h5-.1zm3 6.2l-3.1 18c.4 0 .7.1 1.1.1.4 0 .7 0 1 .1 4.7 0 8.2-.9 10.5-2.8 2.3-1.9 3.7-4.7 4.1-8.5.4-3.5-.3-6-2-7.4s-4.8-2.1-9-2.1l-2.6.6zM79.1 46.6h8l-2.4 13.4h9.4l2.4-13.4h8.1L98.5 82.8h-8.1l2.6-15.4H83.6l-2.6 15.4h-8.1l6.2-36.2z"/></svg>
           </div>
           <div class="skill-name">PHP</div>
@@ -1263,7 +199,6 @@
         <!-- CSS -->
         <div class="skill-card" style="--accent:rgba(38,100,228,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>CSS</title><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.812l36.559-10.138 8.601-96.354H64.001v106.492z"/><path fill="#fff" d="M64.001 51.429H49.997l-1.029-11.558H64.001V28.456H36.944l.271 3.041 2.772 31.087h24.014V51.429zM64.001 87.349l-.061.017-15.327-4.14-.979-10.975H36.552l1.928 21.609 25.43 7.057.091-.025v-13.543z"/><path fill="#ebebeb" d="M63.952 51.429v11.455H77.58l-1.207 13.527-12.421 3.352v13.543l25.452-7.057.187-2.097 2.914-32.639.299-3.084H63.952zM63.952 28.456v11.415h24.647l.205-2.308.468-5.105.243-4.002H63.952z"/></svg>
           </div>
           <div class="skill-name">CSS</div>
@@ -1273,7 +208,6 @@
         <!-- C -->
         <div class="skill-card" style="--accent:rgba(100,100,220,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>C</title><path fill="#5a5acf" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6z"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="'Share Tech Mono',monospace" font-size="52" font-weight="bold">C</text></svg>
           </div>
           <div class="skill-name">C</div>
@@ -1283,7 +217,6 @@
         <!-- C# -->
         <div class="skill-card" style="--accent:rgba(150,50,180,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>C#</title><path fill="#9b4f96" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6z"/><path fill="#fff" d="M47.617 66.498c0 9.095 5.979 16.949 15.284 16.949 5.54 0 10.26-2.68 13.225-7.04v-7.625h-14.09v-6.785h21.544v16.949c-4.28 7.265-11.835 11.715-20.679 11.715-14.379 0-22.893-11.035-22.893-24.163s8.514-24.163 22.893-24.163c8.724 0 16.079 4.24 20.319 10.92l-6.565 3.685c-2.765-4.71-7.765-7.39-13.754-7.39-9.305 0-15.284 7.853-15.284 16.948z"/><path fill="#fff" d="M87.074 79.782v-6.565h-5.239v-4.72h5.239v-5.239h4.72v5.239h5.239v4.72h-5.239v6.565h-4.72zm11.914 0v-6.565h-5.239v-4.72h5.239v-5.239h4.72v5.239h5.239v4.72h-5.239v6.565h-4.72z"/></svg>
           </div>
           <div class="skill-name">C#</div>
@@ -1293,7 +226,6 @@
         <!-- Lua -->
         <div class="skill-card" style="--accent:rgba(0,0,160,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>Lua</title><circle cx="64" cy="64" r="58" fill="#000080"/><circle cx="64" cy="64" r="46" fill="#fff"/><circle cx="64" cy="64" r="34" fill="#000080"/><circle cx="90" cy="28" r="14" fill="#fff"/><text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="'Rajdhani',sans-serif" font-size="24" font-weight="700" letter-spacing="1">LUA</text></svg>
           </div>
           <div class="skill-name">Lua</div>
@@ -1303,7 +235,6 @@
         <!-- Kotlin -->
         <div class="skill-card" style="--accent:rgba(127,82,255,0.55);">
           <div class="skill-logo">
-            <!-- MEJORA: Accesibilidad SVG — title descriptivo -->
             <svg viewBox="0 0 128 128"><title>Kotlin</title><defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c93d2"/><stop offset=".5" stop-color="#7f52ff"/><stop offset="1" stop-color="#c811e1"/></linearGradient></defs><path fill="url(#kg)" d="M128 128H0V0h128L64 64z"/></svg>
           </div>
           <div class="skill-name">Kotlin</div>
@@ -1373,7 +304,6 @@
             <div class="role-badge">Manager</div>
           </div>
           <div class="org-name">CoreMC</div>
-          <!-- MEJORA: Eliminada línea redundante "// Manager" (ya existe el badge arriba) -->
           <p class="org-desc">Gestión y coordinación del equipo técnico y operativo de CoreMC. Supervisión de desarrollo, mantenimiento de servidores y garantía de calidad en cada entrega.</p>
           <a href="https://discord.gg/Qyjv4pw2RE" target="_blank" rel="noopener" class="btn-discord">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
@@ -1393,7 +323,6 @@
             <div class="role-badge">Técnico</div>
           </div>
           <div class="org-name">NeonCore Cloud</div>
-          <!-- MEJORA: Eliminada línea redundante "// Técnico de Infraestructura" (ya existe el badge arriba) -->
           <p class="org-desc">Soporte técnico y administración de infraestructura cloud. Optimización de rendimiento, configuración de redes y mantenimiento de entornos de servidor.</p>
           <a href="https://discord.gg/UNH48nS24z" target="_blank" rel="noopener" class="btn-discord">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
@@ -1409,7 +338,6 @@
   <section id="minecraft">
     <div class="reveal">
       <div class="section-head">
-        <!-- MEJORA: Numeración consecutiva — 05 Minecraft -->
         <div class="section-label">05 — Especialidad</div>
         <h2 class="section-title">Minecraft Development<span>.</span></h2>
       </div>
@@ -1453,7 +381,6 @@
   <section id="contact">
     <div class="reveal">
       <div class="section-head">
-        <!-- MEJORA: Numeración consecutiva — 06 Contacto -->
         <div class="section-label">06 — Contacto</div>
         <h2 class="section-title">Únete a Aztrix Prime Studio<span>.</span></h2>
       </div>
@@ -1603,7 +530,6 @@
     const isOpen = mobileMenu.classList.toggle('open');
     burger.classList.toggle('open', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
-    /* MEJORA: ARIA — actualiza aria-expanded y aria-label al abrir/cerrar */
     burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     burger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
   });
@@ -1612,7 +538,6 @@
       mobileMenu.classList.remove('open');
       burger.classList.remove('open');
       document.body.style.overflow = '';
-      /* MEJORA: ARIA — resetea estado al cerrar por clic en enlace */
       burger.setAttribute('aria-expanded', 'false');
       burger.setAttribute('aria-label', 'Abrir menú');
     });
