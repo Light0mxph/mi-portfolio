@@ -1,518 +1,645 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DiegoCpsx7z — Portfolio</title>
-  <meta name="description" content="Portfolio de DiegoCpsx7z — Desarrollador especializado en mods, plugins y sistemas para servidores de Minecraft. CEO de Aztrix Prime Studio."/>
-  <meta name="author" content="DiegoCpsx7z"/>
-  <meta property="og:title" content="DiegoCpsx7z — Minecraft Developer & Mod Creator"/>
-  <meta property="og:description" content="Desarrollador especializado en mods, plugins y ventajas para servidores de Minecraft. CEO de Aztrix Prime Studio."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://light0mxph.github.io/mi-portfolio/"/>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2300ff87'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='central' text-anchor='middle' fill='%23050810' font-family='monospace' font-size='13' font-weight='bold'%3E7z%3C/text%3E%3C/svg%3E"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DiegoCpsx7z — Setups Specialist, Minecraft Mod Developer & CEO of Aztrix Prime Studio. Technical expert in PaperMC, performance optimization, and mod ecosystems." />
+  <meta name="keywords" content="DiegoCpsx7z, Aztrix Prime Studio, Minecraft mods, PaperMC, setups specialist, CoreMC, NeonCore Cloud" />
+  <meta name="author" content="DiegoCpsx7z" />
+  <meta property="og:title" content="DiegoCpsx7z — Setups Specialist & Mod Developer" />
+  <meta property="og:description" content="CEO of Aztrix Prime Studio. Specialist in Minecraft performance, mod development, and server infrastructure." />
+  <meta property="og:type" content="website" />
+  <title>DiegoCpsx7z — Setups Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Background layers -->
-<div class="bg-grid"></div>
-<div class="bg-orb bg-orb-1"></div>
-<div class="bg-orb bg-orb-2"></div>
-<div class="bg-orb bg-orb-3"></div>
-<canvas id="particles"></canvas>
+  <!-- ============================================================
+       CANVAS DE PARTÍCULAS — FONDO NEURAL
+  ============================================================ -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-<!-- ═══ NAV ═══ -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo">
-      <span class="logo-bracket">[</span>Diego<span class="logo-accent">Cpsx7z</span><span class="logo-bracket">]</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#proyectos" class="nav-link">Estudio</a></li>
-      <li><a href="#colaboraciones" class="nav-link">Colaboraciones</a></li>
-      <li><a href="#minecraft" class="nav-link">Minecraft</a></li>
-    </ul>
-    <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="nav-cta">
-      <span>Contactar</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-    </a>
-    <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+  <!-- ============================================================
+       NAVEGACIÓN STICKY
+  ============================================================ -->
+  <header class="nav-wrapper" role="banner">
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#hero" class="nav__logo" aria-label="Ir al inicio">
+        <span class="nav__logo-bracket">[</span>
+        Diego<span class="nav__logo-accent">Cpsx7z</span>
+        <span class="nav__logo-bracket">]</span>
+      </a>
 
-<div class="nav-mobile" id="navMobile">
-  <a href="#sobre-mi">Sobre mí</a>
-  <a href="#skills">Skills</a>
-  <a href="#proyectos">Estudio</a>
-  <a href="#colaboraciones">Colaboraciones</a>
-  <a href="#minecraft">Minecraft</a>
-  <a href="#contact">Contacto</a>
-  <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="nav-mobile-cta">
-    Contactar via Discord →
-  </a>
-</div>
+      <ul class="nav__links" role="list" id="nav-menu">
+        <li><a href="#about" class="nav__link">Sobre mí</a></li>
+        <li><a href="#projects" class="nav__link">Proyectos</a></li>
+        <li><a href="#studio" class="nav__link">Estudio</a></li>
+        <li><a href="#stack" class="nav__link">Stack</a></li>
+        <li><a href="#organizations" class="nav__link">Orgs</a></li>
+        <li><a href="#contact" class="nav__link nav__link--cta">Contacto</a></li>
+      </ul>
 
-<!-- ═══ HERO ═══ -->
-<section id="hero">
-  <div class="hero-container">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <span class="eyebrow-dot"></span>
-        <span>// Developer &amp; Mod Creator</span>
-      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </nav>
+  </header>
 
-      <h1 class="hero-name">
-        <span class="name-line-1">Diego</span><span class="name-accent">Cpsx7z</span><span class="cursor-blink">_</span>
-      </h1>
+  <main>
 
-      <div class="hero-tags">
-        <span class="htag">Java</span>
-        <span class="htag-sep">·</span>
-        <span class="htag">C++</span>
-        <span class="htag-sep">·</span>
-        <span class="htag">PHP</span>
-        <span class="htag-sep">·</span>
-        <span class="htag">Kotlin</span>
-        <span class="htag-sep">·</span>
-        <span class="htag">Minecraft</span>
-      </div>
+    <!-- ============================================================
+         SECCIÓN HERO
+    ============================================================ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero__container">
 
-      <p class="hero-desc">
-        Desarrollador especializado en <strong>mods, plugins y sistemas personalizados</strong> para servidores de Minecraft. CEO de Aztrix Prime Studio.
-      </p>
-
-      <div class="hero-btns">
-        <a href="#proyectos" class="btn-primary">
-          Ver Proyectos
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#skills" class="btn-ghost">Stack Tecnológico</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-num" data-target="8">0</div>
-          <div class="hstat-label">Lenguajes</div>
-        </div>
-        <div class="hstat-divider"></div>
-        <div class="hstat">
-          <div class="hstat-num" data-target="3">0</div>
-          <div class="hstat-label">Organizaciones</div>
-        </div>
-        <div class="hstat-divider"></div>
-        <div class="hstat">
-          <div class="hstat-num hstat-text">MC</div>
-          <div class="hstat-label">Especialidad</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="terminal-card">
-        <div class="terminal-bar">
-          <div class="t-dots">
-            <span class="t-dot t-dot-red"></span>
-            <span class="t-dot t-dot-yellow"></span>
-            <span class="t-dot t-dot-green"></span>
+        <!-- Columna izquierda — Tipografía display -->
+        <div class="hero__content">
+          <div class="hero__badge" role="text" aria-label="Especialidad: Setups Specialist">
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            Setups Specialist
           </div>
-          <span class="t-title">developer.json</span>
-          <span class="t-lang">JSON</span>
-        </div>
-        <div class="terminal-body">
-<pre class="t-pre"><span class="t-cmd">$ cat developer.json</span>
 
-<span class="t-brace">{</span>
-  <span class="t-key">"name"</span><span class="t-colon">:</span> <span class="t-str">"DiegoCpsx7z"</span><span class="t-comma">,</span>
-  <span class="t-key">"role"</span><span class="t-colon">:</span> <span class="t-str-o">"Minecraft Developer"</span><span class="t-comma">,</span>
-  <span class="t-key">"stack"</span><span class="t-colon">:</span> <span class="t-brace">[</span>
-    <span class="t-str">"Java"</span><span class="t-comma">,</span> <span class="t-str">"C++"</span><span class="t-comma">,</span> <span class="t-str">"PHP"</span><span class="t-comma">,</span>
-    <span class="t-str">"Kotlin"</span><span class="t-comma">,</span> <span class="t-str">"C#"</span><span class="t-comma">,</span> <span class="t-str">"Lua"</span>
-  <span class="t-brace">]</span><span class="t-comma">,</span>
-  <span class="t-key">"orgs"</span><span class="t-colon">:</span> <span class="t-num">3</span><span class="t-comma">,</span>
-  <span class="t-key">"specialty"</span><span class="t-colon">:</span> <span class="t-str-o">"Minecraft Ecosystem"</span><span class="t-comma">,</span>
-  <span class="t-key">"available"</span><span class="t-colon">:</span> <span class="t-bool">true</span>
-<span class="t-brace">}</span>
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__title-line hero__title-line--small reveal-text">Hola, soy</span>
+            <span class="hero__title-line hero__title-line--name reveal-text">Diego</span>
+            <span class="hero__title-line hero__title-line--handle reveal-text">Cpsx7z</span>
+          </h1>
 
-<span class="t-cmd">$ <span class="t-blink">▋</span></span></pre>
-        </div>
-      </div>
-    </div>
-  </div>
+          <p class="hero__description reveal-fade">
+            CEO de <strong>Aztrix Prime Studio</strong>. Arquitecto de rendimiento para servidores Minecraft,
+            desarrollador de mods de alto impacto y especialista en infraestructura técnica de gaming.
+          </p>
 
-  <div class="hero-scroll">
-    <div class="scroll-indicator">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SOBRE MÍ ═══ -->
-<section id="sobre-mi" class="section">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label-wrap">
-        <span class="section-num">01</span>
-        <span class="section-label">Sobre mí</span>
-      </div>
-      <h2 class="section-title">Quién soy<span class="title-dot">.</span></h2>
-
-      <div class="about-grid">
-        <div class="about-text">
-          <p>Soy <strong>DiegoCpsx7z</strong>, un desarrollador apasionado por el ecosistema de Minecraft y la programación de sistemas complejos. Me especializo en crear <strong>mods, plugins y ventajas personalizadas</strong> para servidores que elevan la experiencia del jugador.</p>
-          <p>Mi experiencia abarca desde lenguajes de bajo nivel como <strong>C y C++</strong>, hasta soluciones backend con <strong>PHP</strong>, pasando por el desarrollo con <strong>Java, Kotlin, C# y Lua</strong>. Cada proyecto es una oportunidad de llevar la experiencia al siguiente nivel.</p>
-          <p>Actualmente lidero y colaboro en tres organizaciones del mundo gaming y cloud: <strong>CoreMC</strong>, <strong>Aztrix Prime Studio</strong> y <strong>NeonCore Cloud</strong>.</p>
-
-          <div class="about-orgs">
-            <span class="org-pill org-pill-p">Aztrix Prime Studio — CEO &amp; Founder</span>
-            <span class="org-pill org-pill-g">CoreMC — Manager</span>
-            <span class="org-pill org-pill-b">NeonCore Cloud — Técnico</span>
+          <div class="hero__ctas reveal-fade">
+            <a href="#projects" class="btn btn--primary">Ver proyectos</a>
+            <a href="#contact" class="btn btn--ghost">Colaborar →</a>
           </div>
         </div>
 
-        <div class="about-stats-col">
-          <div class="stat-card">
-            <span class="stat-num" data-target="8">0</span>
-            <span class="stat-plus">+</span>
-            <div class="stat-label">Lenguajes</div>
+        <!-- Columna derecha — Terminal Card -->
+        <div class="hero__terminal-wrapper reveal-fade" aria-label="Información de perfil en formato terminal">
+          <div class="terminal-card">
+            <div class="terminal-card__header" aria-hidden="true">
+              <span class="terminal-dot terminal-dot--red"></span>
+              <span class="terminal-dot terminal-dot--yellow"></span>
+              <span class="terminal-dot terminal-dot--green"></span>
+              <span class="terminal-card__title">profile.json</span>
+            </div>
+            <div class="terminal-card__body" role="region" aria-label="Datos de perfil JSON">
+              <pre class="terminal-card__code" id="terminal-output" aria-live="polite"></pre>
+            </div>
+            <div class="terminal-card__languages" aria-label="Lenguajes de programación">
+              <span class="lang-tag" style="--clr:#00599C">C++</span>
+              <span class="lang-tag" style="--clr:#A8B9CC">C</span>
+              <span class="lang-tag" style="--clr:#000080">Lua</span>
+              <span class="lang-tag" style="--clr:#F7DF1E">JS</span>
+              <span class="lang-tag" style="--clr:#3776AB">Python</span>
+              <span class="lang-tag" style="--clr:#00ADD8">Go</span>
+              <span class="lang-tag" style="--clr:#CE422B">Rust</span>
+              <span class="lang-tag" style="--clr:#ED8B00">Java</span>
+              <span class="lang-tag" style="--clr:#7F52FF">Kotlin</span>
+              <span class="lang-tag" style="--clr:#8892BF">PHP</span>
+              <span class="lang-tag" style="--clr:#3178C6">TS</span>
+              <span class="lang-tag" style="--clr:#336791">SQL</span>
+            </div>
           </div>
-          <div class="stat-card">
-            <span class="stat-num" data-target="3">0</span>
-            <div class="stat-label">Organizaciones</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num stat-text">∞</span>
-            <div class="stat-label">Ideas</div>
-          </div>
-          <div class="stat-card stat-card-available">
-            <div class="avail-dot"></div>
-            <div class="stat-label">Disponible</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SKILLS ═══ -->
-<section id="skills" class="section section-alt">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label-wrap">
-        <span class="section-num">02</span>
-        <span class="section-label">Stack Tecnológico</span>
-      </div>
-      <h2 class="section-title">Habilidades<span class="title-dot">.</span></h2>
-
-      <div class="skills-grid">
-
-        <div class="skill-card skill-card-main" style="--sk-accent: #f89820;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><path fill="#f89820" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.128 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/><path fill="#f89820" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 0-42.731 10.67-22.324 34.187z"/><path fill="#f89820" d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.921 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.683 22.74c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0 .001.362-.32.468-.617z"/><path fill="#f89820" d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587zm-5.277 124.434c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 0 2.875 2.381 17.647 3.331z"/></svg>
-          </div>
-          <div class="sk-name">Java</div>
-          <div class="sk-badge sk-badge-main">Principal</div>
-        </div>
-
-        <div class="skill-card" style="--sk-accent: #00599c;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><path fill="#00599c" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6zM64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c6.2 0 11.9 2.3 16.2 6.1l-8 8c-2.1-1.9-5-3.1-8.2-3.1-6.9 0-12.5 5.6-12.5 12.5s5.6 12.5 12.5 12.5c5.7 0 10.5-3.8 12-9H64V55.5h24.3c.4 1.4.5 2.9.5 4.5.1 15.7-11.8 28.5-24.8 28.5z"/><path fill="#004482" d="M92.3 64H88v4.4h-4.4V64h-4.4v-4.4h4.4v-4.4H88v4.4h4.3V64zm12.5 0h-4.4v4.4h-4.3V64h-4.4v-4.4h4.4v-4.4h4.3v4.4h4.4V64z"/></svg>
-          </div>
-          <div class="sk-name">C++</div>
-          <div class="sk-badge">Dominio</div>
-        </div>
-
-        <div class="skill-card" style="--sk-accent: #7777b4;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><ellipse cx="64" cy="64" rx="64" ry="36" fill="#6181b6"/><path fill="#fff" d="M49.1 46.6h7.5c7 0 12.2 1.4 15.4 4.1 3.2 2.7 4.5 6.7 3.9 11.8-.6 5.1-2.8 9-6.6 11.8-3.8 2.8-9.2 4.2-16.2 4.2h-5l-2.1 12.3H38l6.2-36.1h5-.1zm3 6.2l-3.1 18c.4 0 .7.1 1.1.1.4 0 .7 0 1 .1 4.7 0 8.2-.9 10.5-2.8 2.3-1.9 3.7-4.7 4.1-8.5.4-3.5-.3-6-2-7.4s-4.8-2.1-9-2.1l-2.6.6zM79.1 46.6h8l-2.4 13.4h9.4l2.4-13.4h8.1L98.5 82.8h-8.1l2.6-15.4H83.6l-2.6 15.4h-8.1l6.2-36.2z"/></svg>
-          </div>
-          <div class="sk-name">PHP</div>
-          <div class="sk-badge">Dominio</div>
-        </div>
-
-        <div class="skill-card" style="--sk-accent: #1572b6;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.812l36.559-10.138 8.601-96.354H64.001v106.492z"/><path fill="#fff" d="M64.001 51.429H49.997l-1.029-11.558H64.001V28.456H36.944l.271 3.041 2.772 31.087h24.014V51.429zM64.001 87.349l-.061.017-15.327-4.14-.979-10.975H36.552l1.928 21.609 25.43 7.057.091-.025v-13.543z"/><path fill="#ebebeb" d="M63.952 51.429v11.455H77.58l-1.207 13.527-12.421 3.352v13.543l25.452-7.057.187-2.097 2.914-32.639.299-3.084H63.952zM63.952 28.456v11.415h24.647l.205-2.308.468-5.105.243-4.002H63.952z"/></svg>
-          </div>
-          <div class="sk-name">CSS</div>
-          <div class="sk-badge">Dominio</div>
-        </div>
-
-        <div class="skill-card" style="--sk-accent: #5a5acf;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><path fill="#5a5acf" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6z"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="monospace" font-size="52" font-weight="bold">C</text></svg>
-          </div>
-          <div class="sk-name">C</div>
-          <div class="sk-badge">Dominio</div>
-        </div>
-
-        <div class="skill-card" style="--sk-accent: #9b4f96;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><path fill="#9b4f96" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6z"/><path fill="#fff" d="M47.617 66.498c0 9.095 5.979 16.949 15.284 16.949 5.54 0 10.26-2.68 13.225-7.04v-7.625h-14.09v-6.785h21.544v16.949c-4.28 7.265-11.835 11.715-20.679 11.715-14.379 0-22.893-11.035-22.893-24.163s8.514-24.163 22.893-24.163c8.724 0 16.079 4.24 20.319 10.92l-6.565 3.685c-2.765-4.71-7.765-7.39-13.754-7.39-9.305 0-15.284 7.853-15.284 16.948z"/><path fill="#fff" d="M87.074 79.782v-6.565h-5.239v-4.72h5.239v-5.239h4.72v5.239h5.239v4.72h-5.239v6.565h-4.72zm11.914 0v-6.565h-5.239v-4.72h5.239v-5.239h4.72v5.239h5.239v4.72h-5.239v6.565h-4.72z"/></svg>
-          </div>
-          <div class="sk-name">C#</div>
-          <div class="sk-badge">Dominio</div>
-        </div>
-
-        <div class="skill-card" style="--sk-accent: #000090;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="58" fill="#000080"/><circle cx="64" cy="64" r="46" fill="#fff"/><circle cx="64" cy="64" r="34" fill="#000080"/><circle cx="90" cy="28" r="14" fill="#fff"/><text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="sans-serif" font-size="22" font-weight="700" letter-spacing="1">LUA</text></svg>
-          </div>
-          <div class="sk-name">Lua</div>
-          <div class="sk-badge">Dominio</div>
-        </div>
-
-        <div class="skill-card" style="--sk-accent: #7f52ff;">
-          <div class="sk-glow"></div>
-          <div class="sk-icon">
-            <svg viewBox="0 0 128 128"><defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c93d2"/><stop offset=".5" stop-color="#7f52ff"/><stop offset="1" stop-color="#c811e1"/></linearGradient></defs><path fill="url(#kg)" d="M128 128H0V0h128L64 64z"/></svg>
-          </div>
-          <div class="sk-name">Kotlin</div>
-          <div class="sk-badge">Dominio</div>
         </div>
 
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══ MI ESTUDIO ═══ -->
-<section id="proyectos" class="section">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label-wrap">
-        <span class="section-num">03</span>
-        <span class="section-label">Mi Estudio</span>
+      <!-- Indicador de scroll -->
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span class="scroll-label">scroll</span>
       </div>
-      <h2 class="section-title">Aztrix Prime Studio<span class="title-dot">.</span></h2>
+    </section>
 
-      <div class="studio-card">
-        <div class="studio-accent-line"></div>
-        <div class="studio-body">
-          <div class="studio-header">
-            <div class="studio-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" stroke="#a855f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- ============================================================
+         SECCIÓN SOBRE MÍ
+    ============================================================ -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="section-container">
+
+        <header class="section-header">
+          <span class="section-tag reveal-text">// 01 — about</span>
+          <h2 class="section-title reveal-text" id="about-title">Sobre <span class="accent">Mí</span></h2>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__bio reveal-fade">
+            <p>
+              Soy un especialista técnico con enfoque profundo en el ecosistema de Minecraft: desde la arquitectura de servidores PaperMC de alto rendimiento hasta el desarrollo de plugins y mods que operan en condiciones de producción real. Mi trabajo combina lógica de sistemas de bajo nivel con experiencia en optimización de JVM, gestión de ticks y control de entidades.
+            </p>
+            <p>
+              Fundé <strong>Aztrix Prime Studio</strong> con el objetivo de llevar soluciones técnicas de calidad empresarial a comunidades y operadores de servidores. Paralelamente, actúo como Manager en <strong>CoreMC</strong> y Técnico en <strong>NeonCore Cloud</strong>, donde superviso infraestructura crítica y pipelines de despliegue.
+            </p>
+            <p>
+              Mi filosofía: el código que no se mide no se mejora. Cada herramienta que construyo tiene métricas, benchmarks y documentación técnica rigurosa.
+            </p>
+          </div>
+
+          <!-- Métricas animadas -->
+          <div class="about__metrics" aria-label="Métricas de experiencia">
+            <div class="metric-card reveal-up" data-target="50" data-suffix="+" aria-label="Más de 50 proyectos técnicos">
+              <span class="metric-card__number" aria-live="polite">0</span>
+              <span class="metric-card__label">Proyectos técnicos</span>
+              <div class="metric-card__bar" aria-hidden="true"><div class="metric-card__fill" style="--pct:85%"></div></div>
+            </div>
+            <div class="metric-card reveal-up" data-target="3" data-suffix="" aria-label="3 organizaciones lideradas">
+              <span class="metric-card__number" aria-live="polite">0</span>
+              <span class="metric-card__label">Organizaciones</span>
+              <div class="metric-card__bar" aria-hidden="true"><div class="metric-card__fill" style="--pct:100%"></div></div>
+            </div>
+            <div class="metric-card reveal-up" data-target="12" data-suffix="" aria-label="12 lenguajes dominados">
+              <span class="metric-card__number" aria-live="polite">0</span>
+              <span class="metric-card__label">Lenguajes</span>
+              <div class="metric-card__bar" aria-hidden="true"><div class="metric-card__fill" style="--pct:90%"></div></div>
+            </div>
+            <div class="metric-card reveal-up" data-target="99" data-suffix="%" aria-label="99% uptime en servidores gestionados">
+              <span class="metric-card__number" aria-live="polite">0</span>
+              <span class="metric-card__label">Uptime objetivo</span>
+              <div class="metric-card__bar" aria-hidden="true"><div class="metric-card__fill" style="--pct:99%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN PROYECTOS DESTACADOS (BENTO BOX)
+    ============================================================ -->
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-container">
+
+        <header class="section-header">
+          <span class="section-tag reveal-text">// 02 — projects</span>
+          <h2 class="section-title reveal-text" id="projects-title">Proyectos <span class="accent">Destacados</span></h2>
+        </header>
+
+        <div class="bento-grid" role="list">
+
+          <!-- Proyecto 1 — AztrixLagControl -->
+          <article class="bento-card bento-card--featured reveal-up" role="listitem" aria-labelledby="proj1-title">
+            <div class="bento-card__glow" aria-hidden="true"></div>
+            <div class="bento-card__header">
+              <div class="bento-card__icon" aria-hidden="true">⚡</div>
+              <div class="bento-card__meta">
+                <span class="bento-card__version">v1.1.0</span>
+                <span class="bento-card__status bento-card__status--active">Estable</span>
+              </div>
+            </div>
+            <h3 class="bento-card__title" id="proj1-title">AztrixLagControl</h3>
+            <p class="bento-card__description">
+              Herramienta empresarial de gestión de rendimiento para servidores <strong>PaperMC</strong>. Monitorea y controla en tiempo real el tick lag, entities per chunk, async chunk loading y GC pressure. Diseñada para operadores que necesitan SLAs de rendimiento confiables bajo carga alta.
+            </p>
+            <div class="bento-card__tags" aria-label="Tecnologías del proyecto">
+              <span class="tag">Java</span>
+              <span class="tag">PaperMC API</span>
+              <span class="tag">Async I/O</span>
+              <span class="tag">JVM Tuning</span>
+            </div>
+            <div class="bento-card__footer">
+              <div class="bento-card__stat">
+                <span class="stat-value">~40%</span>
+                <span class="stat-label">reducción TPS drops</span>
+              </div>
+              <div class="bento-card__stat">
+                <span class="stat-value">&lt;2ms</span>
+                <span class="stat-label">overhead por tick</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 2 — AzAutoTotem+ -->
+          <article class="bento-card bento-card--secondary reveal-up" role="listitem" aria-labelledby="proj2-title">
+            <div class="bento-card__glow bento-card__glow--violet" aria-hidden="true"></div>
+            <div class="bento-card__header">
+              <div class="bento-card__icon" aria-hidden="true">🛡️</div>
+              <div class="bento-card__meta">
+                <span class="bento-card__version">v1.0.5</span>
+                <span class="bento-card__status bento-card__status--active">Estable</span>
+              </div>
+            </div>
+            <h3 class="bento-card__title" id="proj2-title">AzAutoTotem+</h3>
+            <p class="bento-card__description">
+              Mod de lógica avanzada de equipamiento automatizado enfocado en escenarios <strong>PvP de alto rendimiento</strong>. Gestiona slots de inventario, timing de activación y sincronización con el servidor con latencia mínima, maximizando la supervivencia en combate competitivo.
+            </p>
+            <div class="bento-card__tags" aria-label="Tecnologías del proyecto">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Fabric API</span>
+              <span class="tag">Mixins</span>
+              <span class="tag">Event-driven</span>
+            </div>
+            <div class="bento-card__footer">
+              <div class="bento-card__stat">
+                <span class="stat-value">&lt;1ms</span>
+                <span class="stat-label">latencia activación</span>
+              </div>
+              <div class="bento-card__stat">
+                <span class="stat-value">0 tick</span>
+                <span class="stat-label">delay en swap</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Widget de stats lateral -->
+          <div class="bento-card bento-card--stat reveal-up" aria-label="Métricas de desarrollo">
+            <div class="bento-stat__label">Enfoque principal</div>
+            <div class="bento-stat__value">Performance</div>
+            <div class="bento-stat__sub">PaperMC / Fabric</div>
+            <div class="bento-stat__ring" aria-hidden="true">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="30" cy="30" r="24" stroke="rgba(255,255,255,0.08)" stroke-width="4"/>
+                <circle cx="30" cy="30" r="24" stroke="var(--accent-cyan)" stroke-width="4" stroke-dasharray="150.8" stroke-dashoffset="23" stroke-linecap="round" transform="rotate(-90 30 30)"/>
+              </svg>
+              <span class="bento-stat__ring-label">95%</span>
+            </div>
+          </div>
+
+          <!-- Widget de actividad -->
+          <div class="bento-card bento-card--activity reveal-up" aria-label="Estado de actividad">
+            <div class="activity__dot" aria-hidden="true"></div>
+            <div class="activity__text">
+              <span class="activity__title">En desarrollo activo</span>
+              <span class="activity__sub">Nuevas versiones en pipeline</span>
+            </div>
+            <div class="activity__timeline" aria-hidden="true">
+              <div class="timeline-bar" style="height:60%"></div>
+              <div class="timeline-bar" style="height:80%"></div>
+              <div class="timeline-bar" style="height:45%"></div>
+              <div class="timeline-bar" style="height:95%"></div>
+              <div class="timeline-bar" style="height:70%"></div>
+              <div class="timeline-bar" style="height:100%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN MI ESTUDIO — AZTRIX PRIME STUDIO
+    ============================================================ -->
+    <section class="studio" id="studio" aria-labelledby="studio-title">
+      <div class="section-container">
+
+        <header class="section-header">
+          <span class="section-tag reveal-text">// 03 — studio</span>
+          <h2 class="section-title reveal-text" id="studio-title">Aztrix Prime <span class="accent">Studio</span></h2>
+        </header>
+
+        <div class="studio__layout">
+
+          <div class="studio__intro reveal-fade">
+            <p class="studio__tagline">Soluciones técnicas de nivel empresarial para el ecosistema Minecraft.</p>
+            <p>
+              Aztrix Prime Studio nace de la necesidad de llevar <strong>ingeniería real</strong> a un ecosistema dominado por soluciones improvisadas. Cada servicio que ofrecemos está documentado, testeado en producción y respaldado por benchmarks verificables.
+            </p>
+          </div>
+
+          <div class="studio__services" aria-label="Servicios del estudio">
+
+            <div class="service-card reveal-up" aria-labelledby="svc1-title">
+              <div class="service-card__icon" aria-hidden="true">🔧</div>
+              <h3 class="service-card__title" id="svc1-title">Configuración de Servidores</h3>
+              <p class="service-card__desc">Setup completo de PaperMC/Purpur con tuning de JVM, optimización de chunks y configuración de plugins de rendimiento.</p>
+            </div>
+
+            <div class="service-card reveal-up" aria-labelledby="svc2-title">
+              <div class="service-card__icon" aria-hidden="true">🧩</div>
+              <h3 class="service-card__title" id="svc2-title">Desarrollo de Plugins & Mods</h3>
+              <p class="service-card__desc">Desarrollo a medida en Java, Kotlin y Lua. Desde mecánicas de juego hasta sistemas de gestión de recursos complejos.</p>
+            </div>
+
+            <div class="service-card reveal-up" aria-labelledby="svc3-title">
+              <div class="service-card__icon" aria-hidden="true">📊</div>
+              <h3 class="service-card__title" id="svc3-title">Auditoría de Rendimiento</h3>
+              <p class="service-card__desc">Análisis profundo de timings, spark profiles y GC logs. Identificación de cuellos de botella y plan de acción con métricas.</p>
+            </div>
+
+            <div class="service-card reveal-up" aria-labelledby="svc4-title">
+              <div class="service-card__icon" aria-hidden="true">☁️</div>
+              <h3 class="service-card__title" id="svc4-title">Infraestructura Cloud</h3>
+              <p class="service-card__desc">Despliegue y gestión de servidores en cloud con alta disponibilidad, backups automatizados y monitoreo continuo.</p>
+            </div>
+
+          </div>
+
+          <div class="studio__cta reveal-fade">
+            <a href="#contact" class="btn btn--primary btn--large">
+              Solicitar servicio →
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN STACK TÉCNICO
+    ============================================================ -->
+    <section class="stack" id="stack" aria-labelledby="stack-title">
+      <div class="section-container">
+
+        <header class="section-header">
+          <span class="section-tag reveal-text">// 04 — stack</span>
+          <h2 class="section-title reveal-text" id="stack-title">Stack <span class="accent">Técnico</span></h2>
+        </header>
+
+        <div class="stack__grid" role="list" aria-label="Tecnologías y lenguajes de programación">
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="C++">
+            <div class="stack-item__icon" style="--clr:#00599C" aria-hidden="true">
+              <!-- C++ SVG -->
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm-7.8 96.1c-17.5 0-31.7-14.2-31.7-31.7s14.2-31.7 31.7-31.7c9.1 0 17.3 3.8 23.1 10l-8 7.8c-3.8-4.1-9.2-6.7-15.1-6.7-11.4 0-20.7 9.2-20.7 20.6s9.2 20.6 20.7 20.6c5.9 0 11.2-2.5 15.1-6.5l7.9 7.9c-5.8 6.1-14 9.7-23 9.7zm39-15.3h-5.7V86h-5.7v-5.2H78v-5.7h5.8v-5.2h5.7v5.2h5.7v5.7h-5.7v5.2zm18.3 0h-5.7V86h-5.7v-5.2h-5.8v-5.7h5.8v-5.2h5.7v5.2h5.7v5.7h-5.7v5.2z"/>
               </svg>
             </div>
-            <div>
-              <div class="studio-role-tag">CEO &amp; Founder</div>
-              <h3 class="studio-name">Aztrix Prime Studio</h3>
-            </div>
+            <span class="stack-item__label">C++</span>
           </div>
 
-          <div class="studio-desc">
-            <p>Mi estudio personal donde acepto <strong>propuestas de trabajo</strong>, colaboraciones y proyectos de todo tipo. Si necesitas un mod, plugin, sistema para servidor o cualquier desarrollo relacionado con Minecraft — este es el lugar.</p>
-            <p>Abierto a encargos individuales, proyectos a largo plazo y cualquier propuesta creativa dentro del ecosistema gaming.</p>
-          </div>
-
-          <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="studio-cta">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            Contactar en Discord
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ COLABORACIONES ═══ -->
-<section id="colaboraciones" class="section section-alt">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label-wrap">
-        <span class="section-num">04</span>
-        <span class="section-label">Colaboraciones</span>
-      </div>
-      <h2 class="section-title">Donde colaboro<span class="title-dot">.</span></h2>
-      <p class="section-sub">Organizaciones donde contribuyo activamente.</p>
-
-      <div class="orgs-grid">
-
-        <div class="org-card org-card-green reveal reveal-d1">
-          <div class="org-top">
-            <div class="org-icon org-icon-green">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#00ff87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="stack-item reveal-up" role="listitem" aria-label="C">
+            <div class="stack-item__icon" style="--clr:#A8B9CC" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm-7.8 96.1c-17.5 0-31.7-14.2-31.7-31.7s14.2-31.7 31.7-31.7c9.1 0 17.3 3.8 23.1 10l-8 7.8c-3.8-4.1-9.2-6.7-15.1-6.7-11.4 0-20.7 9.2-20.7 20.6s9.2 20.6 20.7 20.6c5.9 0 11.2-2.5 15.1-6.5l7.9 7.9c-5.8 6.1-14 9.7-23 9.7z"/>
               </svg>
             </div>
-            <span class="role-badge role-badge-green">Manager</span>
+            <span class="stack-item__label">C</span>
           </div>
-          <div class="org-name">CoreMC</div>
-          <p class="org-desc">Gestión del equipo técnico y operativo. Supervisión de desarrollo, mantenimiento de servidores y garantía de calidad en cada entrega.</p>
-          <a href="https://discord.gg/Qyjv4pw2RE" target="_blank" rel="noopener" class="org-discord-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            Unirse al Discord
-          </a>
-        </div>
 
-        <div class="org-card org-card-blue reveal reveal-d2">
-          <div class="org-top">
-            <div class="org-icon org-icon-blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="#00b4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="stack-item reveal-up" role="listitem" aria-label="Lua">
+            <div class="stack-item__icon" style="--clr:#000080" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="64" cy="64" r="56" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="4"/>
+                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="42" font-weight="bold" fill="currentColor" font-family="monospace">Lua</text>
+                <circle cx="95" cy="30" r="12" fill="currentColor"/>
               </svg>
             </div>
-            <span class="role-badge role-badge-blue">Técnico</span>
+            <span class="stack-item__label">Lua</span>
           </div>
-          <div class="org-name">NeonCore Cloud</div>
-          <p class="org-desc">Soporte técnico y administración de infraestructura cloud. Optimización de rendimiento, configuración de redes y mantenimiento de servidores.</p>
-          <a href="https://discord.gg/UNH48nS24z" target="_blank" rel="noopener" class="org-discord-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            Unirse al Discord
-          </a>
-        </div>
 
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ MINECRAFT ═══ -->
-<section id="minecraft" class="section">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label-wrap">
-        <span class="section-num">05</span>
-        <span class="section-label">Especialidad</span>
-      </div>
-      <h2 class="section-title">Minecraft Dev<span class="title-dot">.</span></h2>
-      <p class="section-sub">Creo herramientas que transforman servidores ordinarios en experiencias extraordinarias.</p>
-
-      <div class="mc-grid">
-
-        <div class="mc-item reveal reveal-d1">
-          <div class="mc-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          </div>
-          <div class="mc-content">
-            <h4>Plugins de Servidor</h4>
-            <p>Desarrollo con Spigot / Paper API para ampliar funcionalidades del servidor.</p>
-          </div>
-        </div>
-
-        <div class="mc-item reveal reveal-d2">
-          <div class="mc-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <div class="mc-content">
-            <h4>Mods Personalizados</h4>
-            <p>Mods con Forge / Fabric que añaden mecánicas, items y mundos únicos.</p>
-          </div>
-        </div>
-
-        <div class="mc-item reveal reveal-d3">
-          <div class="mc-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <div class="mc-content">
-            <h4>Ventajas Competitivas</h4>
-            <p>Sistemas de ventajas, habilidades y mejoras para servidores PvP y survival.</p>
-          </div>
-        </div>
-
-        <div class="mc-item reveal reveal-d1">
-          <div class="mc-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-          </div>
-          <div class="mc-content">
-            <h4>Integraciones</h4>
-            <p>Conexión con bases de datos, APIs externas y sistemas de economía en servidores.</p>
-          </div>
-        </div>
-
-        <div class="mc-item reveal reveal-d2">
-          <div class="mc-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-          </div>
-          <div class="mc-content">
-            <h4>Modpacks</h4>
-            <p>Empaquetado y configuración de modpacks optimizados para multijugador.</p>
-          </div>
-        </div>
-
-        <div class="mc-item reveal reveal-d3">
-          <div class="mc-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <div class="mc-content">
-            <h4>Redes de Servidores</h4>
-            <p>Configuración de redes BungeeCord / Velocity con plugins inter-servidor.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACTO ═══ -->
-<section id="contact" class="section section-alt">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label-wrap">
-        <span class="section-num">06</span>
-        <span class="section-label">Contacto</span>
-      </div>
-      <h2 class="section-title">¿Tienes un proyecto?<span class="title-dot">.</span></h2>
-
-      <div class="contact-card">
-        <div class="contact-left">
-          <p>Estoy disponible para nuevos proyectos de mods, plugins o sistemas para servidores de Minecraft. Para propuestas de trabajo y colaboraciones, contáctame a través de <strong>Aztrix Prime Studio</strong> en Discord.</p>
-
-          <div class="contact-tags">
-            <span class="contact-tag contact-tag-p">Aztrix Prime Studio — CEO &amp; Founder</span>
-            <span class="contact-tag contact-tag-g">CoreMC — Manager</span>
-            <span class="contact-tag contact-tag-b">NeonCore Cloud — Técnico</span>
-          </div>
-        </div>
-
-        <div class="contact-right">
-          <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="discord-big-btn">
-            <div class="discord-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          <div class="stack-item reveal-up" role="listitem" aria-label="JavaScript">
+            <div class="stack-item__icon" style="--clr:#F7DF1E" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="128" height="128" rx="8" fill="currentColor" opacity="0.15"/>
+                <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-size="44" font-weight="900" fill="currentColor" font-family="monospace">JS</text>
+              </svg>
             </div>
-            <div class="discord-btn-text">
-              <span class="discord-btn-main">Aztrix Prime Studio</span>
-              <span class="discord-btn-sub">discord.gg/EU997SCwef</span>
+            <span class="stack-item__label">JavaScript</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="Python">
+            <div class="stack-item__icon" style="--clr:#3776AB" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M64 8C33.1 8 34.7 21.3 34.7 21.3L34.7 35h29.8v4H22.1s-19.3-2.2-19.3 29.5 16.8 30.4 16.8 30.4H30v-14.6s-.9-16.8 16.5-16.8h28.5s16-.3 16-15.4V23.2S93.4 8 64 8zM48.7 17.8c2.9 0 5.2 2.3 5.2 5.2s-2.3 5.2-5.2 5.2-5.2-2.3-5.2-5.2 2.3-5.2 5.2-5.2z"/>
+                <path fill="currentColor" opacity="0.7" d="M64 120c30.9 0 29.3-13.3 29.3-13.3V93.5H63.5v-4h42.4s19.3 2.2 19.3-29.5S108.4 29.6 108.4 29.6H98v14.6s.9 16.8-16.5 16.8H53s-16 .3-16 15.4v26.2S34.6 120 64 120zm15.3-9.8c-2.9 0-5.2-2.3-5.2-5.2s2.3-5.2 5.2-5.2 5.2 2.3 5.2 5.2-2.3 5.2-5.2 5.2z"/>
+              </svg>
             </div>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
+            <span class="stack-item__label">Python</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="Go">
+            <div class="stack-item__icon" style="--clr:#00ADD8" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M12.5 44.8c-.3 0-.4-.2-.2-.5l2.1-2.7c.2-.3.7-.5 1-.5h35.4c.3 0 .4.2.2.5l-1.7 2.6c-.2.3-.6.6-1 .5L12.5 44.8z"/>
+                <path fill="currentColor" d="M1.2 51.9c-.3 0-.4-.2-.2-.5l2.1-2.7c.2-.3.7-.5 1-.5h45.2c.3 0 .5.2.4.5l-.8 2.4c-.1.3-.4.5-.7.5L1.2 51.9z"/>
+                <path fill="currentColor" d="M22.2 59c-.3 0-.4-.3-.2-.5l1.4-2.5c.2-.3.6-.5.9-.5h19.8c.3 0 .5.2.5.5l-.2 2.5c0 .3-.3.5-.5.5L22.2 59z"/>
+                <path fill="currentColor" d="M120.3 43.8c-6.3-1.6-10.6-2.8-15.8-6.2-4.5-3-8.5-7.1-14.9-5.4-5.2 1.4-8.3 5.8-10 10.7-.3.7-.5 1.5-.6 2.3 0 .1 0 .2-.1.3h-.1c-1.6-3.4-5.1-6-8.5-7.7-3.6-1.8-7.8-2.8-11.9-1.7-6.4 1.7-9.8 7.9-10.8 14-.3 1.9-.3 3.8 0 5.6.8 5.4 3.9 10.5 9 12.9 4.7 2.3 10.5 2.1 15.2-.2 3.4-1.6 6.7-4.6 8-8.2h.1c0 .1 0 .2.1.3 1.3 5.3 5.3 10.1 10.6 11.9 5.7 1.9 12.3.3 16.7-3.9 2.8-2.7 4.8-6.3 5.5-10.2.1-.4.2-.9.2-1.3h.2c.3 1.2.7 2.3 1.2 3.4 1.3 2.7 3.5 5.1 6.2 6.3 2 .9 4.3 1 6.3.1 1.8-.8 3.3-2.4 3.8-4.4.2-.8.2-1.6 0-2.4-.7-2.9-3.7-4.3-5.8-6.1z"/>
+              </svg>
+            </div>
+            <span class="stack-item__label">Go</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="Rust">
+            <div class="stack-item__icon" style="--clr:#CE422B" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M62.3 11.5l-1.6.8-18.4 9.6-1.7.9v.1l.7 1.3 3.4 6.3v.1l-.1.1-5.5 3.7-.1.1-.1-.1-4.5-5.5-1.2-1.4-1 1.5-11.1 17-.9 1.4 1.6.5 7 2.2h.1v.1l-.9 6.5v.2h-.2l-7.3.4-1.8.1.5 1.7 5.4 18.5.5 1.6 1.5-.7 6.4-2.9h.1v.1l3.2 5.8v.1l-.1.1-5.2 4.7-1.3 1.2 1.4 1 15.7 11.6 1.4 1 .8-1.5 3.3-6.2h.1l6.3 1.6h.1v.1l.8 7.2.2 1.7 1.7-.2 19.3-2.4 1.7-.2-.3-1.7-1.3-7.1v-.1h.1l5.9-2.7h.1l.1.1 4.2 5.9 1 1.5 1.3-1.2 13.9-12.6 1.3-1.2-1.4-1-5.8-4.1v-.1l1.6-6.3.1-.1h.1l7.1 1 1.7.2.1-1.7.5-19.4V62l-1.7.1-7.2.4h-.1v-.1l-2.6-6h-.1v-.1l5.5-4.9 1.3-1.2-1.4-1-16.4-10.8-1.5-.9-.7 1.5-3 6.5h-.1l-6.5-.8h-.1v-.1l-.3-7.3-.1-1.8-1.7.4zm1.8 5.4l.2 6.3.1 1.7 1.7.2 9.2 1.1 1.6.2.7-1.5 2.6-5.6L89 27.9l5.2 12.8-4.7 4.2-1.1 1 .5 1.4 3.7 8.5.6 1.5 1.6-.1 6.2-.3-.5 6.2-6.1-.8-1.6-.2-.5 1.5-2.3 8.9-.4 1.6 1.3.9 5 3.5-4.3 3.9-3.6-5.1-1-1.4-1.5.7-8.3 3.8-1.5.7.3 1.6 1.1 6.1-6.1.8-.7-6.2-.2-1.7-1.7.1-8.9.7-1.7.1.1 1.7-.2 6.1-6.2-.5-2.8-6.3-.7-1.6-1.5.7-5.5 2.5-1.7-5.8 6.3-.4 1.6-.1.1-1.6.8-9.1.1-1.6-1.4-.9-6.1-3.8 3.5-5.2 4.5 5.5 1.1 1.3 1.5-.7 7.7-3.7 1.5-.7-.5-1.6-3.1-9.2-.5-1.6-1.7.2-6.1.8 1.6-5.8 5.9-2.5 1.7 10.4 12.8.2 1.8 1.8.1 9.3-.5h.1l2.3 4.7-4.8 5.1-1.2 1.3.9 1.4 4.5 7.2-3.6 4.1-5.2-7-1.1-1.5-1.5.8-7.3 3.8-1.5.8.4 1.6 2 7.8-6.5 2.5-2.5-6.1-.6-1.6-1.7.3-8.8 1.4-1.6.3v1.6l-.4 8.9-.1 1.7 1.7.1 6.2.4-1.8 5.8-6-.8-1.6-.2-.5 1.5-3 8.5-1.5.1-3.7-8.6.8-8.7.2-1.7-1.6-.4-8.9-2.4-1.6-.4-.7 1.5-2.7 5.7-4.9-3.6 3.3-4.4 1-1.4-.8-1.5-4.5-8.3-.8-1.5-1.5.7-5.6 2.6-.4-6.2 6.3-.4 1.7-.1-.1-1.7-.1-9.2-.1-1.7-1.6-.3-5.9-1.8 3.5-5.3 3.9 4.8 1.1 1.4 1.6-.5 8.9-2.6 1.6-.5-.4-1.6-1-5.9 5.7-3 5.3 4z"/>
+                <circle cx="64" cy="64" r="10" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <span class="stack-item__label">Rust</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="Java">
+            <div class="stack-item__icon" style="--clr:#ED8B00" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M47.6 98.4s-4.8 2.8 3.4 3.7c9.9 1.1 15 1 25.9-.9 0 0 2.9 1.8 6.9 3.3-24.5 10.5-55.5-.6-36.2-6.1zM44.7 84.1s-5.4 4 2.8 4.8c10.5 1.1 18.8 1.2 33.2-1.6 0 0 2 2 5.2 3.1-29.4 8.6-62.1.7-41.2-6.3z"/>
+                <path fill="currentColor" d="M76.4 61.1c6 6.9-1.6 13.1-1.6 13.1s15.2-7.8 8.2-17.6c-6.5-9.1-11.5-13.6 15.5-29.2 0 .1-42.4 10.6-22.1 33.7z"/>
+                <path fill="currentColor" d="M107.3 105.7s3.6 2.9-3.9 5.2c-14.2 4.3-59.1 5.6-71.6.2-4.5-1.9 3.9-4.6 6.6-5.2 2.7-.6 4.3-.5 4.3-.5-5-3.5-32.2 6.9-13.8 9.8 50.1 8.1 91.4-3.6 78.4-9.5z"/>
+                <path fill="currentColor" d="M49.8 69.7s-22.9 5.4-8.1 7.4c6.2.8 18.6.6 30.2-.3 9.4-.8 18.9-2.4 18.9-2.4s-3.3 1.4-5.7 3.1c-23.1 6.1-67.6 3.2-54.8-2.9 10.9-5.3 19.5-4.9 19.5-4.9z"/>
+                <path fill="currentColor" d="M95.7 91.7c23.5-12.2 12.6-23.9 5-22.3-1.8.4-2.7.7-2.7.7s.7-1.1 2-1.6c14.9-5.2 26.4 15.5-4.8 23.7 0 .1.3-.1.5-.5z"/>
+                <path fill="currentColor" d="M80.4 5s13.1 13.1-12.4 33.2c-20.4 16.1-4.7 25.3 0 35.8-11.9-10.7-20.6-20.2-14.7-29 8.5-12.8 32-19 27.1-40z"/>
+                <path fill="currentColor" d="M52.9 125.9c22.5 1.4 57.1-.8 57.9-11.4 0 0-1.6 4-18.6 7.2-19.4 3.5-43.2 3.1-57.3.8 0 0 2.9 2.4 18 3.4z"/>
+              </svg>
+            </div>
+            <span class="stack-item__label">Java</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="Kotlin">
+            <div class="stack-item__icon" style="--clr:#7F52FF" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="currentColor" d="M8 8h55.4L8 64.5z"/>
+                <path fill="currentColor" d="M8 120l55.5-55.5L120 120z"/>
+                <path fill="currentColor" d="M8 8l55.5 56L120 8z"/>
+              </svg>
+            </div>
+            <span class="stack-item__label">Kotlin</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="PHP">
+            <div class="stack-item__icon" style="--clr:#8892BF" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <ellipse cx="64" cy="64" rx="60" ry="30" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="3"/>
+                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="32" font-weight="bold" fill="currentColor" font-family="monospace">PHP</text>
+              </svg>
+            </div>
+            <span class="stack-item__label">PHP</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="TypeScript">
+            <div class="stack-item__icon" style="--clr:#3178C6" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="128" height="128" rx="8" fill="currentColor" opacity="0.15"/>
+                <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-size="40" font-weight="900" fill="currentColor" font-family="monospace">TS</text>
+              </svg>
+            </div>
+            <span class="stack-item__label">TypeScript</span>
+          </div>
+
+          <div class="stack-item reveal-up" role="listitem" aria-label="SQL">
+            <div class="stack-item__icon" style="--clr:#336791" aria-hidden="true">
+              <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <ellipse cx="64" cy="30" rx="48" ry="18" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="3"/>
+                <path fill="none" stroke="currentColor" stroke-width="3" d="M16 30v68c0 10 21.5 18 48 18s48-8 48-18V30"/>
+                <path fill="none" stroke="currentColor" stroke-width="3" d="M16 64c0 10 21.5 18 48 18s48-8 48-18"/>
+              </svg>
+            </div>
+            <span class="stack-item__label">SQL</span>
+          </div>
+
         </div>
+
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <span class="logo-bracket">[</span>Diego<span class="logo-accent">Cpsx7z</span><span class="logo-bracket">]</span>
-    </div>
-    <div class="footer-copy">© 2026 DiegoCpsx7z — All rights reserved</div>
-    <div class="footer-status">
-      <span class="status-dot"></span>
-      <span>Disponible para proyectos</span>
-    </div>
-  </div>
-</footer>
+    <!-- ============================================================
+         SECCIÓN ORGANIZACIONES
+    ============================================================ -->
+    <section class="organizations" id="organizations" aria-labelledby="orgs-title">
+      <div class="section-container">
 
-<script src="script.js"></script>
+        <header class="section-header">
+          <span class="section-tag reveal-text">// 05 — organizations</span>
+          <h2 class="section-title reveal-text" id="orgs-title">Mis <span class="accent">Organizaciones</span></h2>
+        </header>
+
+        <div class="orgs__grid">
+
+          <!-- Aztrix Prime Studio -->
+          <article class="org-card reveal-up" aria-labelledby="org1-title">
+            <div class="org-card__accent org-card__accent--cyan" aria-hidden="true"></div>
+            <div class="org-card__header">
+              <div class="org-card__logo" aria-hidden="true">
+                <span class="org-logo-text">APS</span>
+              </div>
+              <div class="org-card__info">
+                <h3 class="org-card__name" id="org1-title">Aztrix Prime Studio</h3>
+                <span class="org-card__role">CEO &amp; Fundador</span>
+              </div>
+            </div>
+            <p class="org-card__desc">
+              Estudio técnico especializado en el ecosistema Minecraft. Desarrollo de plugins, mods, setups de servidores y recursos para operadores y comunidades.
+            </p>
+            <div class="org-card__tags">
+              <span class="tag">Plugins</span>
+              <span class="tag">Mods</span>
+              <span class="tag">Setups</span>
+              <span class="tag">PaperMC</span>
+            </div>
+          </article>
+
+          <!-- CoreMC -->
+          <article class="org-card reveal-up" aria-labelledby="org2-title">
+            <div class="org-card__accent org-card__accent--violet" aria-hidden="true"></div>
+            <div class="org-card__header">
+              <div class="org-card__logo" aria-hidden="true">
+                <span class="org-logo-text">CMC</span>
+              </div>
+              <div class="org-card__info">
+                <h3 class="org-card__name" id="org2-title">CoreMC</h3>
+                <span class="org-card__role">Manager</span>
+              </div>
+            </div>
+            <p class="org-card__desc">
+              Gestión operativa de servidores y comunidades Minecraft. Supervisión de equipos técnicos, infraestructura de red y protocolos de soporte a usuarios.
+            </p>
+            <div class="org-card__tags">
+              <span class="tag">Gestión</span>
+              <span class="tag">Infraestructura</span>
+              <span class="tag">Soporte</span>
+            </div>
+          </article>
+
+          <!-- NeonCore Cloud -->
+          <article class="org-card reveal-up" aria-labelledby="org3-title">
+            <div class="org-card__accent org-card__accent--red" aria-hidden="true"></div>
+            <div class="org-card__header">
+              <div class="org-card__logo" aria-hidden="true">
+                <span class="org-logo-text">NCC</span>
+              </div>
+              <div class="org-card__info">
+                <h3 class="org-card__name" id="org3-title">NeonCore Cloud</h3>
+                <span class="org-card__role">Técnico</span>
+              </div>
+            </div>
+            <p class="org-card__desc">
+              Soporte técnico especializado en infraestructura cloud para servidores de juego. Gestión de VPS, backups, monitoreo de rendimiento y resolución de incidencias críticas.
+            </p>
+            <div class="org-card__tags">
+              <span class="tag">Cloud</span>
+              <span class="tag">VPS</span>
+              <span class="tag">DevOps</span>
+              <span class="tag">Monitoreo</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN CONTACTO
+    ============================================================ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="section-container">
+
+        <div class="contact__inner reveal-up">
+          <span class="section-tag">// 06 — contact</span>
+          <h2 class="contact__title" id="contact-title">
+            ¿Tienes un proyecto<br />
+            <span class="accent">ambicioso</span>?
+          </h2>
+          <p class="contact__sub">
+            Estoy disponible para colaboraciones técnicas, auditorías de rendimiento, desarrollo de plugins/mods a medida y consultoría de infraestructura. Hablemos.
+          </p>
+
+          <div class="contact__methods">
+            <a
+              href="https://discord.com/users/diegocpsx7z"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact__btn"
+              aria-label="Contactar a DiegoCpsx7z por Discord"
+            >
+              <svg class="contact__btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+              Hablar por Discord
+            </a>
+          </div>
+
+          <div class="contact__handle" aria-label="Identificador de Discord">
+            <span class="contact__handle-prefix">discord://</span>diegocpsx7z
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">[DiegoCpsx7z]</span>
+        <span class="footer__copy">&copy; 2025 Aztrix Prime Studio</span>
+      </div>
+
+      <div class="footer__status" aria-label="Estado de disponibilidad: disponible">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Status: <strong>Disponible</strong></span>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navegación del footer">
+        <a href="#hero" class="footer__link">Inicio</a>
+        <a href="#projects" class="footer__link">Proyectos</a>
+        <a href="#contact" class="footer__link">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
