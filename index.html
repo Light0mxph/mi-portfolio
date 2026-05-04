@@ -1,553 +1,342 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DiegoCpsx7z — Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiegoCpsx7z — Portafolio</title>
 
-  <!-- SEO - Meta description y author -->
-  <meta name="description" content="Portfolio de DiegoCpsx7z — Desarrollador especializado en mods, plugins y sistemas para servidores de Minecraft. CEO de Aztrix Prime Studio. Java, C++, Kotlin y más."/>
-  <meta name="author" content="DiegoCpsx7z"/>
+  <meta name="description" content="Portafolio de DiegoCpsx7z, desarrollador enfocado en mods, plugins y sistemas para servidores de Minecraft." />
+  <meta name="theme-color" content="#050810" />
+  <meta name="author" content="DiegoCpsx7z" />
 
-  <!-- SEO - Open Graph para tarjetas enriquecidas en Discord y redes sociales -->
-  <meta property="og:title" content="DiegoCpsx7z — Minecraft Developer & Mod Creator"/>
-  <meta property="og:description" content="Desarrollador especializado en mods, plugins y ventajas para servidores de Minecraft. CEO de Aztrix Prime Studio. Disponible para proyectos y colaboraciones."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://light0mxph.github.io/mi-portfolio/"/>
+  <meta property="og:title" content="DiegoCpsx7z — Portafolio" />
+  <meta property="og:description" content="Desarrollador enfocado en Minecraft, Java, C++, PHP y soluciones para servidores." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://light0mxph.github.io/mi-portfolio/" />
 
-  <!-- Favicon dinámico -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232dff6e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='%23050810' font-family='monospace' font-size='13' font-weight='bold'%3E7z%3C/text%3E%3C/svg%3E"/>
-
-  <!-- MEJORA #5: Fuentes — VT323 para cuerpo, Press Start 2P para títulos/destacados -->
-  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
-
-  <!-- CSS externo (MEJORA #1: separado del HTML) -->
-  <link rel="stylesheet" href="https://light0mxph.github.io/mi-portfolio/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232dff6e'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' fill='%23050810' font-family='monospace' font-size='13' font-weight='bold'%3E7z%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<canvas id="particles"></canvas>
-<div class="grid-bg"></div>
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#hero">DiegoCpsx7z</a>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">DiegoCpsx7z</div>
-  <ul class="nav-links">
-    <li><a href="#sobre-mi">Sobre mí</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#proyectos">Mi Estudio</a></li>
-    <li><a href="#colaboraciones">Colaboraciones</a></li>
-    <li><a href="#minecraft">Minecraft</a></li>
-    <li><a href="#contact">Contacto</a></li>
-  </ul>
-  <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="nav-cta">Contactar →</a>
-  <!-- ARIA — aria-expanded y aria-label dinámicos en el botón hamburguesa -->
-  <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="#sobre-mi">Sobre mí</a>
-  <a href="#skills">Skills</a>
-  <a href="#proyectos">Mi Estudio</a>
-  <a href="#colaboraciones">Colaboraciones</a>
-  <a href="#minecraft">Minecraft</a>
-  <a href="#contact">Contacto</a>
-  <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="nav-mobile-cta">Contactar →</a>
-</div>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#skills">Skills</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#colaboraciones">Colaboraciones</a>
+        <a href="#minecraft">Minecraft</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
 
-<div class="wrapper">
-
-  <!-- ═══ HERO ═══ -->
-  <section id="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <!-- MEJORA #3: eyebrow-line se oculta en móvil vía CSS (.eyebrow-line { display:none } @600px) -->
-        <div class="eyebrow-line"></div>
-        <!-- MEJORA #3: white-space: normal aplicado en CSS para móvil -->
-        <span class="hero-badge">// Developer &amp; Mod Creator</span>
-        <div class="eyebrow-line"></div>
-      </div>
-      <h1 class="hero-name"><span class="hl">Diego</span>Cpsx7z<span class="cursor"></span></h1>
-      <!-- MEJORA #2: Separadores vacíos, el bullet "•" se añade via CSS ::after -->
-      <div class="hero-sub">
-        <span>Java</span><span class="sep"></span>
-        <span>C++</span><span class="sep"></span>
-        <span>PHP</span><span class="sep"></span>
-        <span>Minecraft Modder</span>
-      </div>
-      <p class="hero-desc">
-        Desarrollador especializado en la creación de <strong>mods y plugins para servidores de Minecraft</strong>.
-        Construyo experiencias únicas, ventajas competitivas y sistemas personalizados para la comunidad gaming.
-      </p>
-      <div class="hero-btns">
-        <a href="#proyectos" class="btn btn-primary">Ver Proyectos →</a>
-        <a href="#skills" class="btn btn-outline">Mis Skills</a>
+      <div class="nav-actions">
+        <a class="ghost-btn" href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener noreferrer">Discord</a>
+        <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="hero-terminal">
-        <div class="terminal-header">
-          <div class="t-dot"></div>
-          <div class="t-dot"></div>
-          <div class="t-dot"></div>
-          <span class="t-title">developer.json</span>
-        </div>
-        <div class="terminal-body">
-          <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">cat developer.json</span></div>
-          <div class="t-blank"></div>
-          <div class="t-line"><span class="t-val-blue">{</span></div>
-          <div class="t-line"><span class="t-obj-key">"name"</span><span class="t-comment">: </span><span class="t-val-green">"DiegoCpsx7z"</span><span class="t-comment">,</span></div>
-          <div class="t-line"><span class="t-obj-key">"role"</span><span class="t-comment">: </span><span class="t-val-orange">"Minecraft Developer"</span><span class="t-comment">,</span></div>
-          <div class="t-line"><span class="t-obj-key">"stack"</span><span class="t-comment">: [</span></div>
-          <!-- MEJORA #7: style="margin-left:40px" → class="t-indent" -->
-          <div class="t-line"><span class="t-indent t-val-green">"Java"</span><span class="t-comment">, </span><span class="t-val-green">"C++"</span><span class="t-comment">, </span><span class="t-val-green">"PHP"</span><span class="t-comment">,</span></div>
-          <div class="t-line"><span class="t-indent t-val-green">"Kotlin"</span><span class="t-comment">, </span><span class="t-val-green">"C#"</span><span class="t-comment">, </span><span class="t-val-green">"Lua"</span></div>
-          <!-- MEJORA #7: style="margin-left:20px" → class="t-indent2" -->
-          <div class="t-line"><span class="t-indent2 t-comment">],</span></div>
-          <div class="t-line"><span class="t-obj-key">"orgs"</span><span class="t-comment">: </span><span class="t-val-purple">3</span><span class="t-comment">,</span></div>
-          <div class="t-line"><span class="t-obj-key">"specialty"</span><span class="t-comment">: </span><span class="t-val-orange">"Minecraft Ecosystem"</span><span class="t-comment">,</span></div>
-          <div class="t-line"><span class="t-obj-key">"available"</span><span class="t-comment">: </span><span class="t-val-green">true</span></div>
-          <div class="t-line"><span class="t-val-blue">}</span></div>
-          <div class="t-blank"></div>
-          <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">_<span style="animation:blink 1s step-end infinite;display:inline-block">▋</span></span></div>
-        </div>
-      </div>
-    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#skills">Skills</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#colaboraciones">Colaboraciones</a>
+      <a href="#minecraft">Minecraft</a>
+      <a href="#contacto">Contacto</a>
+      <a class="mobile-cta" href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener noreferrer">Contactar por Discord</a>
+    </nav>
+  </header>
 
-    <div class="scroll-hint">
-      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- ═══ SOBRE MÍ ═══ -->
-  <section id="sobre-mi">
-    <div class="reveal">
-      <div class="section-head">
-        <div class="section-label">01 — Sobre mí</div>
-        <h2 class="section-title">Quién soy<span>.</span></h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>Soy <strong>DiegoCpsx7z</strong>, un desarrollador apasionado por el ecosistema de Minecraft y la programación de sistemas complejos. Me especializo en crear <strong>mods, plugins y ventajas personalizadas</strong> para servidores.</p>
-          <p>Mi experiencia abarca desde lenguajes de bajo nivel como <strong>C y C++</strong>, hasta soluciones web con <strong>PHP y CSS</strong>, pasando por el desarrollo con <strong>Java, Kotlin, C# y Lua</strong>. Cada proyecto es una oportunidad de llevar la experiencia del jugador al siguiente nivel.</p>
-          <p>Actualmente lidero y colaboro en tres organizaciones clave del mundo gaming y cloud: <strong>CoreMC</strong>, <strong>Aztrix Prime Studio</strong> y <strong>NeonCore Cloud</strong>.</p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-box">
-            <span class="stat-num" data-target="8">0</span>
-            <div class="stat-label">Lenguajes</div>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num" data-target="3">0</span>
-            <div class="stat-label">Organizaciones</div>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num">MC</span>
-            <div class="stat-label">Especialidad</div>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num">∞</span>
-            <div class="stat-label">Ideas</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SKILLS ═══ -->
-  <section id="skills">
-    <div class="reveal">
-      <div class="section-head">
-        <div class="section-label">02 — Habilidades</div>
-        <h2 class="section-title">Stack tecnológico<span>.</span></h2>
-      </div>
-      <div class="skills-grid">
-
-        <!-- Java -->
-        <div class="skill-card" style="--accent:rgba(248,152,32,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>Java</title><path fill="#f89820" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.128 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/><path fill="#f89820" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 0-42.731 10.67-22.324 34.187z"/><path fill="#f89820" d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.921 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.683 22.74c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0 .001.362-.32.468-.617z"/><path fill="#f89820" d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587zm-5.277 124.434c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 0 2.875 2.381 17.647 3.331z"/></svg>
-          </div>
-          <div class="skill-name">Java</div>
-          <span class="skill-tag tag-main">Principal</span>
-        </div>
-
-        <!-- C++ -->
-        <div class="skill-card" style="--accent:rgba(0,120,210,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>C++</title><path fill="#00599c" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6zM64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c6.2 0 11.9 2.3 16.2 6.1l-8 8c-2.1-1.9-5-3.1-8.2-3.1-6.9 0-12.5 5.6-12.5 12.5s5.6 12.5 12.5 12.5c5.7 0 10.5-3.8 12-9H64V55.5h24.3c.4 1.4.5 2.9.5 4.5.1 15.7-11.8 28.5-24.8 28.5z"/><path fill="#004482" d="M92.3 64H88v4.4h-4.4V64h-4.4v-4.4h4.4v-4.4H88v4.4h4.3V64zm12.5 0h-4.4v4.4h-4.3V64h-4.4v-4.4h4.4v-4.4h4.3v4.4h4.4V64z"/></svg>
-          </div>
-          <div class="skill-name">C++</div>
-          <span class="skill-tag tag-sec">Dominio</span>
-        </div>
-
-        <!-- PHP -->
-        <div class="skill-card" style="--accent:rgba(119,123,180,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>PHP</title><ellipse cx="64" cy="64" rx="64" ry="36" fill="#6181b6"/><path fill="#fff" d="M49.1 46.6h7.5c7 0 12.2 1.4 15.4 4.1 3.2 2.7 4.5 6.7 3.9 11.8-.6 5.1-2.8 9-6.6 11.8-3.8 2.8-9.2 4.2-16.2 4.2h-5l-2.1 12.3H38l6.2-36.1h5-.1zm3 6.2l-3.1 18c.4 0 .7.1 1.1.1.4 0 .7 0 1 .1 4.7 0 8.2-.9 10.5-2.8 2.3-1.9 3.7-4.7 4.1-8.5.4-3.5-.3-6-2-7.4s-4.8-2.1-9-2.1l-2.6.6zM79.1 46.6h8l-2.4 13.4h9.4l2.4-13.4h8.1L98.5 82.8h-8.1l2.6-15.4H83.6l-2.6 15.4h-8.1l6.2-36.2z"/></svg>
-          </div>
-          <div class="skill-name">PHP</div>
-          <span class="skill-tag tag-sec">Dominio</span>
-        </div>
-
-        <!-- CSS -->
-        <div class="skill-card" style="--accent:rgba(38,100,228,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>CSS</title><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.812l36.559-10.138 8.601-96.354H64.001v106.492z"/><path fill="#fff" d="M64.001 51.429H49.997l-1.029-11.558H64.001V28.456H36.944l.271 3.041 2.772 31.087h24.014V51.429zM64.001 87.349l-.061.017-15.327-4.14-.979-10.975H36.552l1.928 21.609 25.43 7.057.091-.025v-13.543z"/><path fill="#ebebeb" d="M63.952 51.429v11.455H77.58l-1.207 13.527-12.421 3.352v13.543l25.452-7.057.187-2.097 2.914-32.639.299-3.084H63.952zM63.952 28.456v11.415h24.647l.205-2.308.468-5.105.243-4.002H63.952z"/></svg>
-          </div>
-          <div class="skill-name">CSS</div>
-          <span class="skill-tag tag-sec">Dominio</span>
-        </div>
-
-        <!-- C -->
-        <div class="skill-card" style="--accent:rgba(100,100,220,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>C</title><path fill="#5a5acf" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6z"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="'Share Tech Mono',monospace" font-size="52" font-weight="bold">C</text></svg>
-          </div>
-          <div class="skill-name">C</div>
-          <span class="skill-tag tag-sec">Dominio</span>
-        </div>
-
-        <!-- C# -->
-        <div class="skill-card" style="--accent:rgba(150,50,180,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>C#</title><path fill="#9b4f96" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6z"/><path fill="#fff" d="M47.617 66.498c0 9.095 5.979 16.949 15.284 16.949 5.54 0 10.26-2.68 13.225-7.04v-7.625h-14.09v-6.785h21.544v16.949c-4.28 7.265-11.835 11.715-20.679 11.715-14.379 0-22.893-11.035-22.893-24.163s8.514-24.163 22.893-24.163c8.724 0 16.079 4.24 20.319 10.92l-6.565 3.685c-2.765-4.71-7.765-7.39-13.754-7.39-9.305 0-15.284 7.853-15.284 16.948z"/><path fill="#fff" d="M87.074 79.782v-6.565h-5.239v-4.72h5.239v-5.239h4.72v5.239h5.239v4.72h-5.239v6.565h-4.72zm11.914 0v-6.565h-5.239v-4.72h5.239v-5.239h4.72v5.239h5.239v4.72h-5.239v6.565h-4.72z"/></svg>
-          </div>
-          <div class="skill-name">C#</div>
-          <span class="skill-tag tag-sec">Dominio</span>
-        </div>
-
-        <!-- Lua -->
-        <div class="skill-card" style="--accent:rgba(0,0,160,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>Lua</title><circle cx="64" cy="64" r="58" fill="#000080"/><circle cx="64" cy="64" r="46" fill="#fff"/><circle cx="64" cy="64" r="34" fill="#000080"/><circle cx="90" cy="28" r="14" fill="#fff"/><text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="'Rajdhani',sans-serif" font-size="24" font-weight="700" letter-spacing="1">LUA</text></svg>
-          </div>
-          <div class="skill-name">Lua</div>
-          <span class="skill-tag tag-sec">Dominio</span>
-        </div>
-
-        <!-- Kotlin -->
-        <div class="skill-card" style="--accent:rgba(127,82,255,0.55);">
-          <div class="skill-logo">
-            <svg viewBox="0 0 128 128"><title>Kotlin</title><defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c93d2"/><stop offset=".5" stop-color="#7f52ff"/><stop offset="1" stop-color="#c811e1"/></linearGradient></defs><path fill="url(#kg)" d="M128 128H0V0h128L64 64z"/></svg>
-          </div>
-          <div class="skill-name">Kotlin</div>
-          <span class="skill-tag tag-sec">Dominio</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ MI ESTUDIO ═══ -->
-  <section id="proyectos">
-    <div class="reveal">
-      <div class="section-head">
-        <div class="section-label">03 — Mi Estudio</div>
-        <h2 class="section-title">Aztrix Prime Studio<span>.</span></h2>
-      </div>
-      <div class="studio-card aztrix">
-        <div class="org-stripe"></div>
-        <div class="studio-inner">
-          <div class="studio-left">
-            <div class="studio-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div>
-              <div class="studio-role-badge">CEO &amp; Founder</div>
-              <h3 class="studio-name">Aztrix Prime Studio</h3>
-              <div class="studio-role">// Mi estudio — propuestas de trabajo y colaboraciones</div>
-            </div>
-          </div>
-          <div class="studio-desc">
-            <p>Este es mi estudio personal donde <strong>acepto propuestas de trabajo</strong>, colaboraciones y proyectos de todo tipo. Si tienes una idea, necesitas un mod, plugin, sistema para servidor o cualquier desarrollo relacionado con Minecraft — este es el lugar para contactarme.</p>
-            <p>Abierto a encargos individuales, proyectos a largo plazo y cualquier propuesta creativa dentro del ecosistema gaming.</p>
-          </div>
-          <div class="studio-cta">
-            <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="btn-discord" style="font-size:12px;padding:16px 24px;">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-              Contactar en Discord
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ COLABORACIONES ═══ -->
-  <section id="colaboraciones">
-    <div class="reveal">
-      <div class="section-head">
-        <div class="section-label">04 — Colaboraciones</div>
-        <h2 class="section-title">Donde colaboro<span>.</span></h2>
-      </div>
-      <p style="font-size:15px;color:var(--muted);margin-bottom:40px;font-family:'Share Tech Mono',monospace;letter-spacing:1px;">Organizaciones a las que pertenezco o donde contribuyo activamente.</p>
-      <div class="orgs-grid">
-
-        <!-- CoreMC -->
-        <div class="org-card coremc reveal reveal-delay-1">
-          <div class="org-stripe"></div>
-          <div class="org-header">
-            <div class="org-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2dff6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="role-badge">Manager</div>
-          </div>
-          <div class="org-name">CoreMC</div>
-          <p class="org-desc">Gestión y coordinación del equipo técnico y operativo de CoreMC. Supervisión de desarrollo, mantenimiento de servidores y garantía de calidad en cada entrega.</p>
-          <a href="https://discord.gg/Qyjv4pw2RE" target="_blank" rel="noopener" class="btn-discord">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            Unirse al Discord
-          </a>
-        </div>
-
-        <!-- NeonCore Cloud -->
-        <div class="org-card neoncore reveal reveal-delay-2">
-          <div class="org-stripe"></div>
-          <div class="org-header">
-            <div class="org-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="#00b4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="role-badge">Técnico</div>
-          </div>
-          <div class="org-name">NeonCore Cloud</div>
-          <p class="org-desc">Soporte técnico y administración de infraestructura cloud. Optimización de rendimiento, configuración de redes y mantenimiento de entornos de servidor.</p>
-          <a href="https://discord.gg/UNH48nS24z" target="_blank" rel="noopener" class="btn-discord">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            Unirse al Discord
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ MINECRAFT ═══ -->
-  <section id="minecraft">
-    <div class="reveal">
-      <div class="section-head">
-        <div class="section-label">05 — Especialidad</div>
-        <h2 class="section-title">Minecraft Development<span>.</span></h2>
-      </div>
-      <div class="mc-wrapper">
-        <p class="mc-intro">
-          Mi pasión principal es el desarrollo dentro del ecosistema de <strong>Minecraft</strong>.
-          Creo herramientas que transforman servidores ordinarios en experiencias extraordinarias —
-          desde plugins funcionales hasta mods que redefinen las mecánicas del juego.
+  <main id="contenido">
+    <section id="hero" class="section hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Minecraft Developer · Mod Creator · Studio Founder</p>
+        <h1>Construyo experiencias para Minecraft con enfoque en rendimiento, sistemas y estilo.</h1>
+        <p class="hero-text">
+          Soy DiegoCpsx7z. Desarrollo <strong>mods, plugins y soluciones a medida</strong> para servidores y comunidades,
+          combinando Java, C++, PHP, Kotlin y más.
         </p>
-        <div class="mc-grid">
-          <div class="mc-item">
-            <div class="mc-item-icon">🧱</div>
-            <div class="mc-item-text"><h4>Plugins de Servidor</h4><p>Desarrollo con Spigot / Paper API para ampliar funcionalidades del servidor.</p></div>
-          </div>
-          <div class="mc-item">
-            <div class="mc-item-icon">🛠️</div>
-            <div class="mc-item-text"><h4>Mods Personalizados</h4><p>Creación de mods con Forge / Fabric que añaden mecánicas, items y mundos únicos.</p></div>
-          </div>
-          <div class="mc-item">
-            <div class="mc-item-icon">⚔️</div>
-            <div class="mc-item-text"><h4>Ventajas Competitivas</h4><p>Sistemas de ventajas, habilidades y mejoras para servidores PvP y survival.</p></div>
-          </div>
-          <div class="mc-item">
-            <div class="mc-item-icon">🔌</div>
-            <div class="mc-item-text"><h4>Integraciones</h4><p>Conexión con bases de datos, APIs externas y sistemas de economía en servidores.</p></div>
-          </div>
-          <div class="mc-item">
-            <div class="mc-item-icon">📦</div>
-            <div class="mc-item-text"><h4>Modpacks</h4><p>Empaquetado y configuración de modpacks optimizados para multijugador.</p></div>
-          </div>
-          <div class="mc-item">
-            <div class="mc-item-icon">🌐</div>
-            <div class="mc-item-text"><h4>Redes de Servidores</h4><p>Configuración de redes BungeeCord / Velocity con plugins inter-servidor.</p></div>
-          </div>
+
+        <div class="hero-buttons">
+          <a class="primary-btn" href="#servicios">Ver lo que hago</a>
+          <a class="secondary-btn" href="#contacto">Hablemos</a>
+        </div>
+
+        <div class="hero-stats">
+          <article class="stat-card">
+            <span class="stat-number" data-target="8">0</span>
+            <span class="stat-label">Lenguajes</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-number" data-target="3">0</span>
+            <span class="stat-label">Organizaciones</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-number">MC</span>
+            <span class="stat-label">Especialidad</span>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══ CONTACTO ═══ -->
-  <section id="contact">
-    <div class="reveal">
+      <aside class="hero-panel reveal">
+        <div class="terminal">
+          <div class="terminal-top">
+            <span></span><span></span><span></span>
+            <p>developer.json</p>
+          </div>
+          <pre class="terminal-body">{
+  &quot;name&quot;: &quot;DiegoCpsx7z&quot;,
+  &quot;role&quot;: &quot;Minecraft Developer&quot;,
+  &quot;stack&quot;: [&quot;Java&quot;, &quot;C++&quot;, &quot;PHP&quot;, &quot;Kotlin&quot;, &quot;C#&quot;, &quot;Lua&quot;],
+  &quot;focus&quot;: &quot;plugins, mods y sistemas&quot;,
+  &quot;available&quot;: true
+}</pre>
+        </div>
+
+        <div class="floating-card floating-a">
+          <span>CoreMC</span>
+          <strong>Manager</strong>
+        </div>
+        <div class="floating-card floating-b">
+          <span>Aztrix Prime Studio</span>
+          <strong>CEO & Founder</strong>
+        </div>
+      </aside>
+    </section>
+
+    <section id="sobre-mi" class="section reveal">
       <div class="section-head">
-        <div class="section-label">06 — Contacto</div>
-        <h2 class="section-title">Únete a Aztrix Prime Studio<span>.</span></h2>
+        <p class="section-kicker">01 — Sobre mí</p>
+        <h2>Quién soy.</h2>
       </div>
-      <div class="contact-box">
-        <div class="contact-left">
-          <h3>¿Tienes una propuesta?</h3>
-          <p>Estoy disponible para nuevos proyectos de mods, plugins o sistemas para servidores de Minecraft. Para propuestas de trabajo y colaboraciones contáctame a través de <strong style="color:var(--purple)">Aztrix Prime Studio</strong>.</p>
-          <div class="contact-orgs">
-            <span class="contact-org-tag p">Aztrix Prime Studio — CEO &amp; Founder</span>
-            <span class="contact-org-tag g">CoreMC — Manager</span>
-            <span class="contact-org-tag b">NeonCore Cloud — Técnico</span>
+
+      <div class="two-col">
+        <div class="card prose">
+          <p>
+            Soy un desarrollador apasionado por el ecosistema de Minecraft y por crear sistemas que realmente se
+            sientan útiles dentro de un servidor.
+          </p>
+          <p>
+            Me gusta trabajar en <strong>mods, plugins, automatizaciones, integraciones web</strong> y soluciones
+            personalizadas que mejoren la experiencia del jugador y la gestión del servidor.
+          </p>
+          <p>
+            Actualmente participo en <strong>CoreMC</strong>, <strong>Aztrix Prime Studio</strong> y
+            <strong>NeonCore Cloud</strong>.
+          </p>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini-card">
+            <span>Java</span>
+            <strong>Principal</strong>
+          </div>
+          <div class="mini-card">
+            <span>Arquitectura</span>
+            <strong>Sistemas</strong>
+          </div>
+          <div class="mini-card">
+            <span>Server Side</span>
+            <strong>Plugins</strong>
+          </div>
+          <div class="mini-card">
+            <span>Game Dev</span>
+            <strong>Mods</strong>
           </div>
         </div>
-        <div class="contact-right">
-          <a href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener" class="contact-discord-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            <div><div>Aztrix Prime Studio</div><span class="dc-label">discord.gg/EU997SCwef</span></div>
-          </a>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">02 — Skills</p>
+        <h2>Stack tecnológico.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card"><span class="skill-badge">Java</span><p>Base principal para plugins y lógica de servidor.</p></article>
+        <article class="skill-card"><span class="skill-badge">C++</span><p>Programación de bajo nivel y soluciones de alto rendimiento.</p></article>
+        <article class="skill-card"><span class="skill-badge">PHP</span><p>Backends simples, paneles y lógica web.</p></article>
+        <article class="skill-card"><span class="skill-badge">CSS</span><p>Diseño visual, responsive y experiencias limpias.</p></article>
+        <article class="skill-card"><span class="skill-badge">C</span><p>Fundamentos sólidos y control fino del código.</p></article>
+        <article class="skill-card"><span class="skill-badge">C#</span><p>Herramientas, apps y aprendizaje multi-plataforma.</p></article>
+        <article class="skill-card"><span class="skill-badge">Lua</span><p>Scripting ligero y automatización.</p></article>
+        <article class="skill-card"><span class="skill-badge">Kotlin</span><p>Lenguaje moderno para desarrollo JVM.</p></article>
+      </div>
+    </section>
+
+    <section id="servicios" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">03 — Servicios</p>
+        <h2>Lo que puedo construir.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Plugins de servidor</h3>
+          <p>Funciones para economy, PvP, administración, minijuegos y sistemas internos.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Mods personalizados</h3>
+          <p>Contenido, mecánicas y mejoras para Forge, Fabric y entornos modded.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Integraciones</h3>
+          <p>Conexión con APIs, bases de datos y paneles web para automatizar procesos.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Optimización</h3>
+          <p>Mejoras de rendimiento, limpieza de código y experiencia más estable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="colaboraciones" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">04 — Colaboraciones</p>
+        <h2>Donde colaboro.</h2>
+      </div>
+
+      <div class="org-grid">
+        <article class="org-card org-green">
+          <span class="org-tag">Manager</span>
+          <h3>CoreMC</h3>
+          <p>Gestión y coordinación del área técnica, supervisando desarrollo y mantenimiento.</p>
+        </article>
+
+        <article class="org-card org-purple">
+          <span class="org-tag">CEO</span>
+          <h3>Aztrix Prime Studio</h3>
+          <p>Mi estudio para propuestas de trabajo, encargos y colaboraciones creativas.</p>
+        </article>
+
+        <article class="org-card org-blue">
+          <span class="org-tag">Técnico</span>
+          <h3>NeonCore Cloud</h3>
+          <p>Apoyo técnico y soluciones orientadas a infraestructura y soporte de proyectos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="minecraft" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">05 — Especialidad</p>
+        <h2>Minecraft Development.</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="card prose">
+          <p>
+            Mi enfoque principal está en Minecraft. Me interesa construir sistemas que se sientan rápidos, estables y
+            útiles para comunidades reales.
+          </p>
+          <p>
+            Trabajo en plugins, mods, ventajas competitivas, modpacks e integraciones para redes de servidores.
+          </p>
+        </div>
+
+        <div class="feature-list">
+          <div class="list-item"><strong>Plugins</strong><span>Spigot / Paper</span></div>
+          <div class="list-item"><strong>Mods</strong><span>Forge / Fabric</span></div>
+          <div class="list-item"><strong>Redes</strong><span>BungeeCord / Velocity</span></div>
+          <div class="list-item"><strong>Integración</strong><span>APIs y bases de datos</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</div>
+    <section id="contacto" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">06 — Contacto</p>
+        <h2>Hablemos de tu proyecto.</h2>
+      </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">DiegoCpsx7z</div>
-  <div class="footer-copy">© 2026 DiegoCpsx7z — All rights reserved</div>
-  <div class="footer-status">
-    <div class="status-dot"></div>
-    Disponible para proyectos
-  </div>
-</footer>
+      <div class="contact-card">
+        <div>
+          <p>
+            Estoy abierto a proyectos de Minecraft, ideas nuevas y colaboraciones dentro de Aztrix Prime Studio.
+          </p>
+          <div class="tags">
+            <span>Mods</span>
+            <span>Plugins</span>
+            <span>Sistemas</span>
+            <span>Colaboraciones</span>
+          </div>
+        </div>
 
-<script>
-  /* ── Reveal on scroll ── */
-  const revObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(r => revObs.observe(r));
+        <a class="primary-btn contact-btn" href="https://discord.gg/EU997SCwef" target="_blank" rel="noopener noreferrer">
+          Contactar por Discord
+        </a>
+      </div>
+    </section>
+  </main>
 
-  /* ── Animated counters ── */
-  const countObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = +el.dataset.target;
-      let start = 0;
-      const duration = 1100;
-      const step = ts => {
-        if (!start) start = ts;
-        const progress = Math.min((ts - start) / duration, 1);
-        el.textContent = Math.floor(progress * target) + (progress >= 1 ? '+' : '');
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-      countObs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-num[data-target]').forEach(n => countObs.observe(n));
+  <footer class="site-footer">
+    <p class="footer-brand">DiegoCpsx7z</p>
+    <p>© 2026 · Disponible para proyectos</p>
+  </footer>
 
-  /* ── Particle canvas ── */
-  const canvas = document.getElementById('particles');
-  const ctx = canvas ? canvas.getContext('2d', { alpha: true }) : null;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isSmallScreen = window.innerWidth < 900;
+  <script>
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-  let W = 0, H = 0, particles = [];
-  let lastFrame = 0;
-
-  function initCanvas() {
-    if (!canvas || !ctx || reduceMotion || isSmallScreen) {
-      if (canvas) canvas.style.display = 'none';
-      return false;
-    }
-    canvas.style.display = 'block';
-    resize();
-    createParticles();
-    return true;
-  }
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-
-  function createParticles() {
-    const count = Math.max(16, Math.min(28, Math.floor(Math.min(W, H) / 44)));
-    particles = Array.from({ length: count }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 1.1 + 0.3,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.2,
-      o: Math.random() * 0.25 + 0.07
-    }));
-  }
-
-  function drawParticles(timestamp) {
-    if (reduceMotion || isSmallScreen) return;
-    if (timestamp - lastFrame < 33) {
-      requestAnimationFrame(drawParticles);
-      return;
-    }
-    lastFrame = timestamp;
-    ctx.clearRect(0, 0, W, H);
-
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(45,255,110,${p.o})`;
-      ctx.fill();
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0) p.x = W;
-      if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H;
-      if (p.y > H) p.y = 0;
-    }
-
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distSq = dx * dx + dy * dy;
-        if (distSq < 110 * 110) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(45,255,110,${0.04 * (1 - Math.sqrt(distSq) / 110)})`;
-          ctx.lineWidth = 0.4;
-          ctx.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(drawParticles);
-  }
-
-  if (initCanvas()) requestAnimationFrame(drawParticles);
-
-  /* ── Hamburger menu ── */
-  const burger = document.getElementById('navBurger');
-  const mobileMenu = document.getElementById('navMobile');
-  burger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    burger.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    burger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+    function closeMenu() {
       mobileMenu.classList.remove('open');
       burger.classList.remove('open');
-      document.body.style.overflow = '';
       burger.setAttribute('aria-expanded', 'false');
       burger.setAttribute('aria-label', 'Abrir menú');
-    });
-  });
+      document.body.classList.remove('menu-open');
+    }
 
-  window.addEventListener('resize', () => {
-    if (reduceMotion || isSmallScreen) return;
-    resize();
-    createParticles();
-  }, { passive: true });
-</script>
+    burger?.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      burger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) closeMenu();
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    const countObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.target);
+        let start = null;
+        const duration = 1200;
+
+        function tick(timestamp) {
+          if (!start) start = timestamp;
+          const progress = Math.min((timestamp - start) / duration, 1);
+          el.textContent = Math.floor(progress * target) + (progress >= 1 ? '+' : '');
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.7 });
+
+    document.querySelectorAll('.stat-number[data-target]').forEach((el) => countObserver.observe(el));
+  </script>
 </body>
 </html>
