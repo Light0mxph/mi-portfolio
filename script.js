@@ -1,18 +1,6 @@
 /**
  * THE ROYAL VOID — script.js
  * DiegoCpsx7z · Aztrix Prime Studio
- *
- * Bugs fixed vs original:
- * 1. initCursorGlow: la función move() se llamaba con valores congelados
- *    en el RAF en lugar de leer el estado vivo → ahora usa state directamente.
- * 2. colorizeJSON: el regex de números (%/ms) nunca disparaba porque los
- *    valores ya estaban dentro de spans de string. Reemplazado por un
- *    tokenizer de una sola pasada sobre el JSON raw.
- * 3. initActiveNav: múltiples secciones visibles hacían parpadear el nav.
- *    Ahora usa scrollY para elegir la sección más próxima al viewport.
- * 4. Añadido will-change y cancelación de RAF para evitar memory leaks.
- * 5. Añadido scroll-progress bar.
- * 6. initCursorGlow ya no crea múltiples loops de RAF.
  */
 
 (() => {
@@ -25,16 +13,14 @@
   const prefersReducedMotion = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ─── State (single source of truth) ─────────────────────── */
+  /* ─── State ───────────────────────────────────────────────── */
   const state = {
     menuOpen: false,
-    /* Cursor glow — live target updated on pointermove */
-    glowTargetX: window.innerWidth  * 0.5,
-    glowTargetY: window.innerHeight * 0.3,
+    glowTargetX:  window.innerWidth  * 0.5,
+    glowTargetY:  window.innerHeight * 0.3,
     glowCurrentX: window.innerWidth  * 0.5,
     glowCurrentY: window.innerHeight * 0.3,
     glowRafId: null,
-    /* Scroll progress */
     scrollRafId: null,
   };
 
@@ -44,14 +30,12 @@
   function initScrollProgress() {
     const bar = $('#scrollBar');
     if (!bar) return;
-
     function update() {
       const scrolled = window.scrollY;
       const total    = document.documentElement.scrollHeight - window.innerHeight;
       const pct      = total > 0 ? (scrolled / total) * 100 : 0;
       bar.style.width = `${clamp(pct, 0, 100)}%`;
     }
-
     window.addEventListener('scroll', update, { passive: true });
     update();
   }
@@ -87,15 +71,12 @@
       menu.classList.toggle('is-open', state.menuOpen);
     });
 
-    /* Close on any menu-link click */
     $$('#siteMenu a').forEach(link => link.addEventListener('click', close));
 
-    /* Close on Escape */
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && state.menuOpen) close();
     });
 
-    /* Close on outside click */
     document.addEventListener('pointerdown', e => {
       if (!menu.contains(e.target) && !toggle.contains(e.target)) close();
     }, { passive: true });
@@ -103,9 +84,6 @@
 
   /* ═══════════════════════════════════════════════════════════
      ACTIVE NAV LINK
-     Bug fix: usar la sección cuyo top esté más cerca de scrollY
-     en lugar de dejar que IntersectionObserver colisione múltiples
-     entradas simultáneas.
      ═══════════════════════════════════════════════════════════ */
   function initActiveNav() {
     const links    = $$('#siteMenu a[href^="#"]');
@@ -187,7 +165,6 @@
     const metrics = $$('.mini-metric');
     if (!metrics.length) return;
 
-    /* Reduced motion: set final value immediately */
     if (prefersReducedMotion()) {
       metrics.forEach(m => {
         const el     = $('.mini-metric__value', m);
@@ -224,10 +201,6 @@
 
   /* ═══════════════════════════════════════════════════════════
      TERMINAL — JSON BUILDER + TOKENIZER
-     Bug fix: el colorizer original intentaba hacer match de
-     números como "99.9%" dentro de strings ya envueltas por
-     <span class="json-string">, lo cual nunca disparaba.
-     Ahora tokenizamos el JSON raw en una sola pasada.
      ═══════════════════════════════════════════════════════════ */
   function buildProfileJSON() {
     return {
@@ -244,6 +217,7 @@
         uptime:            '99.9%',
         tps_optimization:  '+40%',
         latency_reduction: '-35ms',
+        thread_overhead:   '~0ms',
         stability_sla:     'critical-grade',
       },
       specialization: [
@@ -251,17 +225,13 @@
         'Optimización de Infraestructura Crítica',
         'Auditoría de rendimiento',
         'Cloud Architecture',
+        'JVM Tuning',
       ],
+      contact: 'discord.gg/5kcNQEqCFS',
       status: 'AVAILABLE_FOR_PREMIUM_PROJECTS',
     };
   }
 
-  /**
-   * Tokenizer de una sola pasada: itera carácter a carácter sobre
-   * el JSON ya serializado y emite spans de colores sin regex anidados.
-   * Esto evita el bug donde los valores string envolvían métricas
-   * como "99.9%" antes de que el regex de números pudiera capturarlas.
-   */
   function tokenizeJSON(raw) {
     let out = '';
     let i   = 0;
@@ -270,10 +240,8 @@
     while (i < len) {
       const ch = raw[i];
 
-      /* ── Whitespace ── */
       if (/\s/.test(ch)) { out += ch; i++; continue; }
 
-      /* ── String ── */
       if (ch === '"') {
         let str = '"';
         i++;
@@ -284,21 +252,16 @@
           if (sc === '"')  { i++; break; }
           i++;
         }
-
-        /* Peek forward for colon → key */
         let j = i;
         while (j < len && /[ \t]/.test(raw[j])) j++;
         if (raw[j] === ':') {
           out += `<span class="json-key">${str}</span>`;
         } else {
-          /* Value string: strip outer quotes to inspect the value */
-          const inner = str.slice(1, -1);
           out += `<span class="json-str">${str}</span>`;
         }
         continue;
       }
 
-      /* ── Numbers ── */
       if (ch === '-' || (ch >= '0' && ch <= '9')) {
         let num = '';
         while (i < len && /[-\d.eE+]/.test(raw[i])) { num += raw[i]; i++; }
@@ -306,15 +269,11 @@
         continue;
       }
 
-      /* ── Booleans / null ── */
       if (raw.startsWith('true',  i)) { out += `<span class="json-bool">true</span>`;   i += 4; continue; }
       if (raw.startsWith('false', i)) { out += `<span class="json-bool">false</span>`;  i += 5; continue; }
       if (raw.startsWith('null',  i)) { out += `<span class="json-null">null</span>`;   i += 4; continue; }
 
-      /* ── Structural characters ── */
       if ('{}[],'.includes(ch)) { out += `<span class="json-brace">${ch}</span>`; i++; continue; }
-
-      /* ── Colon (separator) ── */
       if (ch === ':') { out += ch; i++; continue; }
 
       out += ch; i++;
@@ -341,50 +300,37 @@
     for (let i = 0; i < lines.length; i++) {
       rendered += lines[i] + '\n';
       output.innerHTML = tokenizeJSON(rendered) + '<span class="cursor-line"></span>';
-      /* First line slightly slower for dramatic effect */
-      await new Promise(r => setTimeout(r, i === 0 ? 200 : 62));
+      await new Promise(r => setTimeout(r, i === 0 ? 200 : 58));
     }
-    /* Remove cursor after typing finishes */
     await new Promise(r => setTimeout(r, 900));
     output.innerHTML = tokenizeJSON(raw);
   }
 
   /* ═══════════════════════════════════════════════════════════
      CURSOR GLOW
-     Bug fix: la versión original pasaba state.targetX/Y al RAF
-     como valores congelados en el momento de la llamada:
-       requestAnimationFrame(() => move(state.targetX, state.targetY))
-     Eso congelaba el target en el último valor conocido y el glow
-     dejaba de seguir al cursor suavemente. Ahora move() lee
-     state.glowTargetX/Y directamente en cada frame.
      ═══════════════════════════════════════════════════════════ */
   function initCursorGlow() {
     const glow = $('.cursor-glow');
     if (!glow || prefersReducedMotion()) return;
 
-    /* Update target on pointer move */
     document.addEventListener('pointermove', e => {
       state.glowTargetX = e.clientX;
       state.glowTargetY = e.clientY;
     }, { passive: true });
 
     function tick() {
-      /* Smooth lerp — reads live state every frame */
       state.glowCurrentX += (state.glowTargetX - state.glowCurrentX) * 0.075;
       state.glowCurrentY += (state.glowTargetY - state.glowCurrentY) * 0.075;
-
       glow.style.transform =
         `translate(${state.glowCurrentX}px, ${state.glowCurrentY}px) translate(-50%, -50%)`;
-
       state.glowRafId = requestAnimationFrame(tick);
     }
 
-    /* Single loop — never duplicated */
     if (!state.glowRafId) state.glowRafId = requestAnimationFrame(tick);
   }
 
   /* ═══════════════════════════════════════════════════════════
-     TERMINAL CARD TILT (bonus — mousemove 3D parallax)
+     TERMINAL CARD TILT
      ═══════════════════════════════════════════════════════════ */
   function initTerminalTilt() {
     const card = $('#terminalCard');
