@@ -171,3 +171,30 @@
 @media (min-width: 769px) {
     .mobile-bottom-nav { display: none !important; }
 }
+
+/* ====== PARCHE FINAL: FOOTER MÓVIL ====== */
+@media (max-width: 768px) {
+    /* 1. Dar espacio extra para que la barra inferior no tape el texto */
+    #main-footer {
+        padding-bottom: 90px !important;
+    }
+    
+    /* 2. Centrar todo el contenido del footer para simetría móvil */
+    .footer-grid {
+        text-align: center;
+    }
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .social-row {
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    .contact-info-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

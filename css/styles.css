@@ -1345,3 +1345,13 @@ body::after { bottom: -10%; right: -10%; background: rgba(88, 101, 242, 0.08); }
 /* Grids Simétricos (PASO 7 y 8) */
 .tech-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important; gap: 1.2rem; justify-content: center; }
 .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+/* ====== PARCHE FINAL: RESPIRO DEL HERO ====== */
+.hero-container {
+    margin-top: 6rem; /* Baja un poco el contenido principal para alejarlo del logo en PC */
+}
+
+.hero-stats-wrapper {
+    margin-top: 5rem !important; /* Empuja las tarjetas hacia abajo para que no choquen con el texto */
+    margin-bottom: 2rem;
+}
