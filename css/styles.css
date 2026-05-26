@@ -1287,3 +1287,26 @@ body {
     font-size: 2.5rem;
     text-shadow: 0 0 20px rgba(255,255,255,0.1);
 }
+
+/* ====== PATCH DE SIMETRÍA Y ESPACIADO ====== */
+
+/* 1. Ajuste de espaciado compacto */
+:root { --section-padding: 3rem 2rem; }
+
+/* 2. Grid de Stack: Forzar simetría (4 columnas) */
+.tech-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+}
+
+/* 3. Servicios: Forzar 2x2 en tablet/desktop para evitar cards solos */
+.services-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 4. Background con orbes sutiles para el Glassmorphism */
+body {
+    background: radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(88, 101, 242, 0.08) 0%, transparent 40%),
+                #050507;
+}

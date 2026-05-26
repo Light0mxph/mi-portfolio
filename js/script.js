@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "mobile-menu-container", url: "components/mobile-menu.html" }
     ];
 
+    fetch("data/site.json").then(r => r.json()).then(data => {
+        document.querySelector("[data-stat=exp]").textContent = data.yearsExp || "+3";
+        document.querySelector("[data-stat=projects]").textContent = data.totalProjects || "20+";
+    });
     Promise.all(componentsToLoad.map(comp => loadComponent(comp.id, comp.url)))
         .then(() => {
             // Disparar evento para que navbar.js y animations.js sepan que el HTML ya existe
