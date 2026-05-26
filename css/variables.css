@@ -1,0 +1,33 @@
+:root {
+    /* Paleta Oscura Premium */
+    --bg-main: #050507;
+    --bg-surface: rgba(18, 18, 24, 0.65);
+    
+    /* Acentos Púrpuras / Neón */
+    --accent-primary: #8a2be2; 
+    --accent-glow: rgba(168, 85, 247, 0.4);
+    --discord-color: #5865F2;
+    
+    /* Textos */
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --text-muted: #5a5a6a;
+
+    /* Bordes y Cristales */
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-highlight: rgba(138, 43, 226, 0.3);
+
+    /* Tipografía (Cargaremos Inter y Space Grotesk en styles.css) */
+    --font-main: 'Inter', system-ui, sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    
+    /* Medidas */
+    --max-width: 1200px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

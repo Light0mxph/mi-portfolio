@@ -1,0 +1,102 @@
+/* ====== RESPONSIVE DESIGN ====== */
+
+@media (max-width: 992px) {
+    :root {
+        --section-padding: 3.5rem 1.5rem;
+    }
+    
+    /* Hero Adapt */
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3.2rem;
+    }
+    
+    .hero-description {
+        margin-inline: auto;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+    }
+    
+    .status-indicator {
+        justify-content: center;
+    }
+    
+    .widget-visits {
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    /* AztrixLagControl Adapt */
+    .featured-project-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .project-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar Hide links on desktop view */
+    .nav-links {
+        display: none; /* Nota: se expandirá con el componente mobile-menu.html más adelante */
+    }
+    
+    .hero-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .dash-metrics-top {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-brand {
+        grid-column: span 1;
+    }
+}
