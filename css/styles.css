@@ -1241,3 +1241,49 @@ a {
                 linear-gradient(to right, var(--bg-main) 0%, transparent 20%),
                 linear-gradient(to left, var(--bg-main) 0%, transparent 20%);
 }
+
+/* =========================================
+   PARCHE DE CORRECCIONES VISUALES (UX/UI) 
+   ========================================= */
+
+/* 1. Fondo global con textura de iluminación superior */
+body {
+    background-color: var(--bg-main);
+    background-image: radial-gradient(circle at 50% 0%, #1a1025 0%, var(--bg-main) 40%);
+    background-attachment: fixed;
+}
+
+/* 2. Hero: Reducir espacio vacío y aclarar foto */
+.hero-section {
+    padding-top: 6rem;
+}
+
+.profile-img {
+    filter: contrast(1.15) brightness(1.2); /* Devuelve la vida y el color a la foto */
+}
+
+.atmosphere-overlay {
+    opacity: 0.6; /* Evita que la foto se oscurezca demasiado */
+}
+
+.hero-stats-grid {
+    margin-top: 2rem; /* Acerca las tarjetas al contenido principal */
+}
+
+/* 3. Sobre mí: Unir texto y terminal */
+.about-grid {
+    gap: 1.5rem; /* Reduce la separación masiva entre columnas */
+}
+
+/* 4. Community: Darle jerarquía de canal de ventas */
+.community-card {
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 10px 40px rgba(138, 43, 226, 0.15), inset 0 0 30px rgba(88, 101, 242, 0.05);
+    background: radial-gradient(ellipse at top, rgba(88, 101, 242, 0.15) 0%, rgba(18, 18, 24, 0.8) 70%);
+    padding: 4.5rem 2rem;
+}
+
+.community-title {
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px rgba(255,255,255,0.1);
+}

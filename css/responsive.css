@@ -100,3 +100,43 @@
         grid-column: span 1;
     }
 }
+
+/* =========================================
+   PARCHE RESPONSIVO (MÓVILES Y TABLETS) 
+   ========================================= */
+
+@media (max-width: 992px) {
+    /* Balancear el stack tecnológico en tablets */
+    .tech-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 5.5rem;
+    }
+    
+    /* Servicios: Forzar 1 columna para evitar el 4to card huérfano */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    /* Stack: Balancear a 3 columnas y agrandar íconos */
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+    .tech-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Stack en pantallas muy chicas */
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
