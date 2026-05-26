@@ -1,4 +1,4 @@
-function initScrollAnimations() {
+document.addEventListener("componentsLoaded", () => {
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -6,11 +6,10 @@ function initScrollAnimations() {
                 obs.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.glass-panel, .section-header').forEach((el) => {
+    document.querySelectorAll('.glass-panel, .section-header, .hero-content > *').forEach((el) => {
         el.classList.add('reveal');
         observer.observe(el);
     });
-}
-document.addEventListener("DOMContentLoaded", () => setTimeout(initScrollAnimations, 800));
+});
