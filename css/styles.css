@@ -1217,3 +1217,27 @@ a {
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
 }
+
+/* ====== CORRECCIÓN DE DISEÑO: MÁSCARA DEL HERO ====== */
+.profile-img {
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 110%;
+    width: 100%;
+    max-width: 600px;
+    object-fit: cover;
+    z-index: 2;
+    /* Esta máscara borra los bordes cuadrados difuminándolos hacia afuera */
+    -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+}
+
+.atmosphere-overlay {
+    z-index: 3;
+    background: linear-gradient(to top, var(--bg-main) 0%, transparent 35%),
+                linear-gradient(to bottom, var(--bg-main) 0%, transparent 25%),
+                linear-gradient(to right, var(--bg-main) 0%, transparent 20%),
+                linear-gradient(to left, var(--bg-main) 0%, transparent 20%);
+}
