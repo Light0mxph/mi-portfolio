@@ -8,7 +8,8 @@ document.addEventListener("componentsLoaded", () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.glass-panel, .section-header, .hero-content > *').forEach((el) => {
+    // Excluimos las cards del dashboard usando :not(.dash-card):not(.dash-mini-card)
+    document.querySelectorAll('.glass-panel:not(.dash-card):not(.dash-mini-card), .section-header').forEach((el) => {
         el.classList.add('reveal');
         observer.observe(el);
     });
