@@ -1388,3 +1388,19 @@ body {
     width: 100%;
     margin-top: 0.5rem;
 }
+
+/* ====== FIX: CENTRAR ÍCONOS DENTRO DE LOS BOTONES SOCIALES ====== */
+.social-row a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    /* Aseguramos que el botón mantenga su forma cuadrada perfecta */
+    width: 45px;
+    height: 45px;
+}
+
+.social-row a svg {
+    /* Quitamos cualquier margen fantasma que los esté empujando */
+    margin: 0 !important;
+    display: block;
+}
