@@ -1355,3 +1355,36 @@ body::after { bottom: -10%; right: -10%; background: rgba(88, 101, 242, 0.08); }
     margin-top: 5rem !important; /* Empuja las tarjetas hacia abajo para que no choquen con el texto */
     margin-bottom: 2rem;
 }
+
+/* ====== FIX: DIMENSIÓN DEL FONDO HERO (PC) ====== */
+body {
+    overflow-x: hidden; /* Evita cualquier barra de scroll horizontal */
+}
+
+.hero-bg {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%); /* Fuerza al fondo a expandirse de orilla a orilla */
+}
+
+.hero-bg .angel-background {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* ====== FIX: CENTRAR ICONOS SÍGUEME (FOOTER) ====== */
+.footer-column:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el título y los iconos */
+}
+
+.footer-column:last-child .social-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
