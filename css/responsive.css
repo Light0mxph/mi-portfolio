@@ -198,3 +198,23 @@
         justify-content: center;
     }
 }
+
+/* ====== FIX DEFINITIVO: CENTRAR ÍCONOS SOCIALES EN MÓVIL ====== */
+@media (max-width: 768px) {
+    .footer-column .social-row a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 48px !important;
+        height: 48px !important;
+        padding: 0 !important;
+        border-radius: 12px !important;
+    }
+    
+    .footer-column .social-row a svg {
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        position: static !important;
+    }
+}
