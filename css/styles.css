@@ -1418,3 +1418,54 @@ body {
     left: 0 !important;
     transform: none !important;
 }
+
+/* ====== PROYECTO DESTACADO — TECH TAGS ====== */
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tech-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    background: rgba(138, 43, 226, 0.08);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 4px;
+    color: var(--accent-primary);
+    letter-spacing: 0.4px;
+    font-family: monospace;
+}
+
+/* ====== TERMINAL DEL PLUGIN (reemplaza dashboard mockup) ====== */
+.project-terminal {
+    background: #050508;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-terminal .terminal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.4rem 1.6rem;
+    min-height: 300px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.82rem;
+    color: #a0a0b0;
+}
+
+.project-terminal .output {
+    line-height: 1.5;
+}
+
+.project-terminal .highlight {
+    color: #d8b4fe;
+    font-weight: bold;
+}
