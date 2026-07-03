@@ -1,10 +1,11 @@
 /* Carga modular de secciones/componentes + preloader */
 document.addEventListener("DOMContentLoaded", () => {
+    const VER = "3"; // cache-busting: subir en cada deploy que toque secciones/CSS/JS
     const loadComponent = async (id, url) => {
         const el = document.getElementById(id);
         if (!el) return;
         try {
-            const res = await fetch(url);
+            const res = await fetch(`${url}?v=${VER}`);
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             el.innerHTML = await res.text();
         } catch (err) {
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     Promise.all(components.map(c => loadComponent(c.id, c.url)))
-        .then(() => fetch("data/site.json").then(r => r.json()).catch(() => ({})))
+        .then(() => fetch(`data/site.json?v=${VER}`).then(r => r.json()).catch(() => ({})))
         .then(data => {
             applySiteData(data);
             document.dispatchEvent(new Event("componentsLoaded"));
