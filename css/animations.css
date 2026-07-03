@@ -1,29 +1,57 @@
-/* Reveal on scroll */
+/* ============================================================
+   REVEAL ON SCROLL + micro-animaciones
+   ============================================================ */
+
 .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(26px);
+    transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
     will-change: opacity, transform;
 }
+.reveal.in { opacity: 1; transform: none; }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+/* Stagger: hijos directos entran escalonados */
+.stagger > * {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
+.stagger.in > * { opacity: 1; transform: none; }
+.stagger.in > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger.in > *:nth-child(2) { transition-delay: 0.12s; }
+.stagger.in > *:nth-child(3) { transition-delay: 0.19s; }
+.stagger.in > *:nth-child(4) { transition-delay: 0.26s; }
+.stagger.in > *:nth-child(5) { transition-delay: 0.33s; }
+.stagger.in > *:nth-child(6) { transition-delay: 0.40s; }
+.stagger.in > *:nth-child(7) { transition-delay: 0.47s; }
 
-@keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 8px rgba(168, 85, 247, 0.25); }
-    50% { box-shadow: 0 0 18px rgba(168, 85, 247, 0.65); }
+/* Líneas de terminal en secuencia (boot) */
+.boot .ln {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: boot-in 0.4s var(--ease) forwards;
 }
-
-.badge-dot { animation: pulse-glow 2s infinite; }
+.boot .ln:nth-child(1) { animation-delay: 0.10s; }
+.boot .ln:nth-child(2) { animation-delay: 0.20s; }
+.boot .ln:nth-child(3) { animation-delay: 0.30s; }
+.boot .ln:nth-child(4) { animation-delay: 0.40s; }
+.boot .ln:nth-child(5) { animation-delay: 0.50s; }
+.boot .ln:nth-child(6) { animation-delay: 0.60s; }
+.boot .ln:nth-child(7) { animation-delay: 0.70s; }
+.boot .ln:nth-child(8) { animation-delay: 0.80s; }
+.boot .ln:nth-child(9) { animation-delay: 0.90s; }
+.boot .ln:nth-child(10) { animation-delay: 1.00s; }
+.boot .ln:nth-child(11) { animation-delay: 1.10s; }
+.boot .ln:nth-child(12) { animation-delay: 1.20s; }
+@keyframes boot-in { to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
     }
-    .reveal { opacity: 1; transform: none; }
+    .reveal, .stagger > *, .boot .ln { opacity: 1 !important; transform: none !important; }
+    .fx-threads { display: none; }
 }

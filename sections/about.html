@@ -1,58 +1,42 @@
-<div class="about-container">
-    <div class="section-header center-align">
-        <span class="header-line"></span>
-        <h3 class="section-title">SOBRE MÍ</h3>
-        <span class="header-line"></span>
+<div class="container">
+    <div class="section-head">
+        <span class="section-kicker">01 — Sobre mí</span>
+        <h2 class="section-title">Arquitectura, hilos<br>y obsesión por el rendimiento.</h2>
     </div>
 
     <div class="about-grid">
-        <div class="about-text glass-panel">
-            <h4 class="about-greeting">Arquitectura y Rendimiento.</h4>
-            <p>
-                Desarrollo software de infraestructura para servidores Minecraft y web. Todo mi flujo de trabajo corre desde un entorno móvil (<strong>Termux</strong>): escribo, compilo con Gradle y publico sin depender de un PC. Esa restricción me obligó a dominar la eficiencia — en el código y en el proceso.
-            </p>
-            <p>
-                Mi pieza central es <strong>AztrixInnovations</strong>, la librería core sobre la que construyo todos mis plugins: scheduling seguro para <strong>Folia y Paper</strong>, configuraciones cacheadas, comandos, eventos y hooks con aislamiento de fallos. Un solo lugar para la fontanería difícil, cero bugs de threading duplicados.
-            </p>
-            <p>
-                En el lado web trabajo full-stack con <strong>Node.js, Express y MySQL</strong>: tiendas para servidores, integración de pasarelas de pago y APIs REST. Mi objetivo siempre es el mismo: software que escala sin fricciones y sin tocar el tick loop.
-            </p>
-
-            <div class="about-stats-inline">
-                <div class="inline-stat">
-                    <span class="stat-num text-gradient">Java / Node</span>
-                    <span class="stat-desc">Core Backend</span>
-                </div>
-                <div class="inline-stat">
-                    <span class="stat-num text-gradient">Folia-safe</span>
-                    <span class="stat-desc">Concurrencia real</span>
-                </div>
-                <div class="inline-stat">
-                    <span class="stat-num text-gradient">Mobile-first</span>
-                    <span class="stat-desc">Dev en Termux</span>
-                </div>
+        <div class="about-card glass spot hairline">
+            <p class="about-lead">Escribo software de infraestructura para servidores Minecraft y web — la capa que nadie ve pero que sostiene todo lo demás.</p>
+            <p>Todo mi flujo corre desde <strong>Termux</strong> en Android: edito, compilo con Gradle y publico sin depender de un PC. Esa restricción no es una limitación, es una disciplina — me obliga a que cada línea sea eficiente, en el código y en el proceso.</p>
+            <p>Mi pieza central es <strong>AztrixInnovations</strong>, la librería core sobre la que construyo cada plugin: scheduling seguro para <strong>Folia y Paper</strong>, configs cacheadas, comandos, eventos y hooks aislados de fallos. Un solo lugar para la fontanería difícil, cero bugs de threading duplicados.</p>
+            <p>En web trabajo full-stack con <strong>Node.js, Express y MySQL</strong>: tiendas para servidores, pasarelas de pago y APIs REST. El objetivo siempre es el mismo — software que escala sin fricciones y sin tocar el tick loop.</p>
+            <div class="about-tags">
+                <span>Java / Node</span>
+                <span>Folia-safe</span>
+                <span>Mobile-first</span>
+                <span>Alta concurrencia</span>
+                <span>Rendimiento primero</span>
             </div>
         </div>
 
-        <div class="about-visual glass-panel">
-            <div class="terminal-mockup">
-                <div class="terminal-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="terminal-title">diegocpsx7z@aztrix-studio: ~</span>
+        <div class="about-visual glass spot hairline">
+            <div class="terminal">
+                <div class="win-bar">
+                    <span class="win-dot r"></span><span class="win-dot y"></span><span class="win-dot g"></span>
+                    <span class="win-title">diegocpsx7z@aztrix: ~</span>
                 </div>
-                <div class="terminal-body">
-                    <p class="cmd"><span class="prompt">$</span> neofetch --profile aztrix</p>
-                    <p class="output"><span class="highlight">OS:</span> Aztrix Digital Workspace</p>
-                    <p class="output"><span class="highlight">Host:</span> Termux · Mobile-First Dev</p>
-                    <p class="output"><span class="highlight">Core:</span> AztrixInnovations (open source)</p>
-                    <p class="output"><span class="highlight">Plugins:</span> AzLagControlPlus, AzSentinel Suite</p>
-                    <p class="output"><span class="highlight">Web:</span> Node.js · Express · MySQL</p>
-                    <p class="output"><span class="highlight">Focus:</span> Rendimiento, threading seguro, tooling</p>
-                    <p class="cmd mt-2"><span class="prompt">$</span> gradle build</p>
-                    <p class="output"><span style="color: var(--success);">BUILD SUCCESSFUL</span> in 41s</p>
-                    <p class="cmd mt-2"><span class="prompt">$</span> <span class="cursor"></span></p>
+                <div class="term-body boot">
+                    <span class="ln"><span class="p">$</span> neofetch --profile aztrix</span>
+                    <span class="ln"><span class="h">OS</span>       Aztrix Digital Workspace</span>
+                    <span class="ln"><span class="h">Host</span>     Termux · Mobile-First Dev</span>
+                    <span class="ln"><span class="h">Core</span>     AztrixInnovations (OSS)</span>
+                    <span class="ln"><span class="h">Plugins</span>  AzLagControlPlus, AzSentinel</span>
+                    <span class="ln"><span class="h">Web</span>      Node.js · Express · MySQL</span>
+                    <span class="ln"><span class="h">Focus</span>    Rendimiento · threading seguro</span>
+                    <span class="ln">&nbsp;</span>
+                    <span class="ln"><span class="p">$</span> gradle build</span>
+                    <span class="ln"><span style="color:var(--success)">BUILD SUCCESSFUL</span> in 41s</span>
+                    <span class="ln"><span class="p">$</span> <span class="blink"></span></span>
                 </div>
             </div>
         </div>

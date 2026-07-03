@@ -1,17 +1,18 @@
+/* Carga modular de secciones/componentes + preloader */
 document.addEventListener("DOMContentLoaded", () => {
     const loadComponent = async (id, url) => {
-        const element = document.getElementById(id);
-        if (!element) return;
+        const el = document.getElementById(id);
+        if (!el) return;
         try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-            element.innerHTML = await response.text();
-        } catch (error) {
-            console.error(`Error cargando ${id}:`, error);
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            el.innerHTML = await res.text();
+        } catch (err) {
+            console.error(`Error cargando ${id}:`, err);
         }
     };
 
-    const componentsToLoad = [
+    const components = [
         { id: "main-header", url: "components/navbar.html" },
         { id: "hero", url: "sections/hero.html" },
         { id: "about", url: "sections/about.html" },
@@ -23,14 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "mobile-menu-container", url: "components/mobile-menu.html" }
     ];
 
-    Promise.all(componentsToLoad.map(comp => loadComponent(comp.id, comp.url)))
+    const hidePreloader = () => document.body.classList.add("loaded");
+    // Red de seguridad: nunca dejar la pantalla de carga atascada
+    const safety = setTimeout(hidePreloader, 4000);
+
+    const applySiteData = data => {
+        document.querySelectorAll("[data-count]").forEach(el => {
+            const key = el.getAttribute("data-count-key");
+            if (key && data && data[key]) el.setAttribute("data-count", data[key]);
+        });
+    };
+
+    Promise.all(components.map(c => loadComponent(c.id, c.url)))
         .then(() => fetch("data/site.json").then(r => r.json()).catch(() => ({})))
         .then(data => {
-            const exp = document.querySelector("[data-stat=exp]");
-            const projects = document.querySelector("[data-stat=projects]");
-            if (exp && data.yearsExp) exp.textContent = data.yearsExp;
-            if (projects && data.totalProjects) projects.textContent = data.totalProjects;
-            // Avisar a navbar.js y animations.js que el HTML ya existe
+            applySiteData(data);
             document.dispatchEvent(new Event("componentsLoaded"));
+            clearTimeout(safety);
+            requestAnimationFrame(hidePreloader);
         });
 });

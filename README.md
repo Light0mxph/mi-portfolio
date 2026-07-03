@@ -1,8 +1,21 @@
-# DiegoCpsx7z | Aztrix Digital Studio
+# DiegoCpsx7z — Aztrix Digital Studio
 
 Portafolio personal — [diegocpsx7z.site](https://diegocpsx7z.site)
 
-- HTML, CSS y JS nativo, sin frameworks ni build step.
+Ingeniero backend (Java · Node.js), creador de **AztrixInnovations**, el core open source Folia-safe para plugins de Minecraft.
+
+## Stack
+
+- HTML, CSS y JS nativo. Sin frameworks, sin build step.
 - Arquitectura modular: secciones y componentes cargados por `fetch` (`sections/`, `components/`).
-- Proyecto insignia: [AztrixInnovations](https://github.com/Light0mxph/AztrixInnovations), core open source Folia-safe para plugins Paper 1.21+.
-- Desarrollado íntegramente desde Termux (Android) y desplegado con GitHub Pages.
+- Sistema de diseño en tokens (`css/variables.css`): dark editorial, glass, aurora + malla de puntos, grano.
+
+## Detalles de la interfaz
+
+- Canvas ambiental de "hilos" ondulantes con pulsos (`js/effects.js`), pausado en tab oculto y desactivado con `prefers-reduced-motion`.
+- Spotlight que sigue el cursor en cards, botones magnéticos, scroll-progress y scroll-spy en la navegación.
+- Reveals con IntersectionObserver, stagger y contadores animados.
+- Preloader con red de seguridad (nunca se queda atascado aunque falle un `fetch`).
+- Accesible: skip-link, `:focus-visible`, jerarquía semántica y respeto total a `prefers-reduced-motion`.
+
+Desarrollado íntegramente desde Termux (Android) y desplegado con GitHub Pages.
