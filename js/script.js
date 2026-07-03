@@ -1,6 +1,6 @@
 /* Carga modular de secciones/componentes + preloader */
 document.addEventListener("DOMContentLoaded", () => {
-    const VER = "3"; // cache-busting: subir en cada deploy que toque secciones/CSS/JS
+    const VER = "4"; // cache-busting: subir en cada deploy que toque secciones/CSS/JS
     const loadComponent = async (id, url) => {
         const el = document.getElementById(id);
         if (!el) return;

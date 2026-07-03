@@ -55,11 +55,11 @@
     --fs-sm: 0.86rem;
     --fs-base: 0.95rem;
     --fs-md: 1.05rem;
-    --fs-lg: clamp(1.15rem, 1.6vw, 1.3rem);
-    --fs-xl: clamp(1.4rem, 2.4vw, 1.8rem);
-    --fs-2xl: clamp(1.8rem, 3.6vw, 2.6rem);
-    --fs-3xl: clamp(2.4rem, 5vw, 3.4rem);
-    --fs-hero: clamp(3rem, 8.5vw, 6rem);
+    --fs-lg: clamp(1.1rem, 1.6vw, 1.3rem);
+    --fs-xl: clamp(1.25rem, 4vw, 1.8rem);
+    --fs-2xl: clamp(1.55rem, 5.2vw, 2.6rem);
+    --fs-3xl: clamp(1.95rem, 6vw, 3.4rem);
+    --fs-hero: clamp(2.55rem, 10vw, 6rem);
 
     /* ── Espaciado / medidas ───────────────── */
     --max-w: 1180px;
