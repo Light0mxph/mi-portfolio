@@ -41,7 +41,16 @@
 
     /* Sin header fijo, los anchors no necesitan compensación grande */
     html { scroll-padding-top: 1rem; }
-    .hero-section { padding-top: 3.75rem; }
+
+    /* Zona superior con aire: arranque holgado y jerarquía respirada */
+    .hero-section { padding-top: 4.75rem; }
+    .hero-stage { min-height: auto; }            /* flujo natural, sin estirar */
+    .status-pill { margin-bottom: 2rem; }
+    .hero-name { line-height: 1.05; margin-bottom: 0.7rem; }
+    .hero-role { margin-bottom: 1.5rem; }
+
+    /* Menos ruido ambiental detrás del texto en pantallas chicas */
+    .fx-threads { opacity: 0.4; }
 
     .hero-name .shine { display: block; }        /* "Diego" / "Cpsx7z" en dos líneas */
 
@@ -66,7 +75,8 @@
     /* Ritmo vertical más compacto en pantallas chicas */
     :root { --section-gap: clamp(4.2rem, 9vh, 5.5rem); }
 
-    .hero-section { padding-top: 3.25rem; }
+    .hero-section { padding-top: 4.25rem; }
+    .hero-desc { font-size: var(--fs-base); }    /* párrafo menos macizo */
     .hero-meta { gap: 1rem 1.4rem; }
     .hero-cta { gap: 0.7rem; }
 

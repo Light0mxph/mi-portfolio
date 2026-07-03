@@ -22,7 +22,7 @@
             canvas.width = W * dpr; canvas.height = H * dpr;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-            const count = W < 640 ? 6 : W < 1024 ? 9 : 13;
+            const count = W < 640 ? 4 : W < 1024 ? 9 : 13;
             strands = Array.from({ length: count }, (_, i) => ({
                 x: (W / (count + 1)) * (i + 1) + (Math.random() - 0.5) * 30,
                 amp: 12 + Math.random() * 26,
