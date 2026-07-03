@@ -1,33 +1,52 @@
 :root {
-    /* Paleta Oscura Premium */
-    --bg-main: #050507;
-    --bg-surface: rgba(18, 18, 24, 0.65);
-    
-    /* Acentos Púrpuras / Neón */
-    --accent-primary: #8a2be2; 
-    --accent-glow: rgba(168, 85, 247, 0.4);
+    /* ── Fondo ─────────────────────────────── */
+    --bg-main: #060609;
+    --bg-deep: #030304;
+    --bg-surface: rgba(17, 17, 26, 0.55);
+    --bg-surface-solid: #0d0d14;
+    --bg-elevated: rgba(24, 24, 36, 0.7);
+
+    /* ── Acentos ───────────────────────────── */
+    --accent-primary: #a855f7;
+    --accent-deep: #7c3aed;
+    --accent-soft: #c084fc;
+    --accent-cyan: #22d3ee;
+    --accent-glow: rgba(168, 85, 247, 0.35);
+    --accent-glow-soft: rgba(168, 85, 247, 0.12);
+    --success: #10b981;
     --discord-color: #5865F2;
-    
-    /* Textos */
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0b0;
-    --text-muted: #5a5a6a;
 
-    /* Bordes y Cristales */
-    --border-subtle: rgba(255, 255, 255, 0.05);
-    --border-highlight: rgba(138, 43, 226, 0.3);
+    /* ── Gradientes ────────────────────────── */
+    --gradient-brand: linear-gradient(135deg, #c084fc 0%, #a855f7 45%, #7c3aed 100%);
+    --gradient-text: linear-gradient(120deg, #e9d5ff 0%, #c084fc 40%, #a855f7 100%);
+    --gradient-border: linear-gradient(140deg, rgba(168, 85, 247, 0.5), rgba(255, 255, 255, 0.06) 40%, rgba(34, 211, 238, 0.25));
 
-    /* Tipografía (Cargaremos Inter y Space Grotesk en styles.css) */
+    /* ── Textos ────────────────────────────── */
+    --text-primary: #f4f4f8;
+    --text-secondary: #a3a3b8;
+    --text-muted: #62626f;
+
+    /* ── Bordes ────────────────────────────── */
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-highlight: rgba(168, 85, 247, 0.35);
+
+    /* ── Tipografía ────────────────────────── */
     --font-main: 'Inter', system-ui, sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
-    
-    /* Medidas */
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* ── Medidas ───────────────────────────── */
     --max-width: 1200px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-    
-    /* Transiciones */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --section-gap: clamp(6rem, 12vh, 9rem);
+
+    /* ── Sombras ───────────────────────────── */
+    --shadow-card: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+    --shadow-glow: 0 0 40px -8px var(--accent-glow);
+
+    /* ── Transiciones ──────────────────────── */
     --transition-fast: 0.2s ease;
-    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }

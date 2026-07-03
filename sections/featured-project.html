@@ -1,43 +1,48 @@
 <div class="featured-project-container">
-    
+
     <div class="project-info">
         <div class="project-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-            PROYECTO DESTACADO
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            PROYECTO INSIGNIA
         </div>
-        
+
         <h2 class="project-title">
-            AztrixLagControl 
-            <span class="version-badge">v1.3.0</span>
-            <span class="premium-badge">Premium</span>
+            AztrixInnovations
+            <span class="version-badge">core v1.0.0</span>
+            <span class="oss-badge">Open Source</span>
         </h2>
-        
+
         <p class="project-description">
-            Plugin premium de gestión de lag y optimización inteligente para servidores de Minecraft. Arquitectura de alto rendimiento con sistema de licencias HMAC 100% offline.
+            La librería core sobre la que se construye <strong>todo el ecosistema Aztrix</strong>. Monorepo modular para plugins Paper 1.21+ con seguridad de main-thread garantizada a nivel de API: los errores de threading fallan rápido y con mensaje claro, no en producción.
         </p>
-        
+
         <div class="project-features">
-            <div class="feature-item"><span class="check">✓</span> TPS y MSPT en tiempo real</div>
-            <div class="feature-item"><span class="check">✓</span> 10 módulos independientes</div>
-            <div class="feature-item"><span class="check">✓</span> Emergency Mode automático</div>
-            <div class="feature-item"><span class="check">✓</span> Compatible con Paper, Purpur, Spigot</div>
-            <div class="feature-item"><span class="check">✓</span> Licencia HMAC-SHA256 offline</div>
-            <div class="feature-item"><span class="check">✓</span> PlaceholderAPI + spark</div>
-            <div class="feature-item"><span class="check">✓</span> Hot-reload sin reiniciar</div>
-            <div class="feature-item"><span class="check">✓</span> Sin NMS — estable entre versiones</div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Scheduler</strong> con backend Folia o Bukkit auto-detectado</span></div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Thread guards</strong> fail-fast (ensureMain / ensureAsync)</span></div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Configs YAML</strong> cacheadas con defaults embebidos</span></div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Mensajes</strong> con prefijo, placeholders y colores hex</span></div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Comandos</strong> con subrutas, permisos y tab-complete</span></div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Eventos</strong> por lambda, auto-desregistrados al apagar</span></div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Hooks</strong> lazy con aislamiento de fallos por dependencia</span></div>
+            <div class="feature-item"><span class="check">✓</span> <span><strong>Detección</strong> de plataforma: Folia · Purpur · Paper · Spigot</span></div>
         </div>
 
         <div class="project-tech-stack">
-            <span class="tech-tag">Java 17</span>
-            <span class="tech-tag">PaperMC API</span>
+            <span class="tech-tag">Java 21</span>
+            <span class="tech-tag">Paper API 1.21+</span>
             <span class="tech-tag">Gradle KTS</span>
-            <span class="tech-tag">HMAC-SHA256</span>
+            <span class="tech-tag">Shadow + Relocation</span>
+            <span class="tech-tag">Folia-ready</span>
         </div>
 
         <div class="project-actions">
-            <a href="https://discord.gg/5kcNQEqCFS" target="_blank" class="btn btn-primary">
-                Adquirir Licencia — $7 USD
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            <a href="https://github.com/Light0mxph/AztrixInnovations" target="_blank" rel="noopener" class="btn btn-primary">
+                Ver en GitHub
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="https://discord.gg/5kcNQEqCFS" target="_blank" rel="noopener" class="btn btn-outline">
+                Plugins construidos con el core
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
             </a>
         </div>
     </div>
@@ -47,20 +52,24 @@
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
-            <span class="terminal-title">server@aztrix: ~ $ /azlag stats</span>
+            <span class="terminal-title">MyPlugin.java — patrón async → main thread</span>
         </div>
         <div class="terminal-body">
-            <p class="output" style="color: var(--accent-primary); font-weight: 600; margin-bottom: 4px;">── AztrixLagControl v1.3.0 ─────────────</p>
-            <p class="output"><span class="highlight">TPS    </span>&nbsp; 19.84 &nbsp;·&nbsp; 19.91 &nbsp;·&nbsp; 19.87 &nbsp; <span style="color:#10b981;">✓</span></p>
-            <p class="output"><span class="highlight">MSPT   </span>&nbsp; 2.1 ms &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (max 50ms)</p>
-            <p class="output"><span class="highlight">RAM    </span>&nbsp; 2.3 GB / 8 GB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 28%</p>
-            <p class="output"><span class="highlight">Entities</span> 1,243 &nbsp;·&nbsp; Items 87 &nbsp;·&nbsp; Chunks 241</p>
-            <p class="output" style="color: var(--accent-primary); font-weight: 600; margin-top: 6px; margin-bottom: 4px;">── Módulos ──────────────────────────────</p>
-            <p class="output"><span style="color:#10b981;">●</span> SmartCleaner &nbsp;&nbsp; <span style="color:#10b981;">●</span> MobControl &nbsp;&nbsp;&nbsp; <span style="color:#10b981;">●</span> Hopper</p>
-            <p class="output"><span style="color:#10b981;">●</span> Redstone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#10b981;">●</span> Emergency &nbsp;&nbsp;&nbsp; <span style="color:#10b981;">●</span> Analytics</p>
-            <p class="output" style="color: var(--accent-primary); font-weight: 600; margin-top: 6px; margin-bottom: 4px;">────────────────────────────────────────</p>
-            <p class="output"><span class="highlight">Licencia</span> <span style="color:#10b981;">VÁLIDA</span> &nbsp;·&nbsp; offline &nbsp;·&nbsp; HMAC-SHA256</p>
-            <p class="cmd mt-2"><span class="prompt">$</span> <span class="cursor">_</span></p>
+            <p class="output"><span class="comment">// Un core aislado por plugin, sin singletons globales</span></p>
+            <p class="output"><span class="fn">AztrixCore</span> core = <span class="fn">AztrixCore</span>.<span class="kw">attach</span>(<span class="kw">this</span>);</p>
+            <p class="output">&nbsp;</p>
+            <p class="output"><span class="comment">// I/O pesado fuera del tick loop, resultado de vuelta al main</span></p>
+            <p class="output">core.<span class="fn">scheduler</span>().<span class="fn">supplyAsyncThenSync</span>(</p>
+            <p class="output">&nbsp;&nbsp;&nbsp;&nbsp;() -> database.<span class="fn">loadProfile</span>(uuid),&nbsp;&nbsp;<span class="comment">// hilo async</span></p>
+            <p class="output">&nbsp;&nbsp;&nbsp;&nbsp;profile -> <span class="fn">applyToPlayer</span>(profile)); <span class="comment">// main thread</span></p>
+            <p class="output">&nbsp;</p>
+            <p class="output"><span class="comment">// Violaciones de hilo fallan rápido, con mensaje claro</span></p>
+            <p class="output">core.<span class="fn">scheduler</span>().<span class="fn">ensureAsync</span>(<span class="str">"loadData"</span>);</p>
+            <p class="output">&nbsp;</p>
+            <p class="output" style="color: var(--accent-primary); font-weight: 600;">── servicios ───────────────────────────</p>
+            <p class="output"><span style="color: var(--success);">●</span> scheduler &nbsp;<span style="color: var(--success);">●</span> configs &nbsp;<span style="color: var(--success);">●</span> messages &nbsp;<span style="color: var(--success);">●</span> events</p>
+            <p class="output"><span style="color: var(--success);">●</span> commands &nbsp;&nbsp;<span style="color: var(--success);">●</span> hooks &nbsp;&nbsp;&nbsp;<span style="color: var(--success);">●</span> environment &nbsp;<span style="color: var(--success);">●</span> logger</p>
+            <p class="cmd mt-2"><span class="prompt">$</span> <span class="cursor"></span></p>
         </div>
     </div>
 </div>

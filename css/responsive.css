@@ -1,220 +1,104 @@
-/* ====== RESPONSIVE DESIGN ====== */
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
-@media (max-width: 992px) {
-    :root {
-        --section-padding: 3.5rem 1.5rem;
+@media (max-width: 1080px) {
+    .social-sidebar { display: none; }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
     }
-    
-    /* Hero Adapt */
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 3.2rem;
-    }
-    
-    .hero-description {
-        margin-inline: auto;
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-    
-    .status-indicator {
-        justify-content: center;
-    }
-    
-    .widget-visits {
-        right: 15px;
-        bottom: 15px;
-    }
-    
-    /* AztrixLagControl Adapt */
-    .featured-project-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .project-title {
-        font-size: 2rem;
-    }
+
+    .footer-brand { grid-column: 1 / -1; }
 }
 
-@media (max-width: 768px) {
-    /* Navbar Hide links on desktop view */
-    .nav-links {
-        display: none; /* Nota: se expandirá con el componente mobile-menu.html más adelante */
+@media (max-width: 992px) {
+    .hero-section { text-align: center; }
+
+    .hero-content {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
+
+    .hero-description { margin-inline: auto; }
+    .hero-cta, .status-indicator { justify-content: center; }
+
+    .mobile-profile-pic {
+        display: block;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--border-highlight);
+        box-shadow: var(--shadow-glow);
+        margin-bottom: 1.5rem;
+    }
+
+    .mobile-profile-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .hero-stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+
+    .about-grid {
+        grid-template-columns: 1fr;
     }
-    
-    .footer-brand {
-        grid-column: span 2;
-        margin-bottom: 1rem;
+
+    .featured-project-container {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+        padding: 2.2rem 1.6rem;
     }
+
+    .project-terminal {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-nav .nav-links,
+    .desktop-nav .nav-actions {
+        display: none;
+    }
+
+    .navbar-container {
+        justify-content: center;
+        padding: 0.65rem 1.2rem;
+    }
+
+    .mobile-bottom-nav { display: flex; }
+
+    section { padding-inline: 1.1rem; }
+
+    .about-text { padding: 1.7rem 1.4rem; }
+
+    .project-features { grid-template-columns: 1fr; }
+
+    .community-card { padding: 3rem 1.4rem; }
+
+    #main-footer { padding-bottom: 7.5rem; }
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-cta {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .hero-cta .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .hero-stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-features {
-        grid-template-columns: 1fr;
-    }
-    
-    .dash-metrics-top {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-brand {
-        grid-column: span 1;
-    }
-}
+    .hero-title { font-size: 2.7rem; }
 
-/* =========================================
-   PARCHE RESPONSIVO (MÓVILES Y TABLETS) 
-   ========================================= */
+    .hero-stats-grid { gap: 0.7rem; }
 
-@media (max-width: 992px) {
-    /* Balancear el stack tecnológico en tablets */
-    .tech-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
+    .stat-card { padding: 0.9rem 1rem; gap: 0.7rem; }
+    .stat-value { font-size: 0.92rem; }
 
-@media (max-width: 768px) {
-    .hero-section {
-        padding-top: 5.5rem;
-    }
-    
-    /* Servicios: Forzar 1 columna para evitar el 4to card huérfano */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-    }
-    
-    /* Stack: Balancear a 3 columnas y agrandar íconos */
-    .tech-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.2rem;
-    }
-    .tech-icon {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Stack en pantallas muy chicas */
     .tech-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-}
 
-/* ====== PARCHE MÓVIL APP-STYLE ====== */
-@media (max-width: 768px) {
-    /* Ocultar NavBar Desktop y Social Bar */
-    .desktop-nav, .social-sidebar { display: none !important; }
-    
-    /* Mostrar Bottom Nav (PASO 6) */
-    .mobile-bottom-nav { display: flex; justify-content: space-around; align-items: center; position: fixed; bottom: 0; left: 0; width: 100%; padding: 0.8rem 1rem; z-index: 1000; background: rgba(5,5,7,0.95); backdrop-filter: blur(15px); border-top: 1px solid var(--border-highlight); border-radius: 20px 20px 0 0; }
-    .mob-bottom-link { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--text-secondary); font-size: 0.65rem; font-weight: 500; transition: 0.2s; }
-    .mob-bottom-link:hover, .mob-bottom-link:active { color: var(--accent-primary); transform: translateY(-2px); }
-    
-    /* Hero Móvil: Foto Circular */
-    .hero-section { min-height: 100vh; padding-bottom: 5rem; justify-content: center; }
-    .hero-bg .atmosphere-overlay { background: linear-gradient(to bottom, rgba(5,5,7,0.7) 0%, var(--bg-main) 90%); }
-    .mobile-profile-pic { display: block; width: 130px; height: 130px; border-radius: 50%; overflow: hidden; margin-bottom: 1.5rem; border: 2px solid rgba(168, 85, 247, 0.5); box-shadow: 0 0 30px rgba(168, 85, 247, 0.4); }
-    .mobile-profile-pic img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-title { font-size: 3rem; }
-    
-    /* Stats en fila scrolleable */
-    .hero-stats-wrapper { padding: 0 1rem; margin-top: 2rem; }
-    .hero-stats-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; gap: 1rem; }
-    .hero-stats-grid::-webkit-scrollbar { display: none; }
-    .stat-card { min-width: 220px; scroll-snap-align: center; }
-    
-    /* Servicios a 1 Columna */
-    .services-grid { grid-template-columns: 1fr !important; }
-}
+    .btn { width: 100%; justify-content: center; }
+    .project-actions .btn, .community-actions > a { width: 100%; justify-content: center; }
 
-@media (min-width: 769px) {
-    .mobile-bottom-nav { display: none !important; }
-}
-
-/* ====== PARCHE FINAL: FOOTER MÓVIL ====== */
-@media (max-width: 768px) {
-    /* 1. Dar espacio extra para que la barra inferior no tape el texto */
-    #main-footer {
-        padding-bottom: 90px !important;
-    }
-    
-    /* 2. Centrar todo el contenido del footer para simetría móvil */
-    .footer-grid {
-        text-align: center;
-    }
-    .footer-column {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .social-row {
-        justify-content: center;
-        margin-top: 0.5rem;
-    }
-    .contact-info-text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-/* ====== FIX DEFINITIVO: CENTRAR ÍCONOS SOCIALES EN MÓVIL ====== */
-@media (max-width: 768px) {
-    .footer-column .social-row a {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 48px !important;
-        height: 48px !important;
-        padding: 0 !important;
-        border-radius: 12px !important;
-    }
-    
-    .footer-column .social-row a svg {
-        margin: 0 !important;
-        padding: 0 !important;
-        display: block !important;
-        position: static !important;
-    }
+    .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
 }

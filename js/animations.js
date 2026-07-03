@@ -8,8 +8,9 @@ document.addEventListener("componentsLoaded", () => {
         });
     }, { threshold: 0.1 });
 
-    // Excluimos las cards del dashboard usando :not(.dash-card):not(.dash-mini-card)
-    document.querySelectorAll('.glass-panel:not(.dash-card):not(.dash-mini-card), .section-header').forEach((el) => {
+    // Solo contenido de main: navbar, bottom-nav y menú móvil son fijos y
+    // su transform se rompería con el translateY del reveal
+    document.querySelectorAll('main .glass-panel, main .section-header, main .featured-project-container').forEach((el) => {
         el.classList.add('reveal');
         observer.observe(el);
     });

@@ -9,23 +9,27 @@
         <div class="about-text glass-panel">
             <h4 class="about-greeting">Arquitectura y Rendimiento.</h4>
             <p>
-                Soy un desarrollador de software enfocado en la creación de infraestructura sólida y herramientas de alto rendimiento. Mi filosofía de trabajo prioriza la optimización absoluta y la eficiencia algorítmica, operando bajo un flujo de desarrollo ágil y móvil que me permite construir y gestionar código complejo desde cualquier entorno.
+                Desarrollo software de infraestructura para servidores Minecraft y web. Todo mi flujo de trabajo corre desde un entorno móvil (<strong>Termux</strong>): escribo, compilo con Gradle y publico sin depender de un PC. Esa restricción me obligó a dominar la eficiencia — en el código y en el proceso.
             </p>
             <p>
-                Me especializo en el desarrollo backend, abarcando desde la arquitectura de plugins avanzados en entornos Java (PaperMC) hasta la construcción de ecosistemas web full-stack con Node.js, Express y bases de datos relacionales como MySQL. 
+                Mi pieza central es <strong>AztrixInnovations</strong>, la librería core sobre la que construyo todos mis plugins: scheduling seguro para <strong>Folia y Paper</strong>, configuraciones cacheadas, comandos, eventos y hooks con aislamiento de fallos. Un solo lugar para la fontanería difícil, cero bugs de threading duplicados.
             </p>
             <p>
-                Ya sea optimizando el manejo de capas y entidades en sistemas de alta concurrencia o integrando pasarelas automatizadas para tiendas web, mi objetivo es entregar software que funcione de manera inteligente, escalable y sin fricciones.
+                En el lado web trabajo full-stack con <strong>Node.js, Express y MySQL</strong>: tiendas para servidores, integración de pasarelas de pago y APIs REST. Mi objetivo siempre es el mismo: software que escala sin fricciones y sin tocar el tick loop.
             </p>
-            
+
             <div class="about-stats-inline">
                 <div class="inline-stat">
                     <span class="stat-num text-gradient">Java / Node</span>
                     <span class="stat-desc">Core Backend</span>
                 </div>
                 <div class="inline-stat">
-                    <span class="stat-num text-gradient">Optimización</span>
-                    <span class="stat-desc">Alta Concurrencia</span>
+                    <span class="stat-num text-gradient">Folia-safe</span>
+                    <span class="stat-desc">Concurrencia real</span>
+                </div>
+                <div class="inline-stat">
+                    <span class="stat-num text-gradient">Mobile-first</span>
+                    <span class="stat-desc">Dev en Termux</span>
                 </div>
             </div>
         </div>
@@ -40,12 +44,15 @@
                 </div>
                 <div class="terminal-body">
                     <p class="cmd"><span class="prompt">$</span> neofetch --profile aztrix</p>
-                    <p class="output highlight">OS:</p><p class="output">Aztrix Digital Workspace</p>
-                    <p class="output highlight">Host:</p><p class="output">Mobile-First Dev Environment (Termux)</p>
-                    <p class="output highlight">Uptime:</p><p class="output">24/7 Server Infrastructure</p>
-                    <p class="output highlight">Packages:</p><p class="output">AztrixLagControl, Custom Web Stores</p>
-                    <p class="output highlight">Focus:</p><p class="output">Infrastructure, Web Dev, Financial Data Tracking</p>
-                    <p class="cmd mt-2"><span class="prompt">$</span> <span class="cursor">_</span></p>
+                    <p class="output"><span class="highlight">OS:</span> Aztrix Digital Workspace</p>
+                    <p class="output"><span class="highlight">Host:</span> Termux · Mobile-First Dev</p>
+                    <p class="output"><span class="highlight">Core:</span> AztrixInnovations (open source)</p>
+                    <p class="output"><span class="highlight">Plugins:</span> AzLagControlPlus, AzSentinel Suite</p>
+                    <p class="output"><span class="highlight">Web:</span> Node.js · Express · MySQL</p>
+                    <p class="output"><span class="highlight">Focus:</span> Rendimiento, threading seguro, tooling</p>
+                    <p class="cmd mt-2"><span class="prompt">$</span> gradle build</p>
+                    <p class="output"><span style="color: var(--success);">BUILD SUCCESSFUL</span> in 41s</p>
+                    <p class="cmd mt-2"><span class="prompt">$</span> <span class="cursor"></span></p>
                 </div>
             </div>
         </div>
