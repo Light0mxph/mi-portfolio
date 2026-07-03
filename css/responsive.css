@@ -32,11 +32,16 @@
 }
 
 @media (max-width: 760px) {
-    /* Navegación móvil: dock inferior + logo y Discord arriba. Sin hamburguesa. */
-    .nav-links { display: none; }
-    .nav { justify-content: space-between; padding: 0.5rem 0.55rem 0.5rem 1.1rem; }
-    .nav-cta .btn-discord { padding: 0.6rem 1.05rem; font-size: 0.78rem; }
-    .dock { display: flex; }
+    /* Sin barra superior en móvil: la navegación vive en el dock y el
+       branding en el hero. El header queda como contenedor de 0 alto
+       (el dock se inyecta dentro) y no captura toques. */
+    #main-header, #main-header.scrolled { padding: 0; pointer-events: none; }
+    .nav { display: none; }
+    .dock { display: flex; pointer-events: auto; }
+
+    /* Sin header fijo, los anchors no necesitan compensación grande */
+    html { scroll-padding-top: 1rem; }
+    .hero-section { padding-top: 3.75rem; }
 
     .hero-name .shine { display: block; }        /* "Diego" / "Cpsx7z" en dos líneas */
 
@@ -58,7 +63,10 @@
 }
 
 @media (max-width: 520px) {
-    .hero-section { padding-top: 6rem; }
+    /* Ritmo vertical más compacto en pantallas chicas */
+    :root { --section-gap: clamp(4.2rem, 9vh, 5.5rem); }
+
+    .hero-section { padding-top: 3.25rem; }
     .hero-meta { gap: 1rem 1.4rem; }
     .hero-cta { gap: 0.7rem; }
 
