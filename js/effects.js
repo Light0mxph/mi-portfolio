@@ -14,7 +14,7 @@
         if (!ctx) return;
 
         let W = 0, H = 0, dpr = 1, strands = [], raf = 0, t = 0;
-        const pointer = { x: -1, y: -1 };
+        const pointer = { x: -1 };
 
         const build = () => {
             dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -73,7 +73,7 @@
         let rt;
         window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(build, 200); });
         document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
-        if (fine) window.addEventListener("pointermove", e => { pointer.x = e.clientX; pointer.y = e.clientY; }, { passive: true });
+        if (fine) window.addEventListener("pointermove", e => { pointer.x = e.clientX; }, { passive: true });
 
         build();
         start();

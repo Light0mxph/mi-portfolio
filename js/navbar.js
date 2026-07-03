@@ -1,9 +1,6 @@
-/* Navbar: estado scroll, menú móvil, scroll-spy */
+/* Navbar: estado scroll + scroll-spy (desktop pills y dock móvil) */
 document.addEventListener("componentsLoaded", () => {
     const header = document.getElementById("main-header");
-    const burger = document.getElementById("nav-burger");
-    const overlay = document.getElementById("m-overlay");
-    const close = document.getElementById("m-close");
 
     /* Header compacto al hacer scroll */
     if (header) {
@@ -18,28 +15,32 @@ document.addEventListener("componentsLoaded", () => {
         onScroll();
     }
 
-    /* Menú móvil */
-    if (burger && overlay) {
-        const open = () => { overlay.classList.add("active"); document.body.style.overflow = "hidden"; };
-        const shut = () => { overlay.classList.remove("active"); document.body.style.overflow = ""; };
-        burger.addEventListener("click", open);
-        close?.addEventListener("click", shut);
-        overlay.addEventListener("click", e => { if (e.target === overlay) shut(); });
-        document.addEventListener("keydown", e => { if (e.key === "Escape") shut(); });
-        overlay.querySelectorAll("a").forEach(a => a.addEventListener("click", shut));
-    }
-
     /* Scroll-spy: resalta el enlace de la sección visible */
     const sections = [...document.querySelectorAll("main section[id]")];
     const links = [...document.querySelectorAll(".nav-link, .dock a")];
-    if (sections.length && links.length) {
-        const spy = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const id = entry.target.id;
-                links.forEach(l => l.classList.toggle("active", l.getAttribute("href") === `#${id}`));
-            });
-        }, { rootMargin: "-45% 0px -50% 0px" });
-        sections.forEach(s => spy.observe(s));
-    }
+    if (!sections.length || !links.length) return;
+
+    const setActive = id => {
+        links.forEach(l => l.classList.toggle("active", l.getAttribute("href") === `#${id}`));
+    };
+
+    const spy = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+        });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(s => spy.observe(s));
+
+    /* Al llegar al fondo, la última sección siempre queda activa
+       (secciones cortas al final nunca cruzan la franja del observer) */
+    let bottomTick = false;
+    window.addEventListener("scroll", () => {
+        if (bottomTick) return;
+        bottomTick = true;
+        requestAnimationFrame(() => {
+            const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+            if (atBottom) setActive(sections[sections.length - 1].id);
+            bottomTick = false;
+        });
+    }, { passive: true });
 });

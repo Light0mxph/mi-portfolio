@@ -1,6 +1,6 @@
 /* Carga modular de secciones/componentes + preloader */
 document.addEventListener("DOMContentLoaded", () => {
-    const VER = "4"; // cache-busting: subir en cada deploy que toque secciones/CSS/JS
+    const VER = "5"; // cache-busting: subir en cada deploy que toque secciones/CSS/JS
     const loadComponent = async (id, url) => {
         const el = document.getElementById(id);
         if (!el) return;
@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "featured-project", url: "sections/featured-project.html" },
         { id: "stack", url: "sections/stack.html" },
         { id: "community", url: "sections/community.html" },
-        { id: "main-footer", url: "components/footer.html" },
-        { id: "mobile-menu-container", url: "components/mobile-menu.html" }
+        { id: "main-footer", url: "components/footer.html" }
     ];
 
     const hidePreloader = () => document.body.classList.add("loaded");

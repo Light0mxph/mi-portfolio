@@ -23,24 +23,38 @@
     .feat-visual { transform: none; }
 
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
+
+    /* Bento: dos columnas */
+    .bento-grid { grid-template-columns: 1fr 1fr; }
+    .bento { grid-column: span 1; }
+    .bento-main, .bento-principles { grid-column: span 2; }
+    .bento-main { grid-row: auto; }
 }
 
 @media (max-width: 760px) {
-    .nav-links, .nav-cta .btn-discord { display: none; }
-    .nav-burger { display: inline-flex; }
-    .nav { justify-content: space-between; padding: 0.55rem 0.6rem 0.55rem 1.1rem; }
+    /* Navegación móvil: dock inferior + logo y Discord arriba. Sin hamburguesa. */
+    .nav-links { display: none; }
+    .nav { justify-content: space-between; padding: 0.5rem 0.55rem 0.5rem 1.1rem; }
+    .nav-cta .btn-discord { padding: 0.6rem 1.05rem; font-size: 0.78rem; }
     .dock { display: flex; }
 
     .hero-name .shine { display: block; }        /* "Diego" / "Cpsx7z" en dos líneas */
 
     .feat-list { grid-template-columns: 1fr; }
 
-    #main-footer { padding-bottom: 7.5rem; }
+    /* Aire extra al final: el dock flota sobre el footer */
+    #main-footer { padding-bottom: calc(7.5rem + env(safe-area-inset-bottom, 0px)); }
     .foot { grid-template-columns: 1fr 1fr; gap: 1.8rem; }
     .foot-brand { grid-column: 1 / -1; }
     .foot-bottom { justify-content: center; text-align: center; }
 
     .code-body, .term-body { font-size: 0.72rem; line-height: 1.75; }
+}
+
+@media (max-width: 640px) {
+    /* Bento: una columna */
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento, .bento-main, .bento-principles { grid-column: auto; }
 }
 
 @media (max-width: 520px) {
@@ -61,17 +75,26 @@
     .feat { padding: 1.6rem 1.25rem; }
     .svc { padding: 1.6rem 1.4rem; }
 
-    .tech-grid { grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
-    .tech { padding: 1.2rem 0.7rem; }
+    .bento { padding: 1.5rem 1.25rem; }
+    .bp-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .bento-foot { gap: 1.3rem; }
 
     .hero-cta .btn, .feat-actions .btn, .cta-actions > a { width: 100%; }
     .foot { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 480px) {
+    /* Dock compacto: solo iconos (6 items con label no caben en 390–430px);
+       el aria-label conserva el nombre para lectores de pantalla */
+    .dock { padding: 0.45rem 0.55rem; gap: 0.1rem; }
+    .dock a { padding: 0.55rem 0.6rem; }
+    .dock a span { display: none; }
+    .dock a svg { width: 21px; height: 21px; }
+    .dock a.active::after { bottom: 3px; }
+}
+
 @media (max-width: 380px) {
     :root { --gutter: 0.95rem; }
     .hero-stats { grid-template-columns: 1fr; }   /* filas completas, sin apretar texto */
-    .tech-grid { grid-template-columns: repeat(2, 1fr); }
-    .dock a { padding: 0.4rem 0.5rem; font-size: 0.56rem; }
-    .dock a svg { width: 19px; height: 19px; }
+    .dock a { padding: 0.5rem 0.5rem; }
 }

@@ -25,7 +25,7 @@ document.addEventListener("componentsLoaded", () => {
 
     /* Marcar elementos revelables (excluir los que ya viven en un stagger) */
     const targets = [...document.querySelectorAll(
-        "main .glass, main .section-head, main .feat, main .svc, main .tech, main .pillar, main .stat, [data-reveal]"
+        "main .glass, main .section-head, [data-reveal]"
     )].filter(el => !el.closest("[data-stagger]"));
     targets.forEach(el => el.classList.add("reveal"));
     document.querySelectorAll("[data-stagger]").forEach(el => el.classList.add("stagger"));
@@ -43,6 +43,8 @@ document.addEventListener("componentsLoaded", () => {
 
     targets.forEach(el => io.observe(el));
     document.querySelectorAll("[data-stagger]").forEach(el => io.observe(el));
-    // Contadores fuera de un contenedor revelable (p.ej. hero, visible al cargar)
-    document.querySelectorAll(".stat[data-count], [data-count]").forEach(el => io.observe(el));
+    // Contadores sueltos: solo los que no cubre ya un reveal/stagger observado
+    document.querySelectorAll("[data-count]").forEach(el => {
+        if (!el.closest("[data-stagger], .reveal")) io.observe(el);
+    });
 });

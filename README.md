@@ -12,6 +12,7 @@ Ingeniero backend (Java · Node.js), creador de **AztrixInnovations**, el core o
 
 ## Detalles de la interfaz
 
+- Navegación móvil por dock inferior flotante (sin menú hamburguesa) con scroll-spy e indicador activo.
 - Canvas ambiental de "hilos" ondulantes con pulsos (`js/effects.js`), pausado en tab oculto y desactivado con `prefers-reduced-motion`.
 - Spotlight que sigue el cursor en cards, botones magnéticos, scroll-progress y scroll-spy en la navegación.
 - Reveals con IntersectionObserver, stagger y contadores animados.
