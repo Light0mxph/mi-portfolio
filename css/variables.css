@@ -1,99 +1,22 @@
 :root {
-    /* ── Superficies ───────────────────────── */
-    --bg-void: #050509;
-    --bg-main: #07070c;
-    --bg-raise: #0d0d16;
-    --bg-surface: rgba(19, 19, 30, 0.55);
-    --bg-surface-solid: #10101a;
-    --bg-glass: rgba(24, 24, 38, 0.5);
-
-    /* ── Acentos ───────────────────────────── */
-    --violet-300: #d8b4fe;
-    --violet-400: #c084fc;
-    --violet-500: #a855f7;
-    --violet-600: #9333ea;
-    --violet-700: #7c3aed;
-    --cyan-400: #22d3ee;
-    --pink-400: #e879f9;
-
-    --accent: var(--violet-500);
-    --accent-soft: var(--violet-400);
-    --accent-deep: var(--violet-700);
-    --accent-cyan: var(--cyan-400);
-    --success: #34d399;
-    --discord: #5865F2;
-
-    --glow: rgba(168, 85, 247, 0.35);
-    --glow-soft: rgba(168, 85, 247, 0.12);
-    --glow-faint: rgba(168, 85, 247, 0.06);
-
-    /* ── Gradientes ────────────────────────── */
-    --grad-brand: linear-gradient(135deg, #c084fc 0%, #a855f7 45%, #7c3aed 100%);
-    --grad-text: linear-gradient(100deg, #f5e9ff 0%, #d8b4fe 30%, #a855f7 65%, #22d3ee 130%);
-    --grad-shine: linear-gradient(100deg, #e9d5ff 0%, #c084fc 25%, #22d3ee 50%, #c084fc 75%, #e9d5ff 100%);
-    --grad-aurora: radial-gradient(ellipse 45% 40% at 12% 8%, rgba(124, 58, 237, 0.20), transparent 70%),
-                   radial-gradient(ellipse 42% 34% at 88% 22%, rgba(34, 211, 238, 0.09), transparent 70%),
-                   radial-gradient(ellipse 60% 45% at 50% 108%, rgba(147, 51, 234, 0.16), transparent 70%);
-    --grad-hairline: linear-gradient(140deg, rgba(192, 132, 252, 0.55), rgba(255, 255, 255, 0.04) 42%, rgba(34, 211, 238, 0.30));
-
-    /* ── Texto ─────────────────────────────── */
-    --text-1: #f6f6fb;
-    --text-2: #adadc2;
-    --text-3: #71717f;
-    --text-4: #4a4a57;
-
-    /* ── Bordes ────────────────────────────── */
-    --line: rgba(255, 255, 255, 0.07);
-    --line-strong: rgba(168, 85, 247, 0.32);
-
-    /* ── Tipografía ────────────────────────── */
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-display: 'Space Grotesk', var(--font-sans);
-    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-
-    --fs-xs: 0.75rem;
-    --fs-sm: 0.86rem;
-    --fs-base: 0.95rem;
-    --fs-md: 1.05rem;
-    --fs-lg: clamp(1.1rem, 1.6vw, 1.3rem);
-    --fs-xl: clamp(1.25rem, 4vw, 1.8rem);
-    --fs-2xl: clamp(1.55rem, 5.2vw, 2.6rem);
-    --fs-3xl: clamp(1.95rem, 6vw, 3.4rem);
-    --fs-hero: clamp(2.55rem, 10vw, 6rem);
-
-    /* ── Espaciado / medidas ───────────────── */
-    --max-w: 1180px;
-    --max-w-wide: 1320px;
-    --gutter: clamp(1.1rem, 4vw, 2rem);
-    --section-gap: clamp(5.5rem, 13vh, 9.5rem);
-
-    /* ── Radios ────────────────────────────── */
-    --r-sm: 10px;
-    --r-md: 16px;
-    --r-lg: 22px;
-    --r-xl: 30px;
-    --r-pill: 999px;
-
-    /* ── Sombras ───────────────────────────── */
-    --sh-sm: 0 4px 14px -6px rgba(0, 0, 0, 0.6);
-    --sh-md: 0 18px 44px -20px rgba(0, 0, 0, 0.75);
-    --sh-lg: 0 40px 90px -40px rgba(0, 0, 0, 0.85);
-    --sh-glow: 0 0 44px -8px var(--glow);
-
-    /* ── Blur ──────────────────────────────── */
-    --blur: 16px;
-
-    /* ── Easing / tiempos ──────────────────── */
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
-    --t-fast: 0.2s var(--ease-soft);
-    --t: 0.4s var(--ease);
-    --t-slow: 0.7s var(--ease);
-
-    /* ── Capas ─────────────────────────────── */
-    --z-fx: 0;
-    --z-base: 1;
-    --z-nav: 100;
-    --z-overlay: 200;
-    --z-preloader: 300;
+    --black: #000000;
+    --ink: #0b0b0c;
+    --panel: #121214;
+    --panel-2: #18181b;
+    --white: #ffffff;
+    --muted: #858588;
+    --line: rgba(255, 255, 255, 0.12);
+    --line-soft: rgba(255, 255, 255, 0.08);
+    --blue: #3687ff;
+    --blue-light: #94c9ff;
+    --violet: #4938ff;
+    --purple: #8400ff;
+    --green: #74e39a;
+    --font-display: "Geist", "Inter", Arial, sans-serif;
+    --font-body: "Inter", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --shell: min(1440px, calc(100vw - 64px));
+    --radius-lg: 32px;
+    --radius-md: 20px;
+    --ease: cubic-bezier(.22, 1, .36, 1);
 }

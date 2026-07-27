@@ -1,70 +1,10 @@
-<div class="hero-stage">
-<div class="hero-inner">
-    <div class="hero-copy">
-        <a href="#community" class="status-pill"><span class="pulse-dot"></span> Disponible para nuevos proyectos</a>
-        <h1 class="hero-name">Diego<span class="shine">Cpsx7z</span></h1>
-        <p class="hero-role">Backend Engineer <span class="sep">/</span> Minecraft Systems</p>
-        <p class="hero-desc">Construyo la infraestructura invisible que sostiene servidores: plugins <strong>Paper &amp; Folia</strong> de alto rendimiento, el core open source <strong>AztrixInnovations</strong> y tiendas web con pagos. Todo en <strong>Java</strong> y <strong>Node.js</strong>, todo desde la terminal.</p>
-        <div class="hero-cta">
-            <a href="#featured-project" class="btn btn-primary" data-magnetic>Ver mi trabajo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            <a href="https://github.com/Light0mxph" target="_blank" rel="noopener" class="btn btn-ghost">GitHub <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-        </div>
-        <ul class="hero-meta">
-            <li><span class="k">Rol</span><span class="v">Backend & Systems</span></li>
-            <li><span class="k">Entorno</span><span class="v">Termux · Android</span></li>
-            <li><span class="k">Core</span><span class="v">AztrixInnovations</span></li>
-        </ul>
-    </div>
-
-    <div class="hero-visual">
-        <div class="code-card hairline">
-            <div class="win-bar">
-                <span class="win-dot r"></span><span class="win-dot y"></span><span class="win-dot g"></span>
-                <span class="win-title">MyPlugin.java</span>
-            </div>
-            <div class="code-body boot">
-                <span class="ln"><span class="cm">// un core aislado por plugin</span></span>
-                <span class="ln"><span class="cl">AztrixCore</span> core = <span class="cl">AztrixCore</span>.<span class="fn">attach</span>(<span class="kw">this</span>);</span>
-                <span class="ln">&nbsp;</span>
-                <span class="ln"><span class="cm">// I/O pesado fuera del tick loop</span></span>
-                <span class="ln">core.<span class="fn">scheduler</span>()</span>
-                <span class="ln">&nbsp;&nbsp;&nbsp;&nbsp;.<span class="fn">supplyAsyncThenSync</span>(</span>
-                <span class="ln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;() -> db.<span class="fn">loadProfile</span>(id),</span>
-                <span class="ln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p  -> <span class="fn">applyToPlayer</span>(p));</span>
-                <span class="ln">&nbsp;</span>
-                <span class="ln"><span class="cm">// mal hilo = falla rápido y claro</span></span>
-                <span class="ln">core.<span class="fn">scheduler</span>().<span class="fn">ensureMain</span>(<span class="str">"spawn"</span>);</span>
-                <span class="ln">&nbsp;</span>
-                <span class="ln"><span class="str">BUILD SUCCESSFUL</span> <span class="cm">in 41s</span> <span class="blink"></span></span>
-            </div>
-        </div>
-
-        <div class="code-chips">
-            <span class="chip chip-1"><span class="cdot" style="background:var(--success)"></span> Folia-safe</span>
-            <span class="chip chip-2"><span class="cdot" style="background:var(--accent-cyan)"></span> 0 dependencias</span>
-            <span class="chip chip-3"><span class="cdot" style="background:var(--accent-soft)"></span> Java 21</span>
-        </div>
-
-        <div class="hero-avatar"><img src="assets/images/profile/85c69c187939792b3dd8c2960c78a3ec.jpg" alt="DiegoCpsx7z" loading="lazy"></div>
-    </div>
+<div class="hero-art" aria-hidden="true">
+    <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit orbit-three"></span><span class="orbit-core">A</span>
 </div>
-
-<a href="#about" class="hero-scroll" aria-label="Desplázate">
-    <span class="mouse"></span>
-    Scroll
-</a>
+<div class="hero-content">
+    <a href="#contacto" class="availability"><span></span> Disponible para nuevos proyectos</a>
+    <h1>Construyo sistemas para personas que valoran el <em>rendimiento</em>.</h1>
+    <p>Desarrollo la tecnología que mantiene en marcha servidores de Minecraft y negocios digitales: rápida, estable y preparada para crecer.</p>
+    <div class="hero-actions"><a href="#trabajo" class="button button-primary">Ver mi trabajo <span aria-hidden="true">↘</span></a><a href="#servicios" class="button button-secondary">Cómo puedo ayudarte</a></div>
 </div>
-
-<div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-        <span>Java 21</span><span>Paper API</span><span>Folia</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>Gradle KTS</span><span>TypeScript</span><span>Kotlin</span><span>Redis</span>
-        <span>Java 21</span><span>Paper API</span><span>Folia</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>Gradle KTS</span><span>TypeScript</span><span>Kotlin</span><span>Redis</span>
-    </div>
-</div>
-
-<div class="hero-stats" data-stagger>
-    <div class="stat glass spot hairline"><div class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><div class="stat-v" data-count="+3" data-count-key="yearsExp">+3</div><div class="stat-l">Años de experiencia</div></div></div>
-    <div class="stat glass spot hairline"><div class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><div><div class="stat-v" data-count="20+" data-count-key="totalProjects">20+</div><div class="stat-l">Proyectos entregados</div></div></div>
-    <div class="stat glass spot hairline"><div class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="stat-v">Java · Node</div><div class="stat-l">Especialidad backend</div></div></div>
-    <div class="stat glass spot hairline"><div class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22l10-10L22 22"/><path d="M12 2l4 4-4 4-4-4 4-4z"/></svg></div><div><div class="stat-v">Open Source</div><div class="stat-l">Librería core</div></div></div>
-</div>
+<div class="hero-foot"><span>DiegoCpsx7z</span><span>Desarrollo backend · Minecraft · Web</span><span>Termux, México</span></div>

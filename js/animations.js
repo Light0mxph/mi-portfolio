@@ -1,50 +1,44 @@
-/* Reveal on scroll + stagger + count-up numérico */
 document.addEventListener("componentsLoaded", () => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const targets = [
+        ...document.querySelectorAll(".section-intro, .project-card, .service-row, .about-photo-wrap, .about-copy, .stack-card, .principles, .contact-shell")
+    ];
 
-    /* Count-up: "data-count" con formato tipo "+3", "20+", "1.2k" */
-    const runCount = el => {
-        if (el.dataset.counted) return;
-        el.dataset.counted = "1";
-        const raw = String(el.getAttribute("data-count") || el.textContent).trim();
-        const m = raw.match(/^(\D*?)(\d+(?:\.\d+)?)(\D*)$/);
-        if (!m) { el.textContent = raw; return; }
-        const [, pre, numStr, suf] = m;
-        const target = parseFloat(numStr);
-        const decimals = (numStr.split(".")[1] || "").length;
-        if (reduce) { el.textContent = pre + numStr + suf; return; }
-        const dur = 1100, t0 = performance.now();
-        const tick = now => {
-            const p = Math.min((now - t0) / dur, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = pre + (target * eased).toFixed(decimals) + suf;
-            if (p < 1) requestAnimationFrame(tick);
+    targets.forEach((target, index) => {
+        target.classList.add("reveal");
+        if (target.matches(".service-row, .stack-card")) target.dataset.delay = String(index % 3);
+    });
+
+    const count = element => {
+        if (element.dataset.counted) return;
+        element.dataset.counted = "true";
+        const raw = element.dataset.count || element.textContent.trim();
+        const match = raw.match(/^(\D*)(\d+)(\D*)$/);
+        if (!match || reduced) { element.textContent = raw; return; }
+        const [, before, number, after] = match;
+        const target = Number(number);
+        const start = performance.now();
+        const frame = now => {
+            const progress = Math.min((now - start) / 900, 1);
+            element.textContent = `${before}${Math.round(target * (1 - Math.pow(1 - progress, 3)))}${after}`;
+            if (progress < 1) requestAnimationFrame(frame);
         };
-        requestAnimationFrame(tick);
+        requestAnimationFrame(frame);
     };
 
-    /* Marcar elementos revelables (excluir los que ya viven en un stagger) */
-    const targets = [...document.querySelectorAll(
-        "main .glass, main .section-head, [data-reveal]"
-    )].filter(el => !el.closest("[data-stagger]"));
-    targets.forEach(el => el.classList.add("reveal"));
-    document.querySelectorAll("[data-stagger]").forEach(el => el.classList.add("stagger"));
+    if (reduced) {
+        targets.forEach(target => target.classList.add("in"));
+        document.querySelectorAll("[data-count]").forEach(count);
+        return;
+    }
 
-    const io = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries, current) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
-            const el = entry.target;
-            el.classList.add("in");
-            el.querySelectorAll?.("[data-count]").forEach(runCount);
-            if (el.hasAttribute?.("data-count")) runCount(el);
-            obs.unobserve(el);
+            entry.target.classList.add("in");
+            entry.target.querySelectorAll?.("[data-count]").forEach(count);
+            current.unobserve(entry.target);
         });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-
-    targets.forEach(el => io.observe(el));
-    document.querySelectorAll("[data-stagger]").forEach(el => io.observe(el));
-    // Contadores sueltos: solo los que no cubre ya un reveal/stagger observado
-    document.querySelectorAll("[data-count]").forEach(el => {
-        if (!el.closest("[data-stagger], .reveal")) io.observe(el);
-    });
+    }, { threshold: .1, rootMargin: "0px 0px -7%" });
+    targets.forEach(target => observer.observe(target));
 });

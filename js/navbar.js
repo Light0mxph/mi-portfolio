@@ -1,46 +1,39 @@
-/* Navbar: estado scroll + scroll-spy (desktop pills y dock móvil) */
 document.addEventListener("componentsLoaded", () => {
     const header = document.getElementById("main-header");
-
-    /* Header compacto al hacer scroll */
-    if (header) {
-        let ticking = false;
-        const onScroll = () => {
-            header.classList.toggle("scrolled", window.scrollY > 40);
-            ticking = false;
-        };
-        window.addEventListener("scroll", () => {
-            if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
-        }, { passive: true });
-        onScroll();
-    }
-
-    /* Scroll-spy: resalta el enlace de la sección visible */
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const links = [...document.querySelectorAll(".nav-link, .mobile-menu a")];
     const sections = [...document.querySelectorAll("main section[id]")];
-    const links = [...document.querySelectorAll(".nav-link, .dock a")];
-    if (!sections.length || !links.length) return;
 
-    const setActive = id => {
-        links.forEach(l => l.classList.toggle("active", l.getAttribute("href") === `#${id}`));
+    const closeMenu = () => {
+        if (!toggle || !menu) return;
+        toggle.setAttribute("aria-expanded", "false");
+        menu.classList.remove("open");
+        document.body.classList.remove("menu-open");
     };
 
-    const spy = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) setActive(entry.target.id);
-        });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    sections.forEach(s => spy.observe(s));
+    toggle?.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") !== "true";
+        toggle.setAttribute("aria-expanded", String(open));
+        menu?.classList.toggle("open", open);
+        document.body.classList.toggle("menu-open", open);
+    });
+    menu?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+    window.addEventListener("resize", () => { if (window.innerWidth > 800) closeMenu(); });
 
-    /* Al llegar al fondo, la última sección siempre queda activa
-       (secciones cortas al final nunca cruzan la franja del observer) */
-    let bottomTick = false;
+    let ticking = false;
+    const onScroll = () => {
+        header?.classList.toggle("scrolled", window.scrollY > 24);
+        ticking = false;
+    };
     window.addEventListener("scroll", () => {
-        if (bottomTick) return;
-        bottomTick = true;
-        requestAnimationFrame(() => {
-            const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-            if (atBottom) setActive(sections[sections.length - 1].id);
-            bottomTick = false;
-        });
+        if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
     }, { passive: true });
+    onScroll();
+
+    const activate = id => links.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) activate(entry.target.id); });
+    }, { rootMargin: "-42% 0px -52%", threshold: 0 });
+    sections.forEach(section => observer.observe(section));
 });
