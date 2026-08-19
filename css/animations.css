@@ -9,7 +9,14 @@
 .hero-node-data { animation-delay: -1.3s; }.hero-node-cache { animation-delay: -2.8s; }.hero-node-queue { animation-delay: -4.1s; }
 .nav-avatar-frame { animation: nav-frame 3.4s ease-in-out infinite; }
 .nav-avatar-scan { animation: nav-scan 3.8s ease-in-out infinite; }
-.availability span, .architecture-core-map small i, .architecture-status span i, .demo-status > i, .demo-services i, .identity-status i, .photo-hud i, .nav-avatar-status { animation: status-pulse 2s ease-out infinite; }
+.availability span, .architecture-core-map small i, .architecture-status span i, .demo-status > i, .demo-services i, .identity-status i, .photo-hud i, .nav-avatar-status, .diagnostic-live i, .process-board-status i { animation: status-pulse 2s ease-out infinite; }
+.decode-word:hover::after, .decode-word.is-decoding::after { animation: decode-sweep .78s var(--ease); }
+.decode-hint i { animation: decode-cue 2.8s ease-in-out infinite; }
+.diagnostic-copy code > b { animation: cursor-blink .9s steps(1) infinite; }
+.diagnostic-route span { animation: diagnostic-route 4.4s linear infinite; }
+.diagnostic-readouts > span { opacity: 0; transform: translateX(16px); }
+.diagnostic-shell.in .diagnostic-readouts > span { animation: readout-in .65s var(--ease) both; }
+.diagnostic-shell.in .diagnostic-readouts > span:nth-child(2) { animation-delay: .14s; }.diagnostic-shell.in .diagnostic-readouts > span:nth-child(3) { animation-delay: .28s; }
 
 .project-demo::after { animation: project-scan 7s ease-in-out infinite; }
 .demo-window { animation: window-glow 5s ease-in-out infinite; }
@@ -31,6 +38,12 @@
 .photo-signal-systems { animation-delay: -2.4s; }
 .identity-main strong { animation: identity-shimmer 7s ease-in-out infinite; }
 .about-photo-caption::after { animation: identity-trace 4.8s ease-in-out infinite; }
+.process-board.in .process-route > span { animation: process-flow 1.8s .25s var(--ease) both; }
+.process-board.in .process-route > i { animation: process-packet 4.8s 1.6s ease-in-out infinite; }
+.process-board.in .process-step { animation: process-step-in .75s var(--ease) both; }
+.process-board.in .process-step:nth-child(2) { animation-delay: .12s; }.process-board.in .process-step:nth-child(3) { animation-delay: .24s; }.process-board.in .process-step:nth-child(4) { animation-delay: .36s; }
+.process-board.in .process-step .process-node i { animation: process-node-status .5s .45s var(--ease) both; }
+.process-board.in .process-step:nth-child(2) .process-node i { animation-delay: .8s; }.process-board.in .process-step:nth-child(3) .process-node i { animation-delay: 1.15s; }.process-board.in .process-step:nth-child(4) .process-node i { animation-delay: 1.5s; }
 .contact-shell::after { animation: contact-scan 8s ease-in-out infinite; }
 
 .stack-icon { transition: color .35s, border-color .35s, transform .5s var(--ease), box-shadow .35s; }
@@ -50,6 +63,10 @@
 @keyframes nav-frame { 0%,100% { opacity: .48; filter: drop-shadow(0 0 0 rgba(53,213,255,0)); } 50% { opacity: 1; filter: drop-shadow(0 0 5px rgba(53,213,255,.35)); } }
 @keyframes nav-scan { 0%,18% { opacity: 0; transform: translateY(0); } 34%,64% { opacity: .7; } 82%,100% { opacity: 0; transform: translateY(31px); } }
 @keyframes status-pulse { 0% { box-shadow: 0 0 0 0 rgba(116,227,154,.38); } 70% { box-shadow: 0 0 0 8px rgba(116,227,154,0); } 100% { box-shadow: 0 0 0 0 rgba(116,227,154,0); } }
+@keyframes decode-sweep { 0% { left: -12%; opacity: 0; } 25%,70% { opacity: 1; } 100% { left: 82%; opacity: 0; } }
+@keyframes decode-cue { 0%,100% { opacity: .4; transform: scaleX(.8); } 50% { opacity: 1; transform: scaleX(1); } }
+@keyframes diagnostic-route { 0% { left: -24%; opacity: 0; } 12%,84% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+@keyframes readout-in { to { opacity: 1; transform: none; } }
 @keyframes project-scan { 0%,12% { left: 8%; opacity: 0; } 22% { opacity: .9; } 78% { opacity: .9; } 88%,100% { left: 92%; opacity: 0; } }
 @keyframes window-glow { 0%,100% { box-shadow: 0 35px 90px rgba(0,0,0,.48), 0 0 0 1px rgba(53,213,255,.03) inset; } 50% { box-shadow: 0 40px 105px rgba(0,0,0,.58), 0 0 38px rgba(53,213,255,.08); } }
 @keyframes cursor-blink { 0%,48% { opacity: 1; } 49%,100% { opacity: 0; } }
@@ -65,9 +82,24 @@
 @keyframes identity-float { 0%,100% { transform: translateZ(50px) translateY(0); } 50% { transform: translateZ(50px) translateY(-8px); } }
 @keyframes identity-shimmer { 0%,28% { background-position: 100% 50%; } 48%,100% { background-position: -100% 50%; } }
 @keyframes identity-trace { 0%,14% { left: -28%; opacity: 0; } 28%,72% { opacity: 1; } 86%,100% { left: 100%; opacity: 0; } }
+@keyframes process-flow { to { transform: scaleX(1); } }
+@keyframes process-packet { 0% { left: 0; opacity: 0; } 12%,88% { opacity: 1; } 100% { left: calc(100% - 9px); opacity: 0; } }
+@keyframes process-step-in { from { opacity: .25; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes process-node-status { 0% { background: #53606a; box-shadow: none; transform: scale(.6); } 65% { background: var(--cyan); box-shadow: 0 0 14px rgba(53,213,255,.8); transform: scale(1.35); } 100% { background: var(--green); box-shadow: 0 0 10px rgba(116,227,154,.65); transform: scale(1); } }
 @keyframes contact-scan { 0%,10% { top: -15%; opacity: 0; } 20% { opacity: .7; } 80% { opacity: .7; } 90%,100% { top: 115%; opacity: 0; } }
+
+@media (max-width: 800px) {
+    .process-board.in .process-route > span { animation-name: process-flow-mobile; }
+    .process-board.in .process-route > i { animation-name: process-packet-mobile; }
+    @keyframes process-flow-mobile { to { transform: scaleY(1); } }
+    @keyframes process-packet-mobile { 0% { top: 0; opacity: 0; } 12%,88% { opacity: 1; } 100% { top: calc(100% - 9px); opacity: 0; } }
+}
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
     .reveal { opacity: 1; filter: none; transform: none; }
+    .diagnostic-readouts > span, .process-step { opacity: 1; transform: none; }
+    .process-route > span { animation: none !important; transform: none !important; }
+    .process-route > i { display: none; }
+    .process-node i { background: var(--green); }
 }

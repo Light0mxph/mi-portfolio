@@ -181,7 +181,7 @@
     };
 
     const initInteractions = () => {
-        const surfaces = document.querySelectorAll(".project-card, .service-row, .studio-panel, .stack-card");
+        const surfaces = document.querySelectorAll(".diagnostic-shell, .project-card, .service-row, .process-step, .studio-panel, .stack-card");
         surfaces.forEach(surface => {
             surface.classList.add("interactive-surface");
             if (!finePointer || reduced) return;
@@ -228,9 +228,49 @@
         });
     };
 
+    const initDecode = () => {
+        if (reduced) return;
+        const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}";
+
+        document.querySelectorAll("[data-decode]").forEach(word => {
+            const finalText = word.dataset.decode || word.textContent;
+            let frame = 0;
+
+            const decode = () => {
+                cancelAnimationFrame(frame);
+                word.classList.add("is-decoding");
+                const start = performance.now();
+
+                const draw = now => {
+                    const progress = Math.min((now - start) / 720, 1);
+                    const solved = Math.floor(progress * finalText.length);
+                    const cycle = Math.floor(now / 42);
+                    word.textContent = [...finalText].map((character, index) => {
+                        if (character === " " || index < solved || progress === 1) return character;
+                        return glyphs[(cycle + index * 7) % glyphs.length];
+                    }).join("");
+
+                    if (progress < 1) {
+                        frame = requestAnimationFrame(draw);
+                        return;
+                    }
+                    word.textContent = finalText;
+                    word.classList.remove("is-decoding");
+                };
+
+                frame = requestAnimationFrame(draw);
+            };
+
+            word.addEventListener("pointerenter", decode);
+            word.addEventListener("pointerdown", decode);
+            window.setTimeout(decode, 850);
+        });
+    };
+
     document.addEventListener("componentsLoaded", () => {
         initNetwork();
         initInteractions();
+        initDecode();
         updateProgress();
     }, { once: true });
 })();
