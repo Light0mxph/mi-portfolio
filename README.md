@@ -18,8 +18,11 @@ Ingeniero de software especializado en backend con Java y Node.js. Creador de **
 - Arquitectura modular: secciones y componentes cargados mediante `fetch`.
 - Sistema de diseño basado en variables CSS, composición editorial oscura y adaptación responsive.
 - Navegación móvil desplegable, indicador de lectura y detección de sección activa.
+- Red de servicios y paquetes de datos dibujada en `canvas`, pausada fuera de pantalla o con la pestaña oculta.
+- Mapa de arquitectura construido con HTML, SVG y CSS: núcleo, API, tareas, caché, datos y eventos.
+- Spotlight por superficie, profundidad según el cursor, botones magnéticos y estados animados.
 - Apariciones progresivas con `IntersectionObserver`, contadores y respeto por `prefers-reduced-motion`.
 - Metadatos SEO, Open Graph, datos estructurados, enlace de salto y estados de foco visibles.
-- Recursos visuales con carga diferida para reducir el costo inicial de la página.
+- Recursos fotográficos y de marca con carga diferida para reducir el costo inicial de la página.
 
 Sitio estático desplegado con GitHub Pages.

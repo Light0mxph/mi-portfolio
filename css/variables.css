@@ -7,10 +7,11 @@
     --muted: #858588;
     --line: rgba(255, 255, 255, 0.12);
     --line-soft: rgba(255, 255, 255, 0.08);
-    --blue: #3687ff;
-    --blue-light: #94c9ff;
-    --violet: #4938ff;
-    --purple: #8400ff;
+    --blue: #2f8fff;
+    --blue-light: #8bddff;
+    --cyan: #35d5ff;
+    --cyan-soft: rgba(53, 213, 255, 0.16);
+    --gold: #d6b778;
     --green: #74e39a;
     --font-display: "Geist", "Inter", Arial, sans-serif;
     --font-body: "Inter", Arial, sans-serif;

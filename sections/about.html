@@ -34,9 +34,23 @@
             </div>
             <a href="https://github.com/Light0mxph/AztrixInnovations" target="_blank" rel="noopener" class="text-link">Conocer AztrixInnovations <span>↗</span></a>
         </div>
-        <figure class="studio-visual">
-            <img src="assets/images/editorial/backend-infrastructure.png" alt="Visualización abstracta de servicios backend interconectados" loading="lazy" decoding="async">
-            <figcaption>Arquitecturas pensadas para crecer sin perder control.</figcaption>
+        <figure class="studio-visual architecture-map tilt-surface" aria-labelledby="architecture-caption">
+            <div class="architecture-grid" aria-hidden="true"></div>
+            <svg class="architecture-links" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M235 185 C340 185 355 320 500 400"></path>
+                <path d="M765 175 C655 175 650 320 500 400"></path>
+                <path d="M225 615 C340 615 360 495 500 400"></path>
+                <path d="M775 610 C660 610 650 500 500 400"></path>
+                <path d="M500 680 C500 575 500 505 500 400"></path>
+            </svg>
+            <div class="architecture-core-map"><span>Núcleo</span><strong>Aztrix</strong><small><i></i> Operativo</small></div>
+            <div class="architecture-node architecture-api"><i></i><span>Entrada</span><strong>API</strong><small>12 ms</small></div>
+            <div class="architecture-node architecture-tasks"><i></i><span>Procesos</span><strong>Tareas</strong><small>24 activas</small></div>
+            <div class="architecture-node architecture-cache"><i></i><span>Memoria</span><strong>Caché</strong><small>98% aciertos</small></div>
+            <div class="architecture-node architecture-data"><i></i><span>Persistencia</span><strong>Datos</strong><small>Sincronizados</small></div>
+            <div class="architecture-node architecture-events"><i></i><span>Mensajería</span><strong>Eventos</strong><small>0 pendientes</small></div>
+            <div class="architecture-status"><span><i></i> Sistema disponible</span><strong>5 servicios conectados</strong></div>
+            <figcaption id="architecture-caption">Arquitectura modular · Flujo de datos en tiempo real</figcaption>
         </figure>
     </article>
 </div>
