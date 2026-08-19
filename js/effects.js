@@ -201,11 +201,15 @@
                 const y = (event.clientY - bounds.top) / bounds.height - .5;
                 surface.style.setProperty("--tilt-x", `${(-y * 4).toFixed(2)}deg`);
                 surface.style.setProperty("--tilt-y", `${(x * 5).toFixed(2)}deg`);
+                surface.style.setProperty("--pointer-x", `${((x + .5) * 100).toFixed(1)}%`);
+                surface.style.setProperty("--pointer-y", `${((y + .5) * 100).toFixed(1)}%`);
             }, { passive: true });
             surface.addEventListener("pointerleave", () => {
                 const demo = surface.classList.contains("demo-window");
                 surface.style.setProperty("--tilt-x", demo ? "2deg" : "0deg");
                 surface.style.setProperty("--tilt-y", demo ? "-3deg" : "0deg");
+                surface.style.setProperty("--pointer-x", "50%");
+                surface.style.setProperty("--pointer-y", "50%");
             });
         });
 

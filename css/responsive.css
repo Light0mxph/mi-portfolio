@@ -15,7 +15,7 @@
     .section-intro { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }.section-intro p { justify-self: start; }
     .work-section, .services-section, .about-section, .stack-section { padding: 110px 0; }
     .service-row { grid-template-columns: 36px 1fr 28px; gap: 18px; }.service-row > p { grid-column: 2 / -1; }.service-arrow { grid-column: 3; grid-row: 1; }
-    .about-layout { grid-template-columns: 1fr; }.about-photo-wrap { max-width: 540px; }.about-columns { gap: 18px; }
+    .about-layout { grid-template-columns: 1fr; }.about-photo-wrap { width: min(100%, 540px); }.about-columns { gap: 18px; }
     .studio-panel { margin-top: 88px; grid-template-columns: 1fr; }.studio-visual { min-height: 540px; border-top: 1px solid var(--line); border-left: 0; }.architecture-node { width: 120px; }.architecture-core-map { width: 154px; }
     .principles { grid-template-columns: 1fr; gap: 24px; }
     .contact-section { padding: 20px 16px 16px; }.contact-shell { min-height: 650px; padding: 60px 24px; }.contact-note { margin-top: 64px; }
@@ -26,6 +26,7 @@
     .section-intro h2, .about-copy h2 { font-size: clamp(38px, 12vw, 56px); }
     .project-topline { padding: 0 18px; }.project-topline span:last-child { display: none; }.project-copy { padding: 30px 22px; }.project-copy h3 { font-size: 42px; }.project-demo { min-height: 500px; padding: 48px 2%; }.demo-window { width: 100%; transform: scale(.94); }.float-chip { display: none; }.demo-services { grid-template-columns: 1fr; }.demo-services span:nth-child(n+5) { display: none; }
     .service-row { padding: 28px 0; }.service-row:hover { padding-inline: 8px; }.service-title h3 { font-size: 26px; }
+    .about-photo-stage { padding: 7px; }.about-photo-stage::after { inset: 7px; }.photo-orbit-one { top: -16px; right: -11px; width: 72px; height: 72px; }.photo-orbit-two { left: -12px; bottom: 52px; width: 54px; height: 54px; }.photo-signal { min-width: 84px; padding: 9px 10px; }.photo-signal-java { right: -2px; }.photo-signal-systems { left: -2px; }.about-photo-caption { margin-inline: 4px; grid-template-columns: minmax(0,1fr) auto; }.identity-index { display: none; }.identity-main strong { font-size: 18px; }
     .about-columns { grid-template-columns: 1fr; }.about-facts { grid-template-columns: 1fr; }.about-facts div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
     .studio-copy { padding: 32px 24px 38px; }.studio-logo { width: 92px; border-radius: 15px; }.studio-copy h3 { font-size: clamp(34px, 10vw, 48px); }.studio-details span { grid-template-columns: 1fr; gap: 3px; }.studio-visual { min-height: 450px; transform: none; }.architecture-status { display: none; }.architecture-core-map { width: 122px; padding: 18px; border-radius: 22px; }.architecture-core-map::before { inset: -9px; border-radius: 28px; }.architecture-core-map strong { font-size: 19px; }.architecture-node { width: 96px; padding: 10px 8px 9px 24px; }.architecture-node > i { left: 10px; top: 14px; }.architecture-node span, .architecture-node small { font-size: 6px; }.architecture-node strong { font-size: 9px; }.architecture-api { left: 4%; top: 14%; }.architecture-tasks { right: 4%; top: 14%; }.architecture-cache { left: 4%; bottom: 15%; }.architecture-data { right: 4%; bottom: 15%; }.architecture-events { display: none; }.architecture-links path:last-child { display: none; }.studio-visual figcaption { left: 20px; right: 20px; bottom: 14px; }
     .stack-grid { grid-template-columns: 1fr; }.stack-card + .stack-card, .stack-card:nth-child(3), .stack-card:nth-child(4) { border-left: 0; border-top: 1px solid var(--line); }.stack-card { min-height: 340px; padding: 28px; }.stack-card:nth-child(4) { min-height: 340px; }.stack-icon { margin-bottom: 42px; }
@@ -33,5 +34,5 @@
     #main-footer { padding: 70px 20px 24px; }.footer-main { min-height: 330px; flex-direction: column; }.footer-links { gap: 56px; }.footer-bottom { flex-direction: column; gap: 8px; }.footer-bottom span:nth-child(2) { display: none; }
 }
 @media (max-width: 380px) {
-    .hero-content h1 { font-size: 41px; }.availability { font-size: 9px; }.about-photo-caption span:last-child { display: none; }
+    .hero-content h1 { font-size: 41px; }.availability { font-size: 9px; }.identity-status { display: none; }.about-photo-caption { grid-template-columns: 1fr; }.photo-signal-systems { display: none; }
 }
