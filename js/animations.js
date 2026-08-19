@@ -1,7 +1,7 @@
 document.addEventListener("componentsLoaded", () => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const targets = [
-        ...document.querySelectorAll(".section-intro, .project-card, .service-row, .about-photo-wrap, .about-copy, .stack-card, .principles, .contact-shell")
+        ...document.querySelectorAll(".section-intro, .project-card, .service-row, .about-photo-wrap, .about-copy, .studio-panel, .stack-card, .principles, .contact-shell")
     ];
 
     targets.forEach((target, index) => {

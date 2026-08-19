@@ -2,21 +2,24 @@
 
 Portafolio personal — [diegocpsx7z.site](https://diegocpsx7z.site)
 
-Ingeniero backend (Java · Node.js), creador de **AztrixInnovations**, el core open source Folia-safe para plugins de Minecraft.
+Ingeniero de software especializado en backend con Java y Node.js. Creador de **AztrixInnovations**, un núcleo de código abierto compatible con Paper y Folia para desarrollar plugins de Minecraft.
 
-## Stack
+## Contenido principal
 
-- HTML, CSS y JS nativo. Sin frameworks, sin build step.
-- Arquitectura modular: secciones y componentes cargados por `fetch` (`sections/`, `components/`).
-- Sistema de diseño en tokens (`css/variables.css`): dark editorial, glass, aurora + malla de puntos, grano.
+- Perfil profesional de DiegoCpsx7z y especialización en ingeniería backend.
+- AztrixInnovations como proyecto destacado, con enlace directo al repositorio.
+- Presentación de Aztrix Digital Studio y sus áreas de trabajo.
+- Servicios de arquitectura backend, plugins, integraciones y optimización.
+- Base técnica, principios de ingeniería y vías de contacto.
 
-## Detalles de la interfaz
+## Implementación
 
-- Navegación móvil por dock inferior flotante (sin menú hamburguesa) con scroll-spy e indicador activo.
-- Canvas ambiental de "hilos" ondulantes con pulsos (`js/effects.js`), pausado en tab oculto y desactivado con `prefers-reduced-motion`.
-- Spotlight que sigue el cursor en cards, botones magnéticos, scroll-progress y scroll-spy en la navegación.
-- Reveals con IntersectionObserver, stagger y contadores animados.
-- Preloader con red de seguridad (nunca se queda atascado aunque falle un `fetch`).
-- Accesible: skip-link, `:focus-visible`, jerarquía semántica y respeto total a `prefers-reduced-motion`.
+- HTML, CSS y JavaScript nativo, sin dependencias ni proceso de compilación.
+- Arquitectura modular: secciones y componentes cargados mediante `fetch`.
+- Sistema de diseño basado en variables CSS, composición editorial oscura y adaptación responsive.
+- Navegación móvil desplegable, indicador de lectura y detección de sección activa.
+- Apariciones progresivas con `IntersectionObserver`, contadores y respeto por `prefers-reduced-motion`.
+- Metadatos SEO, Open Graph, datos estructurados, enlace de salto y estados de foco visibles.
+- Recursos visuales con carga diferida para reducir el costo inicial de la página.
 
-Desarrollado íntegramente desde Termux (Android) y desplegado con GitHub Pages.
+Sitio estático desplegado con GitHub Pages.

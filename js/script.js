@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const version = "8";
+    const version = "9";
     const parts = [
         ["main-header", "components/navbar.html"],
         ["inicio", "sections/hero.html"],
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const response = await fetch(`data/site.json?v=${version}`);
+        if (!response.ok) throw new Error(`Error ${response.status}`);
         const data = await response.json();
         document.querySelectorAll("[data-count]").forEach(element => {
             const key = element.dataset.countKey;
