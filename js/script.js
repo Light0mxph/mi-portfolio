@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const version = "11";
+    const version = "12";
     const parts = [
         ["main-header", "components/navbar.html"],
         ["inicio", "sections/hero.html"],
