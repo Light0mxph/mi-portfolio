@@ -1,24 +1,27 @@
 <div class="nav-shell">
-    <nav class="nav-left" aria-label="Navegación principal">
-        <a href="./" class="nav-link" data-scroll-to="trabajo">Trabajo <sup>01</sup></a>
-        <a href="./" class="nav-link" data-scroll-to="servicios">Servicios <sup>04</sup></a>
-    </nav>
-    <a href="./" class="nav-avatar" data-scroll-to="inicio" aria-label="Volver al inicio">
-        <img src="assets/images/profile/df3bd4f10f93a3ff915c31744cef9980.jpg" alt="">
-        <span class="nav-avatar-frame" aria-hidden="true"></span>
-        <span class="nav-avatar-scan" aria-hidden="true"></span>
-        <span class="nav-avatar-status" aria-hidden="true"></span>
+    <a href="#inicio" class="nav-brand" data-scroll-to="inicio" aria-label="DiegoCpsx7z, volver al inicio">
+        <span class="nav-avatar"><img src="assets/images/profile/avatar-96.jpg" alt="" width="40" height="40" decoding="async"><i aria-hidden="true"></i></span>
+        <span class="nav-brand-copy"><strong>DiegoCpsx7z<span>↗</span></strong><small>Ingeniería backend</small></span>
     </a>
-    <nav class="nav-right" aria-label="Enlaces de perfil y contacto">
-        <a href="./" class="nav-link" data-scroll-to="perfil">Perfil</a>
-        <a href="./" class="nav-link nav-chat" data-scroll-to="contacto">Hablemos <span aria-hidden="true">→</span></a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#trabajo" class="nav-link" data-scroll-to="trabajo">Trabajo <sup>01</sup></a>
+        <a href="#servicios" class="nav-link" data-scroll-to="servicios">Servicios</a>
+        <a href="#perfil" class="nav-link" data-scroll-to="perfil">Sobre mí</a>
     </nav>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu"><span>Menú</span><i aria-hidden="true"></i></button>
+    <div class="nav-controls">
+        <button class="motion-toggle" type="button" aria-label="Pausar animaciones" aria-pressed="false" title="Pausar animaciones" hidden><span class="motion-bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+        <a href="#contacto" class="nav-contact" data-scroll-to="contacto">Hablemos <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+        <details class="menu-disclosure">
+            <summary aria-label="Menú de navegación"><span>Menú</span><i aria-hidden="true"></i></summary>
+            <nav id="mobile-menu" class="mobile-menu" aria-label="Navegación móvil">
+                <span class="mobile-menu-label">Explora el portfolio</span>
+                <a href="#trabajo" data-scroll-to="trabajo"><span>01</span>Trabajo <i>↗</i></a>
+                <a href="#servicios" data-scroll-to="servicios"><span>02</span>Servicios <i>↗</i></a>
+                <a href="#metodo" data-scroll-to="metodo"><span>03</span>Método <i>↗</i></a>
+                <a href="#perfil" data-scroll-to="perfil"><span>04</span>Sobre mí <i>↗</i></a>
+                <a href="#contacto" data-scroll-to="contacto"><span>05</span>Hablemos <i>↗</i></a>
+                <span class="mobile-menu-note">De la primera idea a un sistema que funciona.</span>
+            </nav>
+        </details>
+    </div>
 </div>
-<nav id="mobile-menu" class="mobile-menu" aria-label="Navegación móvil">
-    <a href="./" data-scroll-to="trabajo">Trabajo <span>01</span></a>
-    <a href="./" data-scroll-to="servicios">Servicios <span>04</span></a>
-    <a href="./" data-scroll-to="metodo">Método</a>
-    <a href="./" data-scroll-to="perfil">Perfil</a>
-    <a href="./" data-scroll-to="contacto">Hablemos <span>→</span></a>
-</nav>

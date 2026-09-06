@@ -1,78 +1,27 @@
 <div class="section-shell">
     <div class="about-layout">
-        <div class="about-photo-wrap">
-            <div class="about-photo-stage tilt-surface">
-                <span class="photo-orbit photo-orbit-one" aria-hidden="true"></span>
-                <span class="photo-orbit photo-orbit-two" aria-hidden="true"></span>
-                <div class="about-photo">
-                    <img src="assets/images/profile/df3bd4f10f93a3ff915c31744cef9980.jpg" alt="Retrato de DiegoCpsx7z en blanco y negro" loading="lazy" decoding="async">
-                    <span class="photo-light" aria-hidden="true"></span>
-                    <span class="photo-scan" aria-hidden="true"></span>
-                    <span class="photo-corner photo-corner-tl" aria-hidden="true"></span>
-                    <span class="photo-corner photo-corner-tr" aria-hidden="true"></span>
-                    <span class="photo-corner photo-corner-bl" aria-hidden="true"></span>
-                    <span class="photo-corner photo-corner-br" aria-hidden="true"></span>
-                    <span class="photo-hud" aria-hidden="true">
-                        <span>Perfil / 01</span>
-                        <span><i></i> En línea</span>
-                    </span>
-                </div>
-                <span class="photo-signal photo-signal-java" aria-hidden="true"><small>Lenguaje</small><strong>Java</strong></span>
-                <span class="photo-signal photo-signal-systems" aria-hidden="true"><small>Enfoque</small><strong>Sistemas</strong></span>
+        <figure class="profile-card" data-reveal>
+            <div class="profile-stage motion-region" data-tilt>
+                <div class="profile-picture"><img src="assets/images/profile/df3bd4f10f93a3ff915c31744cef9980.jpg" alt="Retrato de DiegoCpsx7z en blanco y negro" width="480" height="480" loading="lazy" decoding="async"><div class="profile-shade" aria-hidden="true"></div><span class="profile-scan" aria-hidden="true"></span></div>
+                <span class="profile-bracket bracket-tl" aria-hidden="true"></span><span class="profile-bracket bracket-tr" aria-hidden="true"></span><span class="profile-bracket bracket-bl" aria-hidden="true"></span><span class="profile-bracket bracket-br" aria-hidden="true"></span>
+                <span class="profile-meta" aria-hidden="true">La persona detrás del código <i>01 / PERFIL</i></span>
+                <span class="profile-float float-code" aria-hidden="true"><span>{ }</span>Ingeniería backend</span>
+                <span class="profile-float float-java" aria-hidden="true"><span class="status-dot"></span> Java · Node.js</span>
             </div>
-            <div class="about-photo-caption">
-                <span class="identity-index">Identidad / 01</span>
-                <span class="identity-main"><strong>DiegoCpsx7z</strong><span>Ingeniero de software · Backend</span></span>
-                <span class="identity-status"><i></i> Disponible</span>
-            </div>
-        </div>
-        <div class="about-copy">
-            <span class="eyebrow">Perfil profesional</span>
-            <h2>Ingeniería backend con criterio de <em>producto</em>.</h2>
-            <p class="about-lead">Soy DiegoCpsx7z, ingeniero de software especializado en backend y creador de sistemas para Minecraft. Convierto requisitos complejos en software estable, comprensible y preparado para evolucionar.</p>
-            <div class="about-columns">
-                <p>Trabajo principalmente con Java y Node.js. Diseño APIs, procesos asíncronos, integraciones y capas de datos poniendo atención en concurrencia, observabilidad, seguridad y mantenimiento.</p>
-                <p>Trabajo con una práctica técnica directa y medible: primero defino contratos y riesgos, después implemento y pruebo, y finalmente documento lo necesario para que el sistema pueda mantenerse con claridad.</p>
-            </div>
-            <div class="about-facts">
-                <div><strong data-count="3+" data-count-key="yearsExp">3+</strong><span>Años creando sistemas</span></div>
-                <div><strong data-count="20+" data-count-key="totalProjects">20+</strong><span>Proyectos desarrollados</span></div>
-                <div><strong>100%</strong><span>Enfoque en backend</span></div>
-            </div>
-            <a href="https://discord.gg/5kcNQEqCFS" target="_blank" rel="noopener" class="text-link">Cuéntame tu proyecto en Discord <span>↗</span></a>
+            <figcaption class="profile-caption"><span class="profile-name">DiegoCpsx7z<span aria-hidden="true">↗</span></span><span class="profile-role">Ingeniero de software <i aria-hidden="true">/</i> Creador de Aztrix</span></figcaption>
+        </figure>
+        <div class="about-copy" data-reveal>
+            <span class="eyebrow"><span>04 /</span> Detrás del código</span>
+            <h2 id="about-title">Me importa<br>cómo funciona.<br><em>Y cómo se siente.</em></h2>
+            <p class="about-lead">Soy DiegoCpsx7z, ingeniero de software especializado en backend. Me gusta convertir problemas complejos en sistemas que otras personas pueden entender y usar.</p>
+            <p>Trabajo con Java y Node.js, desde APIs e integraciones hasta sistemas para Minecraft. Me interesan los detalles que sostienen un producto: concurrencia, datos, rendimiento y mantenimiento.</p>
+            <p>Mi manera de trabajar es directa: entender bien, construir con intención y explicar las decisiones. El buen software también debe ser un buen lugar para seguir construyendo.</p>
+            <div class="about-facts"><div><strong>{{yearsExp}}</strong><span>Años creando sistemas</span></div><div><strong>{{totalProjects}}</strong><span>Proyectos desarrollados</span></div><div><strong>Backend</strong><span>Mi especialidad</span></div></div>
         </div>
     </div>
-
-    <article class="studio-panel" aria-labelledby="studio-title">
-        <div class="studio-copy">
-            <img class="studio-logo" src="assets/images/studio/file_00000000d8a081fd97a4fd7bb4da8e18.png" alt="Logotipo de Aztrix Innovations" loading="lazy" decoding="async">
-            <span class="eyebrow">Estudio independiente</span>
-            <h3 id="studio-title">Aztrix convierte ingeniería en herramientas que otras personas pueden usar.</h3>
-            <p>Aztrix Digital Studio es el espacio donde desarrollo productos propios y soluciones a medida. Su proyecto principal, AztrixInnovations, concentra una forma de trabajar basada en componentes claros, compatibilidad real y rendimiento predecible.</p>
-            <div class="studio-details">
-                <span><small>Especialidad</small><strong>Backend y sistemas concurrentes</strong></span>
-                <span><small>Base técnica</small><strong>Java · Node.js · Datos</strong></span>
-                <span><small>Entrega</small><strong>Diseño · Desarrollo · Soporte</strong></span>
-            </div>
-            <a href="https://github.com/Light0mxph/AztrixInnovations" target="_blank" rel="noopener" class="text-link">Conocer AztrixInnovations <span>↗</span></a>
-        </div>
-        <figure class="studio-visual architecture-map tilt-surface" aria-labelledby="architecture-caption">
-            <div class="architecture-grid" aria-hidden="true"></div>
-            <svg class="architecture-links" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M235 185 C340 185 355 320 500 400"></path>
-                <path d="M765 175 C655 175 650 320 500 400"></path>
-                <path d="M225 615 C340 615 360 495 500 400"></path>
-                <path d="M775 610 C660 610 650 500 500 400"></path>
-                <path d="M500 680 C500 575 500 505 500 400"></path>
-            </svg>
-            <div class="architecture-core-map"><span>Núcleo</span><strong>Aztrix</strong><small><i></i> Operativo</small></div>
-            <div class="architecture-node architecture-api"><i></i><span>Entrada</span><strong>API</strong><small>12 ms</small></div>
-            <div class="architecture-node architecture-tasks"><i></i><span>Procesos</span><strong>Tareas</strong><small>24 activas</small></div>
-            <div class="architecture-node architecture-cache"><i></i><span>Memoria</span><strong>Caché</strong><small>98% aciertos</small></div>
-            <div class="architecture-node architecture-data"><i></i><span>Persistencia</span><strong>Datos</strong><small>Sincronizados</small></div>
-            <div class="architecture-node architecture-events"><i></i><span>Mensajería</span><strong>Eventos</strong><small>0 pendientes</small></div>
-            <div class="architecture-status"><span><i></i> Sistema disponible</span><strong>5 servicios conectados</strong></div>
-            <figcaption id="architecture-caption">Arquitectura modular · Flujo de datos en tiempo real</figcaption>
-        </figure>
+    <article class="studio-panel" data-reveal aria-labelledby="studio-title">
+        <div class="studio-emblem"><img src="assets/images/studio/aztrix-192.jpg" alt="Identidad visual de Aztrix Innovations" width="120" height="120" loading="lazy" decoding="async"></div>
+        <div class="studio-copy"><span class="eyebrow">Estudio independiente</span><h3 id="studio-title">Una visión propia.<br><span>Aztrix Digital Studio.</span></h3><p>El espacio donde convierto ingeniería en productos propios y soluciones a medida. AztrixInnovations es su primera carta de presentación: componentes claros, compatibilidad y atención al rendimiento.</p></div>
+        <a href="https://github.com/Light0mxph/AztrixInnovations" target="_blank" rel="noopener noreferrer" class="studio-link" aria-label="Conocer AztrixInnovations en GitHub"><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg><span>Conocer Aztrix</span></a>
     </article>
 </div>

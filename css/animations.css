@@ -1,105 +1,29 @@
-.reveal { opacity: 0; filter: blur(8px); transform: translateY(34px) scale(.988); transition: opacity .85s var(--ease), filter .85s var(--ease), transform .85s var(--ease); }
-.reveal.in { opacity: 1; filter: none; transform: none; }
-.reveal[data-delay="1"] { transition-delay: .1s; }.reveal[data-delay="2"] { transition-delay: .2s; }.reveal[data-delay="3"] { transition-delay: .3s; }
-
-.hero-art { animation: hero-float 12s ease-in-out infinite; }
-.orbit-one { animation: orbit-a 18s linear infinite; }.orbit-two { animation: orbit-b 22s linear infinite reverse; }.orbit-three { animation: orbit-a 14s linear infinite reverse; }
-.orbit-core { animation: core-glow 4.5s ease-in-out infinite; }
-.hero-node { animation: telemetry-float 5.5s ease-in-out infinite; }
-.hero-node-data { animation-delay: -1.3s; }.hero-node-cache { animation-delay: -2.8s; }.hero-node-queue { animation-delay: -4.1s; }
-.nav-avatar-frame { animation: nav-frame 3.4s ease-in-out infinite; }
-.nav-avatar-scan { animation: nav-scan 3.8s ease-in-out infinite; }
-.availability span, .architecture-core-map small i, .architecture-status span i, .demo-status > i, .demo-services i, .identity-status i, .photo-hud i, .nav-avatar-status, .diagnostic-live i, .process-board-status i { animation: status-pulse 2s ease-out infinite; }
-.decode-word:hover::after, .decode-word.is-decoding::after { animation: decode-sweep .78s var(--ease); }
-.decode-hint i { animation: decode-cue 2.8s ease-in-out infinite; }
-.diagnostic-copy code > b { animation: cursor-blink .9s steps(1) infinite; }
-.diagnostic-route span { animation: diagnostic-route 4.4s linear infinite; }
-.diagnostic-readouts > span { opacity: 0; transform: translateX(16px); }
-.diagnostic-shell.in .diagnostic-readouts > span { animation: readout-in .65s var(--ease) both; }
-.diagnostic-shell.in .diagnostic-readouts > span:nth-child(2) { animation-delay: .14s; }.diagnostic-shell.in .diagnostic-readouts > span:nth-child(3) { animation-delay: .28s; }
-
-.project-demo::after { animation: project-scan 7s ease-in-out infinite; }
-.demo-window { animation: window-glow 5s ease-in-out infinite; }
-.demo-console::after { content: ""; display: inline-block; width: 5px; height: 9px; margin-left: 4px; vertical-align: -2px; background: var(--cyan); animation: cursor-blink .9s steps(1) infinite; }
-.float-chip { animation: chip-float 5s ease-in-out infinite; }.chip-folia { animation-delay: -1.7s; }.chip-open { animation-delay: -3.1s; }
-
-.architecture-grid { animation: grid-drift 14s linear infinite; }
-.architecture-links path { animation: route-flow 3.2s linear infinite; }
-.architecture-links path:nth-child(2) { animation-delay: -.6s; }.architecture-links path:nth-child(3) { animation-delay: -1.2s; }.architecture-links path:nth-child(4) { animation-delay: -1.8s; }.architecture-links path:nth-child(5) { animation-delay: -2.4s; }
-.architecture-core-map { animation: architecture-breathe 4.8s ease-in-out infinite; }
-.architecture-core-map::before { animation: architecture-ring 8s linear infinite; }
-.architecture-node { animation: node-signal 4s ease-in-out infinite; }
-.architecture-tasks { animation-delay: -.8s; }.architecture-cache { animation-delay: -1.6s; }.architecture-data { animation-delay: -2.4s; }.architecture-events { animation-delay: -3.2s; }
-.photo-light { animation: portrait-light 6s ease-in-out infinite; }
-.photo-scan { animation: portrait-scan 6.8s ease-in-out infinite; }
-.photo-orbit-one { animation: portrait-orbit 11s linear infinite; }
-.photo-orbit-two { animation: portrait-orbit 8s linear infinite reverse; }
-.photo-signal { animation: identity-float 4.8s ease-in-out infinite; }
-.photo-signal-systems { animation-delay: -2.4s; }
-.identity-main strong { animation: identity-shimmer 7s ease-in-out infinite; }
-.about-photo-caption::after { animation: identity-trace 4.8s ease-in-out infinite; }
-.process-board.in .process-route > span { animation: process-flow 1.8s .25s var(--ease) both; }
-.process-board.in .process-route > i { animation: process-packet 4.8s 1.6s ease-in-out infinite; }
-.process-board.in .process-step { animation: process-step-in .75s var(--ease) both; }
-.process-board.in .process-step:nth-child(2) { animation-delay: .12s; }.process-board.in .process-step:nth-child(3) { animation-delay: .24s; }.process-board.in .process-step:nth-child(4) { animation-delay: .36s; }
-.process-board.in .process-step .process-node i { animation: process-node-status .5s .45s var(--ease) both; }
-.process-board.in .process-step:nth-child(2) .process-node i { animation-delay: .8s; }.process-board.in .process-step:nth-child(3) .process-node i { animation-delay: 1.15s; }.process-board.in .process-step:nth-child(4) .process-node i { animation-delay: 1.5s; }
-.contact-shell::after { animation: contact-scan 8s ease-in-out infinite; }
-
-.stack-icon { transition: color .35s, border-color .35s, transform .5s var(--ease), box-shadow .35s; }
-.stack-card:hover .stack-icon { color: var(--cyan); border-color: rgba(53,213,255,.4); box-shadow: 0 0 24px rgba(53,213,255,.12); transform: rotate(12deg) scale(1.08); }
-.service-row .service-number, .service-row .service-title, .service-row > p { transition: color .3s, transform .4s var(--ease); }
-.service-row:hover .service-number { color: var(--cyan); transform: translateX(4px); }
-.service-row:hover .service-title { transform: translateX(5px); }
-.service-row:hover > p { color: #aeb9c0; transform: translateX(3px); }
-.studio-logo { transition: transform .6s var(--ease), border-color .35s, box-shadow .35s; }
-.studio-logo:hover { border-color: rgba(214,183,120,.52); box-shadow: 0 24px 64px rgba(214,183,120,.12); transform: rotate(-2deg) scale(1.035); }
-
-@keyframes hero-float { 0%,100% { transform: translate(-50%,-50%) translateY(0); } 50% { transform: translate(-50%,-50%) translateY(-12px); } }
-@keyframes orbit-a { to { transform: rotate(388deg); } }
-@keyframes orbit-b { to { transform: rotate(342deg); } }
-@keyframes core-glow { 0%,100% { box-shadow: 0 0 55px rgba(47,143,255,.2), inset 0 0 35px rgba(53,213,255,.06); } 50% { box-shadow: 0 0 88px rgba(47,143,255,.34), inset 0 0 46px rgba(53,213,255,.12); } }
-@keyframes telemetry-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-@keyframes nav-frame { 0%,100% { opacity: .48; filter: drop-shadow(0 0 0 rgba(53,213,255,0)); } 50% { opacity: 1; filter: drop-shadow(0 0 5px rgba(53,213,255,.35)); } }
-@keyframes nav-scan { 0%,18% { opacity: 0; transform: translateY(0); } 34%,64% { opacity: .7; } 82%,100% { opacity: 0; transform: translateY(31px); } }
-@keyframes status-pulse { 0% { box-shadow: 0 0 0 0 rgba(116,227,154,.38); } 70% { box-shadow: 0 0 0 8px rgba(116,227,154,0); } 100% { box-shadow: 0 0 0 0 rgba(116,227,154,0); } }
-@keyframes decode-sweep { 0% { left: -12%; opacity: 0; } 25%,70% { opacity: 1; } 100% { left: 82%; opacity: 0; } }
-@keyframes decode-cue { 0%,100% { opacity: .4; transform: scaleX(.8); } 50% { opacity: 1; transform: scaleX(1); } }
-@keyframes diagnostic-route { 0% { left: -24%; opacity: 0; } 12%,84% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
-@keyframes readout-in { to { opacity: 1; transform: none; } }
-@keyframes project-scan { 0%,12% { left: 8%; opacity: 0; } 22% { opacity: .9; } 78% { opacity: .9; } 88%,100% { left: 92%; opacity: 0; } }
-@keyframes window-glow { 0%,100% { box-shadow: 0 35px 90px rgba(0,0,0,.48), 0 0 0 1px rgba(53,213,255,.03) inset; } 50% { box-shadow: 0 40px 105px rgba(0,0,0,.58), 0 0 38px rgba(53,213,255,.08); } }
-@keyframes cursor-blink { 0%,48% { opacity: 1; } 49%,100% { opacity: 0; } }
-@keyframes chip-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-@keyframes grid-drift { to { background-position: 38px 38px; } }
-@keyframes route-flow { to { stroke-dashoffset: -42; } }
-@keyframes architecture-breathe { 0%,100% { transform: translate(-50%,-50%) rotate(45deg) scale(1); } 50% { transform: translate(-50%,-50%) rotate(45deg) scale(1.035); } }
-@keyframes architecture-ring { to { transform: rotate(360deg); } }
-@keyframes node-signal { 0%,100% { border-color: rgba(139,221,255,.15); box-shadow: 0 18px 40px rgba(0,0,0,.32); } 50% { border-color: rgba(139,221,255,.3); box-shadow: 0 18px 46px rgba(0,0,0,.4), 0 0 22px rgba(53,213,255,.055); } }
-@keyframes portrait-light { 0%,100% { opacity: .58; transform: translate3d(-3%,0,0) scale(1); } 50% { opacity: .9; transform: translate3d(3%,-1.5%,0) scale(1.04); } }
-@keyframes portrait-scan { 0%,13% { opacity: 0; transform: translateY(0); } 23%,70% { opacity: .58; } 84%,100% { opacity: 0; transform: translateY(410%); } }
-@keyframes portrait-orbit { to { transform: rotate(360deg); } }
-@keyframes identity-float { 0%,100% { transform: translateZ(50px) translateY(0); } 50% { transform: translateZ(50px) translateY(-8px); } }
-@keyframes identity-shimmer { 0%,28% { background-position: 100% 50%; } 48%,100% { background-position: -100% 50%; } }
-@keyframes identity-trace { 0%,14% { left: -28%; opacity: 0; } 28%,72% { opacity: 1; } 86%,100% { left: 100%; opacity: 0; } }
-@keyframes process-flow { to { transform: scaleX(1); } }
-@keyframes process-packet { 0% { left: 0; opacity: 0; } 12%,88% { opacity: 1; } 100% { left: calc(100% - 9px); opacity: 0; } }
-@keyframes process-step-in { from { opacity: .25; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-@keyframes process-node-status { 0% { background: #53606a; box-shadow: none; transform: scale(.6); } 65% { background: var(--cyan); box-shadow: 0 0 14px rgba(53,213,255,.8); transform: scale(1.35); } 100% { background: var(--green); box-shadow: 0 0 10px rgba(116,227,154,.65); transform: scale(1); } }
-@keyframes contact-scan { 0%,10% { top: -15%; opacity: 0; } 20% { opacity: .7; } 80% { opacity: .7; } 90%,100% { top: 115%; opacity: 0; } }
-
-@media (max-width: 800px) {
-    .process-board.in .process-route > span { animation-name: process-flow-mobile; }
-    .process-board.in .process-route > i { animation-name: process-packet-mobile; }
-    @keyframes process-flow-mobile { to { transform: scaleY(1); } }
-    @keyframes process-packet-mobile { 0% { top: 0; opacity: 0; } 12%,88% { opacity: 1; } 100% { top: calc(100% - 9px); opacity: 0; } }
+/* La animación ambiental se ejecuta solo dentro del área visible. */
+@keyframes circuit-travel { to { stroke-dashoffset: -199; } }
+@keyframes core-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes profile-scan { 0%, 14% { transform: translateY(0); } 68%, 100% { transform: translateY(780%); } }
+@keyframes float-tag { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes pipeline-travel { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+@keyframes orbit-turn { to { transform: rotate(360deg); } }
+.circuit-flow { animation: circuit-travel 4s linear infinite; }
+.system-workbench.is-running .circuit-flow { animation-duration: 1.3s; }
+.layer-top { animation: core-breathe 5s ease-in-out infinite; }
+.layer-middle { animation: core-breathe 5s ease-in-out -1s infinite; }
+.profile-scan { animation: profile-scan 9s ease-in-out infinite; }
+.profile-float { animation: float-tag 6s ease-in-out infinite; }
+.float-java { animation-delay: -3s; }
+.process-rail > span { animation: pipeline-travel 10s linear infinite; }
+.contact-orbit { animation: orbit-turn 70s linear infinite; }
+.motion-region * { animation-play-state: paused; }
+.motion-region[data-active="true"] * { animation-play-state: running; }
+html[data-page-hidden="true"] *, html[data-page-hidden="true"] *::before, html[data-page-hidden="true"] *::after { animation-play-state: paused !important; }
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+html[data-motion="off"] [data-tilt] { transform: none; }
+@media (hover: none), (pointer: coarse) {
+    [data-tilt] { transform: none !important; }
+    .project-blueprint { transform: none; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-    .reveal { opacity: 1; filter: none; transform: none; }
-    .diagnostic-readouts > span, .process-step { opacity: 1; transform: none; }
-    .process-route > span { animation: none !important; transform: none !important; }
-    .process-route > i { display: none; }
-    .process-node i { background: var(--green); }
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    [data-tilt] { transform: none !important; }
 }

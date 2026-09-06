@@ -1,45 +1,41 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    const version = "14";
-    const parts = [
-        ["main-header", "components/navbar.html"],
-        ["inicio", "sections/hero.html"],
-        ["diagnostico", "sections/diagnostics.html"],
-        ["trabajo", "sections/featured-project.html"],
-        ["servicios", "sections/services.html"],
-        ["metodo", "sections/process.html"],
-        ["perfil", "sections/about.html"],
-        ["tecnologia", "sections/stack.html"],
-        ["contacto", "sections/community.html"],
-        ["main-footer", "components/footer.html"]
-    ];
+/* Preferencias compartidas. La página ya contiene todo su HTML. */
+(() => {
+    const root = document.documentElement;
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = navigator.connection;
+    const button = document.querySelector(".motion-toggle");
+    const subscribers = new Set();
+    let userPaused = false;
+    try { userPaused = localStorage.getItem("aztrix-motion") === "paused"; } catch { /* Almacenamiento opcional. */ }
 
-    const load = async ([id, path]) => {
-        const target = document.getElementById(id);
-        if (!target) return;
-        try {
-            const response = await fetch(`${path}?v=${version}`);
-            if (!response.ok) throw new Error(`Error ${response.status}`);
-            target.innerHTML = await response.text();
-        } catch (error) {
-            console.error(`No se pudo cargar ${path}:`, error);
-            target.innerHTML = `<p class="load-error">No fue posible cargar esta sección. Actualiza la página para intentarlo de nuevo.</p>`;
-        }
+    const state = {
+        get motionOff() { return media.matches || Boolean(connection?.saveData) || userPaused; },
+        get hidden() { return document.hidden; },
+        subscribe(callback) { subscribers.add(callback); return () => subscribers.delete(callback); }
     };
+    window.Portfolio = Object.freeze(state);
 
-    await Promise.all(parts.map(load));
-
-    try {
-        const response = await fetch(`data/site.json?v=${version}`);
-        if (!response.ok) throw new Error(`Error ${response.status}`);
-        const data = await response.json();
-        document.querySelectorAll("[data-count]").forEach(element => {
-            const key = element.dataset.countKey;
-            if (key && data[key]) element.dataset.count = data[key];
-        });
-    } catch (error) {
-        console.warn("Se utilizarán las cifras incluidas en la página.");
-    }
-
-    document.body.classList.add("ready");
-    document.dispatchEvent(new CustomEvent("componentsLoaded"));
-});
+    const update = () => {
+        root.dataset.motion = state.motionOff ? "off" : "on";
+        root.dataset.pageHidden = String(state.hidden);
+        if (button) {
+            const forced = media.matches || Boolean(connection?.saveData);
+            const label = forced ? "Movimiento reducido activado por tus preferencias" : (userPaused ? "Activar animaciones" : "Pausar animaciones");
+            button.hidden = false;
+            button.disabled = forced;
+            button.setAttribute("aria-pressed", String(state.motionOff));
+            button.setAttribute("aria-label", label);
+            button.title = label;
+        }
+        subscribers.forEach(callback => callback());
+    };
+    button?.addEventListener("click", () => {
+        userPaused = !userPaused;
+        try { localStorage.setItem("aztrix-motion", userPaused ? "paused" : "on"); } catch { /* No afecta a la navegación. */ }
+        update();
+    });
+    media.addEventListener("change", update);
+    connection?.addEventListener?.("change", update);
+    document.addEventListener("visibilitychange", update);
+    update();
+})();

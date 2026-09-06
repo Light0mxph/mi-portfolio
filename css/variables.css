@@ -1,23 +1,30 @@
+@font-face {
+    font-family: "Geist";
+    src: url("../assets/fonts/geist-latin.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
 :root {
-    --black: #000000;
-    --ink: #0b0b0c;
-    --panel: #121214;
-    --panel-2: #18181b;
-    --white: #ffffff;
-    --muted: #858588;
-    --line: rgba(255, 255, 255, 0.12);
-    --line-soft: rgba(255, 255, 255, 0.08);
-    --blue: #2f8fff;
-    --blue-light: #8bddff;
-    --cyan: #35d5ff;
-    --cyan-soft: rgba(53, 213, 255, 0.16);
-    --gold: #d6b778;
-    --green: #74e39a;
-    --font-display: "Geist", "Inter", Arial, sans-serif;
-    --font-body: "Inter", Arial, sans-serif;
-    --font-mono: "JetBrains Mono", monospace;
-    --shell: min(1440px, calc(100vw - 64px));
-    --radius-lg: 32px;
-    --radius-md: 20px;
+    --black: #080b0d;
+    --ink: #0d1115;
+    --panel: #10161b;
+    --panel-2: #151e24;
+    --white: #eef2f0;
+    --muted: #98a6ac;
+    --line: rgba(178, 208, 216, .16);
+    --line-soft: rgba(178, 208, 216, .08);
+    --blue: #69b7f2;
+    --blue-light: #a5d9ed;
+    --cyan: #8ce8df;
+    --cyan-soft: rgba(140, 232, 223, .09);
+    --gold: #c8b890;
+    --green: #a5dfbd;
+    --font-display: "Geist", Arial, sans-serif;
+    --font-body: "Geist", Arial, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    --shell: min(1320px, calc(100% - 80px));
+    --radius-lg: 24px;
+    --radius-md: 14px;
     --ease: cubic-bezier(.22, 1, .36, 1);
 }

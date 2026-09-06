@@ -1,276 +1,130 @@
+/* Interacciones locales: sin canvas, librerías ni bucles permanentes en JS. */
 (() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-    const progress = document.getElementById("scroll-progress");
-    let scrollTick = false;
-    const updateProgress = () => {
-        const distance = document.documentElement.scrollHeight - innerHeight;
-        progress?.style.setProperty("transform", `scaleX(${distance > 0 ? scrollY / distance : 0})`);
-        scrollTick = false;
+    const state = window.Portfolio;
+    const bench = document.querySelector(".system-workbench");
+    const description = document.getElementById("system-description");
+    const tabs = [...document.querySelectorAll("[data-system]")];
+    const runButton = document.querySelector(".run-flow");
+    const descriptions = {
+        api: "Una entrada clara. Validación, contratos y respuestas que tienen sentido.",
+        tasks: "Cada tarea, en su contexto. Trabajo asíncrono y coordinación entre módulos.",
+        data: "Datos donde los necesitas. Caché para el acceso frecuente y persistencia para conservarlos."
     };
-    addEventListener("scroll", () => {
-        if (!scrollTick) {
-            scrollTick = true;
-            requestAnimationFrame(updateProgress);
-        }
-    }, { passive: true });
-    addEventListener("load", updateProgress);
+    let currentMode = "api";
+    let flowTimer = 0;
+    let running = false;
+    const setRunLabel = text => { if (runButton?.firstChild) runButton.firstChild.textContent = text + " "; };
+    const selectMode = (mode, text = descriptions[mode]) => {
+        if (!bench || !descriptions[mode]) return;
+        currentMode = mode;
+        bench.dataset.systemMode = mode;
+        tabs.forEach(tab => {
+            const selected = tab.dataset.system === mode;
+            tab.setAttribute("aria-pressed", String(selected));
+            tab.classList.toggle("is-selected", selected);
+        });
+        if (description) description.textContent = text;
+    };
+    const stopFlow = () => {
+        clearTimeout(flowTimer);
+        flowTimer = 0;
+        running = false;
+        bench?.classList.remove("is-running");
+        if (runButton) runButton.disabled = false;
+        setRunLabel("Ejecutar flujo");
+    };
 
-    const pointer = { x: innerWidth / 2, y: innerHeight / 2 };
-    if (!reduced && finePointer) {
-        let pointerTick = false;
-        addEventListener("pointermove", event => {
-            pointer.x = event.clientX;
-            pointer.y = event.clientY;
-            if (pointerTick) return;
-            pointerTick = true;
-            requestAnimationFrame(() => {
-                const x = Math.round(pointer.x / innerWidth * 100);
-                const y = Math.round(pointer.y / innerHeight * 100);
-                document.querySelector(".page-glow")?.style.setProperty("background", `radial-gradient(52% 50% at ${x}% ${y}%, rgba(15,88,138,.24), rgba(0,0,0,0) 75%)`);
-                pointerTick = false;
+    if (bench && description && runButton && tabs.length) {
+        bench.querySelector(".system-controls").hidden = false;
+        runButton.hidden = false;
+        tabs.forEach((tab, index) => {
+            tab.addEventListener("click", () => { stopFlow(); selectMode(tab.dataset.system); });
+            tab.addEventListener("keydown", event => {
+                let next = index;
+                if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+                else if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
+                else if (event.key === "Home") next = 0;
+                else if (event.key === "End") next = tabs.length - 1;
+                else return;
+                event.preventDefault();
+                tabs[next].focus();
+                tabs[next].click();
             });
-        }, { passive: true });
+        });
+        runButton.addEventListener("click", () => {
+            stopFlow();
+            if (state?.motionOff) {
+                selectMode("data", "Flujo ilustrativo: la API valida, el núcleo coordina las tareas y la capa de datos conserva el resultado.");
+                return;
+            }
+            const steps = [
+                ["api", "01 / La API recibe la solicitud y valida sus datos."],
+                ["tasks", "02 / El núcleo coordina la tarea y delega el trabajo a su módulo."],
+                ["data", "03 / La capa de datos conserva el resultado y completa el recorrido."]
+            ];
+            running = true;
+            runButton.disabled = true;
+            setRunLabel("Flujo en curso");
+            bench.classList.add("is-running");
+            let step = 0;
+            const advance = () => {
+                if (state?.hidden || state?.motionOff) { stopFlow(); selectMode(currentMode); return; }
+                if (step >= steps.length) {
+                    stopFlow();
+                    selectMode("data", "Recorrido completo: entrada validada, trabajo coordinado y resultado persistido. Modelo ilustrativo.");
+                    return;
+                }
+                const [mode, text] = steps[step++];
+                selectMode(mode, text);
+                flowTimer = setTimeout(advance, 1350);
+            };
+            advance();
+        });
+        state?.subscribe(() => {
+            if (running && (state.hidden || state.motionOff)) { stopFlow(); selectMode(currentMode); }
+        });
+        if ("IntersectionObserver" in window) {
+            new IntersectionObserver(entries => {
+                if (!entries[0].isIntersecting && running) { stopFlow(); selectMode(currentMode); }
+            }, { threshold: 0 }).observe(bench);
+        }
     }
 
-    const initNetwork = () => {
-        const canvas = document.getElementById("hero-network");
-        const hero = document.querySelector(".hero-section");
-        if (!canvas || !hero) return;
-
-        const context = canvas.getContext("2d");
-        if (!context) return;
-
-        const seeds = [
-            [.05, .18], [.18, .10], [.32, .22], [.48, .11], [.64, .22], [.82, .10], [.95, .24],
-            [.09, .48], [.24, .58], [.39, .42], [.58, .43], [.76, .57], [.92, .48],
-            [.14, .82], [.31, .91], [.50, .78], [.68, .91], [.86, .81]
-        ];
-        const links = [
-            [0, 1], [0, 7], [1, 2], [2, 3], [2, 8], [2, 9], [3, 4], [4, 5], [4, 10],
-            [5, 6], [6, 12], [7, 8], [8, 9], [8, 13], [9, 10], [9, 15], [10, 11],
-            [10, 15], [11, 12], [11, 16], [12, 17], [13, 14], [14, 15], [15, 16], [16, 17]
-        ];
-
-        let width = 0;
-        let height = 0;
-        let nodes = [];
+    const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+    document.querySelectorAll("[data-tilt]").forEach(surface => {
+        let bounds = null;
+        let initialScroll = 0;
         let frame = 0;
-        let visible = true;
-
-        const resize = () => {
-            const bounds = hero.getBoundingClientRect();
-            const ratio = Math.min(devicePixelRatio || 1, 2);
-            width = Math.max(1, Math.round(bounds.width));
-            height = Math.max(1, Math.round(bounds.height));
-            canvas.width = Math.round(width * ratio);
-            canvas.height = Math.round(height * ratio);
-            canvas.style.width = `${width}px`;
-            canvas.style.height = `${height}px`;
-            context.setTransform(ratio, 0, 0, ratio, 0, 0);
-            nodes = seeds.map(([x, y], index) => ({
-                x: x * width,
-                y: y * height,
-                phase: index * .71,
-                size: index % 5 === 0 ? 2.4 : 1.5
-            }));
-            draw(performance.now());
+        let clientX = 0;
+        let clientY = 0;
+        const reset = () => {
+            cancelAnimationFrame(frame);
+            frame = 0;
+            bounds = null;
+            ["--tilt-x", "--tilt-y", "--light-x", "--light-y"].forEach(property => surface.style.removeProperty(property));
         };
-
-        const draw = time => {
-            context.clearRect(0, 0, width, height);
-            const localPointerX = pointer.x;
-            const localPointerY = pointer.y - Math.max(0, hero.getBoundingClientRect().top);
-            const parallaxX = finePointer ? (localPointerX / Math.max(width, 1) - .5) * 9 : 0;
-            const parallaxY = finePointer ? (localPointerY / Math.max(height, 1) - .5) * 7 : 0;
-
-            context.lineWidth = 1;
-            context.strokeStyle = "rgba(139,221,255,.035)";
-            const grid = 58;
-            const gridX = ((time * .004) + parallaxX) % grid;
-            const gridY = ((time * .002) + parallaxY) % grid;
-            for (let x = gridX; x < width; x += grid) {
-                context.beginPath();
-                context.moveTo(x, 0);
-                context.lineTo(x, height);
-                context.stroke();
-            }
-            for (let y = gridY; y < height; y += grid) {
-                context.beginPath();
-                context.moveTo(0, y);
-                context.lineTo(width, y);
-                context.stroke();
-            }
-
-            const points = nodes.map(node => ({
-                ...node,
-                drawX: node.x + Math.sin(time * .00035 + node.phase) * 6 + parallaxX,
-                drawY: node.y + Math.cos(time * .00028 + node.phase) * 5 + parallaxY
-            }));
-
-            links.forEach(([from, to], index) => {
-                const start = points[from];
-                const end = points[to];
-                context.strokeStyle = index % 6 === 0 ? "rgba(214,183,120,.12)" : "rgba(83,194,239,.13)";
-                context.beginPath();
-                context.moveTo(start.drawX, start.drawY);
-                context.lineTo(end.drawX, end.drawY);
-                context.stroke();
-
-                const travel = (time * .00009 + index * .113) % 1;
-                const x = start.drawX + (end.drawX - start.drawX) * travel;
-                const y = start.drawY + (end.drawY - start.drawY) * travel;
-                const gold = index % 6 === 0;
-                context.fillStyle = gold ? "rgba(214,183,120,.9)" : "rgba(53,213,255,.9)";
-                context.shadowColor = gold ? "rgba(214,183,120,.7)" : "rgba(53,213,255,.8)";
-                context.shadowBlur = 12;
-                context.beginPath();
-                context.arc(x, y, gold ? 1.8 : 1.5, 0, Math.PI * 2);
-                context.fill();
-                context.shadowBlur = 0;
-            });
-
-            points.forEach((node, index) => {
-                const distance = Math.hypot(node.drawX - localPointerX, node.drawY - localPointerY);
-                const active = finePointer && distance < 150;
-                context.fillStyle = active ? "rgba(139,221,255,.9)" : "rgba(139,221,255,.4)";
-                context.strokeStyle = index % 5 === 0 ? "rgba(214,183,120,.25)" : "rgba(83,194,239,.14)";
-                context.beginPath();
-                context.arc(node.drawX, node.drawY, node.size + (active ? 1.5 : 0), 0, Math.PI * 2);
-                context.fill();
-                context.beginPath();
-                context.arc(node.drawX, node.drawY, 8 + node.size, 0, Math.PI * 2);
-                context.stroke();
-            });
+        const paint = () => {
+            frame = 0;
+            if (!bounds || state?.motionOff || state?.hidden || !finePointer.matches) return;
+            const top = bounds.top - (scrollY - initialScroll);
+            const x = Math.max(0, Math.min(1, (clientX - bounds.left) / bounds.width));
+            const y = Math.max(0, Math.min(1, (clientY - top) / bounds.height));
+            surface.style.setProperty("--tilt-x", ((.5 - y) * 4).toFixed(2) + "deg");
+            surface.style.setProperty("--tilt-y", ((x - .5) * 4).toFixed(2) + "deg");
+            surface.style.setProperty("--light-x", (x * 100).toFixed(1) + "%");
+            surface.style.setProperty("--light-y", (y * 100).toFixed(1) + "%");
         };
-
-        const animate = time => {
-            if (!visible || document.hidden) {
-                frame = 0;
-                return;
-            }
-            draw(time);
-            frame = requestAnimationFrame(animate);
-        };
-        const resume = () => {
-            if (!reduced && visible && !document.hidden && !frame) frame = requestAnimationFrame(animate);
-            if (reduced) draw(0);
-        };
-
-        new IntersectionObserver(([entry]) => {
-            visible = entry.isIntersecting;
-            if (!visible && frame) {
-                cancelAnimationFrame(frame);
-                frame = 0;
-            }
-            resume();
-        }, { threshold: 0 }).observe(hero);
-
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden && frame) {
-                cancelAnimationFrame(frame);
-                frame = 0;
-                return;
-            }
-            resume();
-        });
-        new ResizeObserver(resize).observe(hero);
-        resize();
-        resume();
-    };
-
-    const initInteractions = () => {
-        const surfaces = document.querySelectorAll(".diagnostic-shell, .project-card, .service-row, .process-step, .studio-panel, .stack-card");
-        surfaces.forEach(surface => {
-            surface.classList.add("interactive-surface");
-            if (!finePointer || reduced) return;
-            surface.addEventListener("pointermove", event => {
-                const bounds = surface.getBoundingClientRect();
-                surface.style.setProperty("--spotlight-x", `${event.clientX - bounds.left}px`);
-                surface.style.setProperty("--spotlight-y", `${event.clientY - bounds.top}px`);
-            }, { passive: true });
-        });
-
-        if (!finePointer || reduced) return;
-
-        document.querySelectorAll(".demo-window, .tilt-surface").forEach(surface => {
-            surface.addEventListener("pointermove", event => {
-                const bounds = surface.getBoundingClientRect();
-                const x = (event.clientX - bounds.left) / bounds.width - .5;
-                const y = (event.clientY - bounds.top) / bounds.height - .5;
-                surface.style.setProperty("--tilt-x", `${(-y * 4).toFixed(2)}deg`);
-                surface.style.setProperty("--tilt-y", `${(x * 5).toFixed(2)}deg`);
-                surface.style.setProperty("--pointer-x", `${((x + .5) * 100).toFixed(1)}%`);
-                surface.style.setProperty("--pointer-y", `${((y + .5) * 100).toFixed(1)}%`);
-            }, { passive: true });
-            surface.addEventListener("pointerleave", () => {
-                const demo = surface.classList.contains("demo-window");
-                surface.style.setProperty("--tilt-x", demo ? "2deg" : "0deg");
-                surface.style.setProperty("--tilt-y", demo ? "-3deg" : "0deg");
-                surface.style.setProperty("--pointer-x", "50%");
-                surface.style.setProperty("--pointer-y", "50%");
-            });
-        });
-
-        document.querySelectorAll(".button").forEach(button => {
-            button.addEventListener("pointermove", event => {
-                const bounds = button.getBoundingClientRect();
-                const x = (event.clientX - bounds.left - bounds.width / 2) * .09;
-                const y = (event.clientY - bounds.top - bounds.height / 2) * .12;
-                button.style.setProperty("--magnetic-x", `${x.toFixed(2)}px`);
-                button.style.setProperty("--magnetic-y", `${y.toFixed(2)}px`);
-            }, { passive: true });
-            button.addEventListener("pointerleave", () => {
-                button.style.setProperty("--magnetic-x", "0px");
-                button.style.setProperty("--magnetic-y", "0px");
-            });
-        });
-    };
-
-    const initDecode = () => {
-        if (reduced) return;
-        const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}";
-
-        document.querySelectorAll("[data-decode]").forEach(word => {
-            const finalText = word.dataset.decode || word.textContent;
-            let frame = 0;
-
-            const decode = () => {
-                cancelAnimationFrame(frame);
-                word.classList.add("is-decoding");
-                const start = performance.now();
-
-                const draw = now => {
-                    const progress = Math.min((now - start) / 720, 1);
-                    const solved = Math.floor(progress * finalText.length);
-                    const cycle = Math.floor(now / 42);
-                    word.textContent = [...finalText].map((character, index) => {
-                        if (character === " " || index < solved || progress === 1) return character;
-                        return glyphs[(cycle + index * 7) % glyphs.length];
-                    }).join("");
-
-                    if (progress < 1) {
-                        frame = requestAnimationFrame(draw);
-                        return;
-                    }
-                    word.textContent = finalText;
-                    word.classList.remove("is-decoding");
-                };
-
-                frame = requestAnimationFrame(draw);
-            };
-
-            word.addEventListener("pointerenter", decode);
-            word.addEventListener("pointerdown", decode);
-            window.setTimeout(decode, 850);
-        });
-    };
-
-    document.addEventListener("componentsLoaded", () => {
-        initNetwork();
-        initInteractions();
-        initDecode();
-        updateProgress();
-    }, { once: true });
+        surface.addEventListener("pointermove", event => {
+            if (event.pointerType !== "mouse" || state?.motionOff || !finePointer.matches) return;
+            if (!bounds) { bounds = surface.getBoundingClientRect(); initialScroll = scrollY; }
+            clientX = event.clientX;
+            clientY = event.clientY;
+            if (!frame) frame = requestAnimationFrame(paint);
+        }, { passive: true });
+        surface.addEventListener("pointerleave", reset);
+        surface.addEventListener("pointercancel", reset);
+        window.addEventListener("resize", reset, { passive: true });
+        finePointer.addEventListener("change", reset);
+        state?.subscribe(() => { if (state.motionOff || state.hidden) reset(); });
+    });
 })();
